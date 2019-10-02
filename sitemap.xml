@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://skyedai910.github.io/Hexo%E5%8D%9A%E5%AE%A2%E4%B8%8ENext%E4%B8%BB%E9%A2%98%E7%9A%84%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8/</loc>
+    
+    <lastmod>2019-10-02T09:22:47.599Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://skyedai910.github.io/404.html</loc>
     
     <lastmod>2019-10-02T04:45:28.712Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>https://skyedai910.github.io/tags/index.html</loc>
     
     <lastmod>2019-10-01T16:06:19.182Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://skyedai910.github.io/hello-world/</loc>
-    
-    <lastmod>2019-09-25T09:51:56.763Z</lastmod>
     
   </url>
   
