@@ -59,19 +59,33 @@
   };
 </script>
 
+<script>
+    (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("http://xxxxxxx.xxx"); // 这里替换成你的首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
   <meta name="description" content="新建一个Github仓库首先在 GitHub 新建一个仓库（Repository），名称为 {username}.github.io，注意这个名比较特殊，必须要是 github.io为后缀结尾的。比如GitHub用户名叫test，那我就新建一个test.github.io，新建完成之后就可以进行后续操作了。（这里省略配置本地git环境，具体请谷歌。主要内容是配置SSH连接）">
 <meta name="keywords" content="Hexo,Next,Blog">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo博客搭建&amp;Next主题安装">
-<meta property="og:url" content="http://yoursite.com/2019/10/01/Hexo博客搭建&Next主题安装/index.html">
+<meta property="og:url" content="https://skyedai910.github.io/Hexo博客搭建&Next主题安装/index.html">
 <meta property="og:site_name" content="SkYe Blog">
 <meta property="og:description" content="新建一个Github仓库首先在 GitHub 新建一个仓库（Repository），名称为 {username}.github.io，注意这个名比较特殊，必须要是 github.io为后缀结尾的。比如GitHub用户名叫test，那我就新建一个test.github.io，新建完成之后就可以进行后续操作了。（这里省略配置本地git环境，具体请谷歌。主要内容是配置SSH连接）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-01T11:30:45.978Z">
+<meta property="og:updated_time" content="2019-10-02T04:34:37.411Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo博客搭建&amp;Next主题安装">
 <meta name="twitter:description" content="新建一个Github仓库首先在 GitHub 新建一个仓库（Repository），名称为 {username}.github.io，注意这个名比较特殊，必须要是 github.io为后缀结尾的。比如GitHub用户名叫test，那我就新建一个test.github.io，新建完成之后就可以进行后续操作了。（这里省略配置本地git环境，具体请谷歌。主要内容是配置SSH连接）">
-  <link rel="canonical" href="http://yoursite.com/2019/10/01/Hexo博客搭建&Next主题安装/">
+  <link rel="canonical" href="https://skyedai910.github.io/Hexo博客搭建&Next主题安装/">
 
 
 <script id="page-configurations">
@@ -168,17 +182,6 @@
       
       
         
-        <li class="menu-item menu-item-about">
-      
-    
-
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
-
-  </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-tags">
       
     
@@ -258,7 +261,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/01/Hexo博客搭建&Next主题安装/">
+    <link itemprop="mainEntityOfPage" href="https://skyedai910.github.io/Hexo博客搭建&Next主题安装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="SkYe">
@@ -286,11 +289,19 @@
                 
               
 
-              <time title="创建时间：2019-10-01 16:36:37 / 修改时间：19:30:45" itemprop="dateCreated datePublished" datetime="2019-10-01T16:36:37+08:00">2019-10-01</time>
+              <time title="创建时间：2019-10-01 16:36:37" itemprop="dateCreated datePublished" datetime="2019-10-01T16:36:37+08:00">2019-10-01</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-02 12:34:37" itemprop="dateModified" datetime="2019-10-02T12:34:37+08:00">2019-10-02</time>
+              </span>
             
           
 
@@ -298,6 +309,14 @@
             <span id="busuanzi_container_page_pv">&nbsp;&nbsp;|&nbsp;&nbsp;阅读量 <span id="busuanzi_value_page_pv"></span> 次</span>
           
 
+          
+            <span class="post-meta-item" title="热度" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">热度：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
           
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -403,23 +422,41 @@
     
     
     
-        
+      <div>
       
         
-
-<div>
-<ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>本文作者： </strong>SkYe</li>
-  <li class="post-copyright-link">
-    <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2019/10/01/Hexo博客搭建&Next主题安装/" title="Hexo博客搭建&Next主题安装">http://yoursite.com/2019/10/01/Hexo博客搭建&Next主题安装/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
-</ul>
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/Hexo博客搭建&Next主题安装/">Hexo博客搭建&Next主题安装</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 SkYe 的个人博客">SkYe</a></p>
+  <p><span>发布时间:</span>2019年10月01日 - 16:10</p>
+  <p><span>最后更新:</span>2019年10月02日 - 12:10</p>
+  <p><span>原始链接:</span><a href="/Hexo博客搭建&Next主题安装/" title="Hexo博客搭建&Next主题安装">https://skyedai910.github.io/Hexo博客搭建&Next主题安装/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://skyedai910.github.io/Hexo博客搭建&Next主题安装/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+    });
+    });  
+</script>
 
+      
+</div>
+        
       
 
       <footer class="post-footer">
@@ -442,7 +479,7 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/09/25/hello-world/" rel="next" title="Hello World">
+                <a href="/hello-world/" rel="next" title="Hello World">
                   <i class="fa fa-chevron-left"></i> Hello World
                 </a>
               
@@ -584,13 +621,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        &nbsp;&nbsp;|&nbsp;&nbsp;本页点击 <span id="busuanzi_value_page_pv"></span> 次
-&nbsp;&nbsp;|&nbsp;&nbsp;本站总点击 <span id="busuanzi_value_site_pv"></span> 次
-&nbsp;&nbsp;|&nbsp;&nbsp;您是第 <span id="busuanzi_value_site_uv"></span> 位访客
-
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
@@ -600,18 +631,52 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    
     <span title="站点总字数">4k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
     <span title="站点阅读时长">3 分钟</span>
 </div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动</div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a></div>
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
 
 
 
