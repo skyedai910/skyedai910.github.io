@@ -268,6 +268,157 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://skyedai910.github.io/horcruxes-pwnable.kr/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SkYe">
+      <meta itemprop="description" content="一个渣渣极客er的笔记Blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SkYe Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/horcruxes-pwnable.kr/" class="post-title-link" itemprop="url">horcruxes-pwnable.kr</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-03 19:19:24" itemprop="dateCreated datePublished" datetime="2019-10-03T19:19:24+08:00">2019-10-03</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-04 11:08:05" itemprop="dateModified" datetime="2019-10-04T11:08:05+08:00">2019-10-04</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/pwn/" itemprop="url" rel="index"><span itemprop="name">pwn</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/pwn/pwnable-kr/" itemprop="url" rel="index"><span itemprop="name">pwnable.kr</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>3.7k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>3 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这题考的是ROP系统攻击。百度百科是这样介绍的：</p><blockquote>
+<p><strong>简介</strong>：ROP全称为Return-oriented Programming（面向返回的编程）。是一种基于代码复用的攻击技术，攻击者从已有的库或可执行文件中提取指令片段，构建恶意代码。</p>
+<p><strong>内在特征</strong>：1. ROP控制流中，call和ret指令不操纵函数，而是用于将函数里面的短指令序列的执行流串起来，但在正常的程序中，call和ret分别代表函数的开始和结束；2. ROP控制流中，jmp指令在不同的库函数甚至不同的库之间跳转，攻击者抽取的指令序列可能取自任意一个二进制文件的任意一个位置，这很不同于正常程序的执行。比如，函数中部提取出的jmp短指令序列，可将控制流转向其他函数的内部；而正常程序执行的时候，jmp指令通常在同一函数内部跳转。</p>
+<p><strong>防范措施</strong>：ROP攻击的程序主要使用栈溢出的漏洞，实现程序控制流的劫持。因此栈溢出漏洞的防护是阻挡ROP攻击最根源性的方法。如果解决了栈溢出问题，ROP攻击将会在很大程度上受到抑制。</p>
+</blockquote>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/horcruxes-pwnable.kr/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+
+  <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="https://skyedai910.github.io/Hexo博客与Next主题的高级应用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -703,7 +854,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -729,7 +880,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -797,14 +948,14 @@
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">20k</span>
+    <span title="站点总字数">24k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">18 分钟</span>
+    <span title="站点阅读时长">22 分钟</span>
 </div>
 
 <div class="powered-by">
