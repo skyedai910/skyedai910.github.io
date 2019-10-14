@@ -282,7 +282,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/brain-fuck-pwnable-kr/" class="post-title-link" itemprop="url">brain fuck-pwnable.kr</a>
+            <a href="/brain-fuck-pwnable-kr/" class="post-title-link" itemprop="url">brain fuck-pwnable.kr三种思路</a>
           
         </h1>
 
@@ -308,7 +308,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-09 17:53:27" itemprop="dateModified" datetime="2019-10-09T17:53:27+08:00">2019-10-09</time>
+                <time title="修改时间：2019-10-14 17:34:16" itemprop="dateModified" datetime="2019-10-14T17:34:16+08:00">2019-10-14</time>
               </span>
             
           
@@ -324,7 +324,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>11k</span>
+              <span>10k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -334,7 +334,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>10 分钟</span>
+              <span>9 分钟</span>
             </span>
           
 
@@ -347,7 +347,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>题目考点：GOT覆写技术；</p><p>关于GOT覆写的基础知识以及例题可以参考这些文章：</p><ul>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<p>题目主要考点：GOT覆写技术</p>
+</blockquote><p>关于GOT覆写的基础知识以及例题可以参考这些文章：</p><ul>
 <li><a href="https://www.anquanke.com/post/id/183370" target="_blank" rel="noopener">深入理解GOT表覆写技术</a></li>
 <li><a href="https://www.jianshu.com/p/8a401bfcff43" target="_blank" rel="noopener">GOT表覆写技术</a></li>
 <li><a href="[https://www.xineting.club/2018/10/20/got%E8%A1%A8%E8%A6%86%E7%9B%96/](https://www.xineting.club/2018/10/20/got表覆盖/)">GOT表覆盖</a></li>
@@ -625,7 +627,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>[TOC]</p><h1 id="站点优化"><a href="#站点优化" class="headerlink" title="站点优化"></a>站点优化</h1><h2 id="首页显示文章摘要"><a href="#首页显示文章摘要" class="headerlink" title="首页显示文章摘要"></a>首页显示文章摘要</h2><p>主题默认设置，首页将会显示每一篇文章的全文，如果想只显示文章摘要，可以在主题配置文件（/themes/next/_config.yml）中这样修改：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 自动摘要提取设定</span></span><br><span class="line">auto_excerpt:</span><br><span class="line">	enable: true</span><br><span class="line">	length: 150 # 摘要长度</span><br></pre></td></tr></table></figure><p>用户可以在文章中使用<code>&lt;!--more--&gt;</code>标记来精确划分摘要信息，标记之前的堕落将作为摘要显示在首页。</p>
+          <p>[TOC]</p><h1 id="站点优化"><a href="#站点优化" class="headerlink" title="站点优化"></a>站点优化</h1><h2 id="首页显示文章摘要"><a href="#首页显示文章摘要" class="headerlink" title="首页显示文章摘要"></a>首页显示文章摘要</h2><p>主题默认设置，首页将会显示每一篇文章的全文，如果想只显示文章摘要，可以在主题配置文件（/themes/next/_config.yml）中这样修改：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 自动摘要提取设定</span><br><span class="line">auto_excerpt:</span><br><span class="line">	enable: true</span><br><span class="line">	length: 150 # 摘要长度</span><br></pre></td></tr></table></figure><p>用户可以在文章中使用<code>&lt;!--more--&gt;</code>标记来精确划分摘要信息，标记之前的堕落将作为摘要显示在首页。</p>
           <!--noindex-->
           
             <div class="post-button">
