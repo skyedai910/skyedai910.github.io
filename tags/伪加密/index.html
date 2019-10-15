@@ -22,7 +22,7 @@
     <meta name="description" content="一个渣渣极客er的笔记Blog">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>categories · SkYe&#39;s Blog</title>
+    <title>SkYe&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -338,43 +338,84 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main post-page">
-    <article class="article-entry">
-        
-    </article>
-    <!-- license  -->
+            <main class="main index-page">
     
-        <div class="license-wrapper">
-            <p>原文作者：<a href="https://skyedai910.github.io">SkYe</a>
-            <p>原文链接：<a href="https://skyedai910.github.io/categories/index.html">https://skyedai910.github.io/categories/index.html</a>
-            <p>发表日期：<a href="https://skyedai910.github.io/categories/index.html">October 1st 2019, 10:48:51 pm</a>
-            <p>更新日期：<a href="https://skyedai910.github.io/categories/index.html">October 2nd 2019, 12:07:12 am</a>
-            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/ZIP压缩包伪加密/" >
+            
+                <span>ZIP压缩包伪加密</span>
+        </a>
+        <div class="abstract-content">
+            ZIP压缩包伪加密前置知识ZIP文件的16进制文件可以分为压缩源文件数据区、压缩源文件目录区、压缩源文件目录结束标志。
+每个区都有对应的文件头标记，结合实际16进制文件来解释各区的文件头信息。
+压缩源文件数据区
+
+
+
+16进制文件数据
+描述
+
+
+
+50 4B 03 04
+zip类型头文件标识
+
+
+14 00
+解压文件所需要pkware版本
+
+
+00 00
+全局方式位标记（有无加密）
+
+
+08 00
+压缩方式
+
+
+70 02
+最后修改文件时间
+
+
+01 4B
+最后修改文件日期
+
+
+B7 EF DC 83
+CRC-32校验（1480B516）
+
+
+03 00 00 00
+压缩后尺寸（3B）
+...
         </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/15</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "CTF">CTF</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Misc">Misc</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "伪加密">伪加密</a>
+    
+</div>
+            
+        </div>
+    </article>
     
     <!-- paginator  -->
-    <ul class="post-paginator">
-        <li class="next">
-            
-        </li>
-        <li class="previous">
-            
-        </li>
-    </ul>
-    <!-- 评论插件 -->
-    <!-- 来必力City版安装代码 -->
-
-<!-- City版安装代码已完成 -->
     
-    
-    <!-- partial('_partial/comment/changyan') -->
-    <!--PC版-->
-
-
-    
-    
-
-    <!-- 评论 -->
 </main>
             <!-- profile -->
             

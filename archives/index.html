@@ -346,6 +346,80 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/ZIP压缩包伪加密/" >
+            
+                <span>ZIP压缩包伪加密</span>
+        </a>
+        <div class="abstract-content">
+            ZIP压缩包伪加密前置知识ZIP文件的16进制文件可以分为压缩源文件数据区、压缩源文件目录区、压缩源文件目录结束标志。
+每个区都有对应的文件头标记，结合实际16进制文件来解释各区的文件头信息。
+压缩源文件数据区
+
+
+
+16进制文件数据
+描述
+
+
+
+50 4B 03 04
+zip类型头文件标识
+
+
+14 00
+解压文件所需要pkware版本
+
+
+00 00
+全局方式位标记（有无加密）
+
+
+08 00
+压缩方式
+
+
+70 02
+最后修改文件时间
+
+
+01 4B
+最后修改文件日期
+
+
+B7 EF DC 83
+CRC-32校验（1480B516）
+
+
+03 00 00 00
+压缩后尺寸（3B）
+...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/15</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "CTF">CTF</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Misc">Misc</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "伪加密">伪加密</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/brain-fuck-pwnable-kr/" >
             
                 <span>brain fuck-pwnable.kr三种思路</span>
@@ -374,9 +448,9 @@ Download : http...
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "pwn">pwn</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "pwnable.kr">pwnable.kr</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "pwn">pwn</a>
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "GOT覆写">GOT覆写</a>
     
@@ -412,9 +486,9 @@ Download : http...
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "pwn">pwn</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "pwnable.kr">pwnable.kr</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "pwn">pwn</a>
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "ROP">ROP</a>
     
@@ -517,9 +591,9 @@ size:记录当...
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "pwn">pwn</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "pwnable.kr">pwnable.kr</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "pwn">pwn</a>
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "堆">堆</a>
     
@@ -667,9 +741,16 @@ size:记录当...
     
     
     
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 5
+        Total : 6
         </div>
         <!-- search  -->
         
@@ -682,6 +763,11 @@ size:记录当...
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/15</span><a class="archive-post-title" href= "/ZIP压缩包伪加密/" >ZIP压缩包伪加密</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -719,19 +805,25 @@ size:记录当...
     
         <span class="sidebar-tag-name" data-tags="Blog"><span class="iconfont-archer">&#xe606;</span>Blog</span>
     
-        <span class="sidebar-tag-name" data-tags="pwn"><span class="iconfont-archer">&#xe606;</span>pwn</span>
-    
         <span class="sidebar-tag-name" data-tags="pwnable.kr"><span class="iconfont-archer">&#xe606;</span>pwnable.kr</span>
     
-        <span class="sidebar-tag-name" data-tags="ROP"><span class="iconfont-archer">&#xe606;</span>ROP</span>
+        <span class="sidebar-tag-name" data-tags="pwn"><span class="iconfont-archer">&#xe606;</span>pwn</span>
     
         <span class="sidebar-tag-name" data-tags="堆"><span class="iconfont-archer">&#xe606;</span>堆</span>
     
         <span class="sidebar-tag-name" data-tags="unlink"><span class="iconfont-archer">&#xe606;</span>unlink</span>
     
+        <span class="sidebar-tag-name" data-tags="ROP"><span class="iconfont-archer">&#xe606;</span>ROP</span>
+    
         <span class="sidebar-tag-name" data-tags="GOT覆写"><span class="iconfont-archer">&#xe606;</span>GOT覆写</span>
     
         <span class="sidebar-tag-name" data-tags="brain fuck"><span class="iconfont-archer">&#xe606;</span>brain fuck</span>
+    
+        <span class="sidebar-tag-name" data-tags="CTF"><span class="iconfont-archer">&#xe606;</span>CTF</span>
+    
+        <span class="sidebar-tag-name" data-tags="Misc"><span class="iconfont-archer">&#xe606;</span>Misc</span>
+    
+        <span class="sidebar-tag-name" data-tags="伪加密"><span class="iconfont-archer">&#xe606;</span>伪加密</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
