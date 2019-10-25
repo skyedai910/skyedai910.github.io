@@ -92,3 +92,11 @@ deploy:
   type: git
   repository: https://github.com/skyedai910/skyedai910.github.io
   branch: master
+
+
+# 增加站内搜索功能
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
