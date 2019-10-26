@@ -14,6 +14,10 @@ timezone:
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://skyedai910.github.io/
+sitemap: 
+    path: sitemap.xml
+baidusitemap:
+    path: baidusitemap.xml
 root: /
 permalink: :title/
 permalink_defaults:
@@ -85,6 +89,7 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: next
+plugins: hexo-generate-feed
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -101,3 +106,9 @@ search:
   format: html
   limit: 10000
 
+# 添加文字统计、阅读时间统计
+symbols_count_time:
+  symbols: true
+  time: true
+  total_symbols: true
+  total_time: true

@@ -14,8 +14,10 @@
   "dependencies": {
     "hexo": "^4.0.0",
     "hexo-generator-archive": "^1.0.0",
+    "hexo-generator-baidu-sitemap": "^0.1.6",
     "hexo-generator-category": "^1.0.0",
-    "hexo-generator-index": "^1.0.0",
+    "hexo-generator-feed": "^2.0.0",
+    "hexo-generator-index-pin-top": "^0.2.2",
     "hexo-generator-search": "^2.4.0",
     "hexo-generator-searchdb": "^1.1.0",
     "hexo-generator-sitemap": "^1.2.0",
@@ -25,6 +27,7 @@
     "hexo-renderer-marked": "^2.0.0",
     "hexo-renderer-stylus": "^1.1.0",
     "hexo-server": "^1.0.0",
+    "hexo-symbols-count-time": "^0.6.3",
     "shelljs": "^0.8.3"
   }
 }

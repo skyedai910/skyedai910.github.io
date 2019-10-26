@@ -29,6 +29,12 @@
     <span title="{{ __('symbols_count_time.count_total') }}">{{ symbolsCountTotal(site) }}</span>
   {%- endif %}
 
+  <span class="post-meta-divider">|</span>
+  <span class="post-meta-item-icon">
+    <i class="fa fa-bar-chart-o"></i>
+  </span>
+  {{ next_url('https://tongji.baidu.com', '百度统计') }}
+
   {%- if config.symbols_count_time.total_time %}
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
