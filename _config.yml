@@ -101,10 +101,3 @@ search:
   format: html
   limit: 10000
 
-# 备份博客源文件
-backup:
-    type: git
-    message: update blog origin file
-    repository:
-       github: git@github.com:skyedai910/skyedai910.github.io.git,hexo
-       #gitcafe: git@github.com:xxx/xxx.git,hexo
