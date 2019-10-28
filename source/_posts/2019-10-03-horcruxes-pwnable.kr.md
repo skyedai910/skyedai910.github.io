@@ -2,13 +2,14 @@
 title: horcruxes-pwnable.kr
 visitors: 阅读量
 copyright: true
-date: 2019-10-03 19:19:24
 tags:
-- pwn
-- pwnable.kr
-- ROP
+  - pwn
+  - pwnable.kr
+  - ROP
 categories:
-- pwn
+  - pwn
+abbrlink: 550dc1c0
+date: 2019-10-03 19:19:24
 password:
 top:
 ---
