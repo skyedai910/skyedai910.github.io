@@ -11,5 +11,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: https://skyedai910.github.io/sitemap.xml
-Sitemap: https://skyedai910.github.io/baidusitemap.xml
+Sitemap: https://www.mrskye.cn/sitemap.xml
+Sitemap: https://www.mrskye.cn/baidusitemap.xml
