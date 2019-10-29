@@ -96,7 +96,9 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: https://github.com/skyedai910/skyedai910.github.io
+  repository: 
+    github: https://github.com/skyedai910/skyedai910.github.io
+    #coding: git@e.coding.net:skye/skye.coding.me.git
   branch: master
 
 
