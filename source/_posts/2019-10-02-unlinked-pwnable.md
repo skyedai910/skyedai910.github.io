@@ -1,12 +1,10 @@
 ---
 title: unlink - pwnable.kr
 tags:
-  - pwnable.kr
-  - pwn
-  - 堆
-  - unlink
+- 笔记
+- Pwn
 categories:
-  - pwnable.kr
+- 笔记
 visitors: 热度
 copyright: true
 abbrlink: 2a4550bc
