@@ -18,8 +18,8 @@
   
   <entry>
     <title>IOT环境配置V2</title>
-    <link href="https://skyedai910.github.io/archives/a9578bea.html"/>
-    <id>https://skyedai910.github.io/archives/a9578bea.html</id>
+    <link href="https://skyedai910.github.io/archives/a9578bea/"/>
+    <id>https://skyedai910.github.io/archives/a9578bea/</id>
     <published>2021-03-09T03:33:14.000Z</published>
     <updated>2021-03-10T00:37:12.138Z</updated>
     
@@ -45,10 +45,10 @@
   
   <entry>
     <title>路由器资源整理</title>
-    <link href="https://skyedai910.github.io/archives/e244711.html"/>
-    <id>https://skyedai910.github.io/archives/e244711.html</id>
+    <link href="https://skyedai910.github.io/archives/e244711/"/>
+    <id>https://skyedai910.github.io/archives/e244711/</id>
     <published>2021-03-07T08:21:44.000Z</published>
-    <updated>2021-03-08T14:27:16.066Z</updated>
+    <updated>2021-03-12T17:22:08.538Z</updated>
     
     
       
@@ -69,28 +69,11 @@
   </entry>
   
   <entry>
-    <title>DIR816(A2)分析笔记</title>
-    <link href="https://skyedai910.github.io/archives/82d75da8.html"/>
-    <id>https://skyedai910.github.io/archives/82d75da8.html</id>
-    <published>2021-03-06T15:52:23.000Z</published>
-    <updated>2021-03-09T17:09:54.778Z</updated>
-    
-    
-    <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
-    
-    
-    
-    
-    <category term="Dlink" scheme="https://skyedai910.github.io/tags/Dlink/"/>
-    
-  </entry>
-  
-  <entry>
     <title>CVE-2018-5767 栈溢出漏洞复现</title>
-    <link href="https://skyedai910.github.io/archives/af28835.html"/>
-    <id>https://skyedai910.github.io/archives/af28835.html</id>
+    <link href="https://skyedai910.github.io/archives/266/"/>
+    <id>https://skyedai910.github.io/archives/266/</id>
     <published>2021-02-12T13:26:17.000Z</published>
-    <updated>2021-03-10T16:26:06.467Z</updated>
+    <updated>2021-03-12T17:25:51.695Z</updated>
     
     
       
@@ -115,10 +98,10 @@
   
   <entry>
     <title>CNVD-2018-01084 远程代码执行复现</title>
-    <link href="https://skyedai910.github.io/archives/b71b6381.html"/>
-    <id>https://skyedai910.github.io/archives/b71b6381.html</id>
+    <link href="https://skyedai910.github.io/archives/224/"/>
+    <id>https://skyedai910.github.io/archives/224/</id>
     <published>2021-02-09T15:34:12.000Z</published>
-    <updated>2021-03-10T16:28:29.845Z</updated>
+    <updated>2021-03-12T17:26:12.593Z</updated>
     
     
       
@@ -138,6 +121,33 @@
     
     
     <category term="Dlink" scheme="https://skyedai910.github.io/tags/Dlink/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>沙盒堆溢出学习</title>
+    <link href="https://skyedai910.github.io/archives/233/"/>
+    <id>https://skyedai910.github.io/archives/233/</id>
+    <published>2021-02-04T16:16:26.000Z</published>
+    <updated>2021-03-12T17:30:46.707Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在复现 SWPUCTF2020 jailbreak 遇到打开沙盒堆溢出题目，这条题目实际上还有 chroot 逃逸，这个先放后面。沙盒堆溢出利用方法关键是 &lt;code&gt;setcontext()&lt;/code&gt; ，以这个点搜寻其他同类题目。年前的高校战役 lgd ，七月份</summary>
+        
+      
+    
+    
+    
+    <category term="PWN" scheme="https://skyedai910.github.io/categories/PWN/"/>
+    
+    
+    <category term="沙盒" scheme="https://skyedai910.github.io/tags/%E6%B2%99%E7%9B%92/"/>
+    
+    <category term="堆溢出" scheme="https://skyedai910.github.io/tags/%E5%A0%86%E6%BA%A2%E5%87%BA/"/>
     
   </entry>
   
