@@ -6,7 +6,7 @@
   <link href="https://skyedai910.github.io/atom.xml" rel="self"/>
   
   <link href="https://skyedai910.github.io/"/>
-  <updated>2021-03-13T16:56:39.685Z</updated>
+  <updated>2021-03-16T09:01:07.917Z</updated>
   <id>https://skyedai910.github.io/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://skyedai910.github.io/archives/0/"/>
+    <id>https://skyedai910.github.io/archives/0/</id>
+    <published>2021-03-16T09:00:47.049Z</published>
+    <updated>2021-03-16T09:01:07.917Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;DVRF-项目介绍&quot;&gt;&lt;a href=&quot;#DVRF-项目介绍&quot; class=&quot;headerlink&quot; title=&quot;DVRF 项目介绍&quot;&gt;&lt;/a&gt;DVRF 项目介绍&lt;/h2&gt;&lt;p&gt;该项目目标是模拟一个真实的环境，帮助人们了解 x86_64 之外的其他 CPU</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>DVRF路由器漏洞靶机题目笔记</title>
+    <link href="https://skyedai910.github.io/archives/6f13cd09/"/>
+    <id>https://skyedai910.github.io/archives/6f13cd09/</id>
+    <published>2021-03-11T14:45:45.000Z</published>
+    <updated>2021-03-16T08:55:12.286Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;DVRF-项目介绍&quot;&gt;&lt;a href=&quot;#DVRF-项目介绍&quot; class=&quot;headerlink&quot; title=&quot;DVRF 项目介绍&quot;&gt;&lt;/a&gt;DVRF 项目介绍&lt;/h2&gt;&lt;p&gt;该项目目标是模拟一个真实的环境，帮助人们了解 x86_64 之外的其他 CPU</summary>
+        
+      
+    
+    
+    
+    <category term="IOT" scheme="https://skyedai910.github.io/categories/IOT/"/>
+    
+    
+    <category term="DVRF" scheme="https://skyedai910.github.io/tags/DVRF/"/>
+    
+  </entry>
   
   <entry>
     <title>IOT环境配置V2</title>
