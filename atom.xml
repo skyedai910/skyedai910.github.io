@@ -46,7 +46,7 @@
     <link href="https://skyedai910.github.io/archives/a9578bea/"/>
     <id>https://skyedai910.github.io/archives/a9578bea/</id>
     <published>2021-03-09T03:33:14.000Z</published>
-    <updated>2021-03-13T16:56:39.685Z</updated>
+    <updated>2021-03-18T13:58:12.783Z</updated>
     
     
       
@@ -63,8 +63,12 @@
     
     <category term="IOT" scheme="https://skyedai910.github.io/categories/IOT/"/>
     
+    <category term="环境配置" scheme="https://skyedai910.github.io/categories/IOT/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
     
     <category term="firmadyne" scheme="https://skyedai910.github.io/tags/firmadyne/"/>
+    
+    <category term="attify" scheme="https://skyedai910.github.io/tags/attify/"/>
     
   </entry>
   
@@ -146,6 +150,31 @@
     
     
     <category term="Dlink" scheme="https://skyedai910.github.io/tags/Dlink/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>IOT环境配置V1&amp;入门练习</title>
+    <link href="https://skyedai910.github.io/archives/6130b222/"/>
+    <id>https://skyedai910.github.io/archives/6130b222/</id>
+    <published>2021-02-09T03:33:14.000Z</published>
+    <updated>2021-03-18T13:03:37.994Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;这里 IOT</summary>
+        
+      
+    
+    
+    
+    <category term="IOT" scheme="https://skyedai910.github.io/categories/IOT/"/>
+    
+    <category term="环境配置" scheme="https://skyedai910.github.io/categories/IOT/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
     
   </entry>
   
