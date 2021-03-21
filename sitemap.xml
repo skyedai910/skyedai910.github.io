@@ -130,20 +130,6 @@
   </url>
   
   <url>
-    <loc>https://skyedai910.github.io/tags/%E6%B2%99%E7%9B%92/</loc>
-    <lastmod>2021-03-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://skyedai910.github.io/tags/%E5%A0%86%E6%BA%A2%E5%87%BA/</loc>
-    <lastmod>2021-03-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://skyedai910.github.io/tags/NEPCTF/</loc>
     <lastmod>2021-03-21</lastmod>
     <changefreq>daily</changefreq>
@@ -165,6 +151,20 @@
   </url>
   
   <url>
+    <loc>https://skyedai910.github.io/tags/%E6%B2%99%E7%9B%92/</loc>
+    <lastmod>2021-03-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://skyedai910.github.io/tags/%E5%A0%86%E6%BA%A2%E5%87%BA/</loc>
+    <lastmod>2021-03-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://skyedai910.github.io/tags/Tenda/</loc>
     <lastmod>2021-03-21</lastmod>
     <changefreq>daily</changefreq>
@@ -172,7 +172,14 @@
   </url>
   
   <url>
-    <loc>https://skyedai910.github.io/tags/DVRF-%E5%90%88%E5%A4%A9/</loc>
+    <loc>https://skyedai910.github.io/tags/DVRF/</loc>
+    <lastmod>2021-03-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://skyedai910.github.io/tags/%E5%90%88%E5%A4%A9/</loc>
     <lastmod>2021-03-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -202,14 +209,7 @@
   </url>
   
   <url>
-    <loc>https://skyedai910.github.io/categories/IOT/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</loc>
-    <lastmod>2021-03-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://skyedai910.github.io/categories/PWN/</loc>
+    <loc>https://skyedai910.github.io/categories/IOT/%E8%B5%84%E6%96%99/</loc>
     <lastmod>2021-03-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -223,7 +223,14 @@
   </url>
   
   <url>
-    <loc>https://skyedai910.github.io/categories/IOT/%E8%B5%84%E6%96%99/</loc>
+    <loc>https://skyedai910.github.io/categories/IOT/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2021-03-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://skyedai910.github.io/categories/PWN/</loc>
     <lastmod>2021-03-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
