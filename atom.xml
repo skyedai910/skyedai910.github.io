@@ -6,7 +6,7 @@
   <link href="https://skyedai910.github.io/atom.xml" rel="self"/>
   
   <link href="https://skyedai910.github.io/"/>
-  <updated>2021-03-16T08:55:12.286Z</updated>
+  <updated>2021-03-21T04:04:39.709Z</updated>
   <id>https://skyedai910.github.io/</id>
   
   <author>
@@ -17,11 +17,59 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>NEPCTF2021 Writeup</title>
+    <link href="https://skyedai910.github.io/archives/bdb75c49/"/>
+    <id>https://skyedai910.github.io/archives/bdb75c49/</id>
+    <published>2021-03-21T04:02:34.000Z</published>
+    <updated>2021-03-21T04:04:39.709Z</updated>
+    
+    
+    <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
+    
+    
+    
+    <category term="Writeup" scheme="https://skyedai910.github.io/categories/Writeup/"/>
+    
+    
+    <category term="NEPCTF" scheme="https://skyedai910.github.io/tags/NEPCTF/"/>
+    
+    <category term="Writeup" scheme="https://skyedai910.github.io/tags/Writeup/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VNCTF2021 Writeup</title>
+    <link href="https://skyedai910.github.io/archives/328d0a9c/"/>
+    <id>https://skyedai910.github.io/archives/328d0a9c/</id>
+    <published>2021-03-14T18:31:50.000Z</published>
+    <updated>2021-03-21T04:01:15.883Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;White-Give-Flag&quot;&gt;&lt;a href=&quot;#White-Give-Flag&quot; class=&quot;headerlink&quot; title=&quot;White_Give_Flag&quot;&gt;&lt;/a&gt;White_Give_Flag&lt;/h2&gt;&lt;p&gt;init 函数打开了</summary>
+        
+      
+    
+    
+    
+    <category term="Writeup" scheme="https://skyedai910.github.io/categories/Writeup/"/>
+    
+    
+    <category term="Writeup" scheme="https://skyedai910.github.io/tags/Writeup/"/>
+    
+    <category term="VNCTF" scheme="https://skyedai910.github.io/tags/VNCTF/"/>
+    
+  </entry>
+  
+  <entry>
     <title>DVRF路由器漏洞靶机题目笔记</title>
     <link href="https://skyedai910.github.io/archives/6f13cd09/"/>
     <id>https://skyedai910.github.io/archives/6f13cd09/</id>
     <published>2021-03-11T14:45:45.000Z</published>
-    <updated>2021-03-16T08:55:12.286Z</updated>
+    <updated>2021-03-21T02:29:21.828Z</updated>
     
     
       
