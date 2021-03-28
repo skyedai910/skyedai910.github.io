@@ -6,7 +6,7 @@
   <link href="https://skyedai910.github.io/atom.xml" rel="self"/>
   
   <link href="https://skyedai910.github.io/"/>
-  <updated>2021-03-23T15:19:41.895Z</updated>
+  <updated>2021-03-28T03:56:18.197Z</updated>
   <id>https://skyedai910.github.io/</id>
   
   <author>
@@ -17,14 +17,53 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>CVE-2020-8423TL-WR841N栈溢出复现</title>
+    <link href="https://skyedai910.github.io/archives/e77640bd/"/>
+    <id>https://skyedai910.github.io/archives/e77640bd/</id>
+    <published>2021-03-26T12:08:05.000Z</published>
+    <updated>2021-03-28T03:56:18.197Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;漏洞编号：CVE-2020-8423&lt;/p&gt;
+&lt;p&gt;漏洞设备：TP-LINK TL-WR841N</summary>
+        
+      
+    
+    
+    
+    <category term="IOT" scheme="https://skyedai910.github.io/categories/IOT/"/>
+    
+    
+    <category term="TPLink" scheme="https://skyedai910.github.io/tags/TPLink/"/>
+    
+    <category term="TL-WR841N" scheme="https://skyedai910.github.io/tags/TL-WR841N/"/>
+    
+    <category term="栈溢出" scheme="https://skyedai910.github.io/tags/%E6%A0%88%E6%BA%A2%E5%87%BA/"/>
+    
+    <category term="CVE" scheme="https://skyedai910.github.io/tags/CVE/"/>
+    
+  </entry>
+  
+  <entry>
     <title>NEPCTF2021 Writeup</title>
     <link href="https://skyedai910.github.io/archives/bdb75c49/"/>
     <id>https://skyedai910.github.io/archives/bdb75c49/</id>
     <published>2021-03-21T04:02:34.000Z</published>
-    <updated>2021-03-23T15:19:41.895Z</updated>
+    <updated>2021-03-28T07:52:33.220Z</updated>
     
     
-    <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;xhh&quot;&gt;&lt;a href=&quot;#xhh&quot; class=&quot;headerlink&quot; title=&quot;xhh&quot;&gt;&lt;/a&gt;xhh&lt;/h2&gt;&lt;p&gt;main 函数退出时会调用 buf[2] 里面的函数：&lt;/p&gt;
+&lt;p&gt;&lt;img src= &quot;/img/loading.gif&quot;</summary>
+        
+      
     
     
     
@@ -34,6 +73,8 @@
     <category term="Writeup" scheme="https://skyedai910.github.io/tags/Writeup/"/>
     
     <category term="NEPCTF" scheme="https://skyedai910.github.io/tags/NEPCTF/"/>
+    
+    <category term="劫持stdout" scheme="https://skyedai910.github.io/tags/%E5%8A%AB%E6%8C%81stdout/"/>
     
   </entry>
   
@@ -329,11 +370,11 @@
     <category term="Pwn" scheme="https://skyedai910.github.io/categories/Pwn/"/>
     
     
+    <category term="i春秋" scheme="https://skyedai910.github.io/tags/i%E6%98%A5%E7%A7%8B/"/>
+    
     <category term="house of orange" scheme="https://skyedai910.github.io/tags/house-of-orange/"/>
     
     <category term="Pwn" scheme="https://skyedai910.github.io/tags/Pwn/"/>
-    
-    <category term="i春秋" scheme="https://skyedai910.github.io/tags/i%E6%98%A5%E7%A7%8B/"/>
     
   </entry>
   
@@ -510,9 +551,9 @@
     <category term="PWN" scheme="https://skyedai910.github.io/categories/PWN/"/>
     
     
-    <category term="PWN" scheme="https://skyedai910.github.io/tags/PWN/"/>
-    
     <category term="unlink" scheme="https://skyedai910.github.io/tags/unlink/"/>
+    
+    <category term="PWN" scheme="https://skyedai910.github.io/tags/PWN/"/>
     
   </entry>
   
@@ -540,31 +581,6 @@
     <category term="Writeup" scheme="https://skyedai910.github.io/tags/Writeup/"/>
     
     <category term="羊城杯" scheme="https://skyedai910.github.io/tags/%E7%BE%8A%E5%9F%8E%E6%9D%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python2中input()函数漏洞</title>
-    <link href="https://skyedai910.github.io/archives/c5d6b07d/"/>
-    <id>https://skyedai910.github.io/archives/c5d6b07d/</id>
-    <published>2020-09-01T03:37:00.000Z</published>
-    <updated>2021-03-26T08:41:19.069Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;函数简介&quot;&gt;&lt;a href=&quot;#函数简介&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="PWN" scheme="https://skyedai910.github.io/categories/PWN/"/>
-    
-    
-    <category term="Python2" scheme="https://skyedai910.github.io/tags/Python2/"/>
     
   </entry>
   
