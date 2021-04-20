@@ -6,7 +6,7 @@
   <link href="https://www.mrskye.cn/atom.xml" rel="self"/>
   
   <link href="https://www.mrskye.cn/"/>
-  <updated>2021-04-01T07:47:34.555Z</updated>
+  <updated>2021-04-20T08:48:40.430Z</updated>
   <id>https://www.mrskye.cn/</id>
   
   <author>
@@ -15,6 +15,44 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CVE-2020-8423TL-WR841N栈溢出复现</title>
+    <link href="https://www.mrskye.cn/archives/e77640bd/"/>
+    <id>https://www.mrskye.cn/archives/e77640bd/</id>
+    <published>2021-04-12T12:08:05.000Z</published>
+    <updated>2021-04-20T08:48:40.430Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;这个漏洞复现学习到的姿势点挺多的：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;通过 hook 关键函数修复固件运行环境&lt;/li&gt;
+&lt;li&gt;编写 shellcode 的指令逃逸&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;简介&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="IOT" scheme="https://www.mrskye.cn/categories/IOT/"/>
+    
+    
+    <category term="TPLink" scheme="https://www.mrskye.cn/tags/TPLink/"/>
+    
+    <category term="TL-WR841N" scheme="https://www.mrskye.cn/tags/TL-WR841N/"/>
+    
+    <category term="栈溢出" scheme="https://www.mrskye.cn/tags/%E6%A0%88%E6%BA%A2%E5%87%BA/"/>
+    
+    <category term="CVE" scheme="https://www.mrskye.cn/tags/CVE/"/>
+    
+  </entry>
   
   <entry>
     <title>2021DASCTF四月赛Writeup</title>
@@ -318,33 +356,6 @@
     
     
     <category term="Dlink" scheme="https://www.mrskye.cn/tags/Dlink/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CVE-2018-5767 栈溢出漏洞复现</title>
-    <link href="https://www.mrskye.cn/archives/af28835/"/>
-    <id>https://www.mrskye.cn/archives/af28835/</id>
-    <published>2021-02-09T13:26:17.000Z</published>
-    <updated>2021-04-06T05:16:34.940Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;CVE-2018-5767-栈溢出漏洞复现&quot;&gt;&lt;a href=&quot;#CVE-2018-5767-栈溢出漏洞复现&quot; class=&quot;headerlink&quot; title=&quot;CVE-2018-5767 栈溢出漏洞复现&quot;&gt;&lt;/a&gt;CVE-2018-5767</summary>
-        
-      
-    
-    
-    
-    <category term="IOT" scheme="https://www.mrskye.cn/categories/IOT/"/>
-    
-    <category term="漏洞复现" scheme="https://www.mrskye.cn/categories/IOT/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
-    
-    
-    <category term="CVE-2018-5767" scheme="https://www.mrskye.cn/tags/CVE-2018-5767/"/>
     
   </entry>
   
