@@ -6,7 +6,7 @@
   <link href="https://www.mrskye.cn/atom.xml" rel="self"/>
   
   <link href="https://www.mrskye.cn/"/>
-  <updated>2021-04-20T08:48:40.430Z</updated>
+  <updated>2021-04-25T16:24:54.873Z</updated>
   <id>https://www.mrskye.cn/</id>
   
   <author>
@@ -17,11 +17,47 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>CVE-2020-8423TL-WR841N栈溢出复现</title>
+    <title>d4cc29fc</title>
+    <link href="https://www.mrskye.cn/archives/d4cc29fc/"/>
+    <id>https://www.mrskye.cn/archives/d4cc29fc/</id>
+    <published>2021-04-23T10:07:50.000Z</published>
+    <updated>2021-04-25T16:24:54.873Z</updated>
+    
+    
+    <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://www.mrskye.cn/archives/0/"/>
+    <id>https://www.mrskye.cn/archives/0/</id>
+    <published>2021-04-20T13:15:33.000Z</published>
+    <updated>2021-04-25T16:23:02.900Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>CVE-2020-8423栈溢出复现</title>
     <link href="https://www.mrskye.cn/archives/e77640bd/"/>
     <id>https://www.mrskye.cn/archives/e77640bd/</id>
     <published>2021-04-12T12:08:05.000Z</published>
-    <updated>2021-04-20T08:48:40.430Z</updated>
+    <updated>2021-04-20T13:21:18.022Z</updated>
     
     
       
@@ -517,63 +553,6 @@
     <category term="fileno" scheme="https://www.mrskye.cn/tags/fileno/"/>
     
     <category term="housr of sprit" scheme="https://www.mrskye.cn/tags/housr-of-sprit/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>House of orange</title>
-    <link href="https://www.mrskye.cn/archives/625c64bd/"/>
-    <id>https://www.mrskye.cn/archives/625c64bd/</id>
-    <published>2021-01-26T15:12:00.000Z</published>
-    <updated>2021-03-28T15:10:50.463Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="PWN" scheme="https://www.mrskye.cn/categories/PWN/"/>
-    
-    
-    <category term="PWN" scheme="https://www.mrskye.cn/tags/PWN/"/>
-    
-    <category term="i春秋" scheme="https://www.mrskye.cn/tags/i%E6%98%A5%E7%A7%8B/"/>
-    
-    <category term="house of orange" scheme="https://www.mrskye.cn/tags/house-of-orange/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mac ida 配置</title>
-    <link href="https://www.mrskye.cn/archives/499a2943/"/>
-    <id>https://www.mrskye.cn/archives/499a2943/</id>
-    <published>2021-01-20T16:16:26.000Z</published>
-    <updated>2021-04-06T08:52:46.522Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Mac-ida-配置&quot;&gt;&lt;a href=&quot;#Mac-ida-配置&quot; class=&quot;headerlink&quot; title=&quot;Mac ida 配置&quot;&gt;&lt;/a&gt;Mac ida 配置&lt;/h1&gt;&lt;p&gt;版本是飘云阁泄露的 7.5 绿色全插件版。运行在正版 crossover</summary>
-        
-      
-    
-    
-    
-    <category term="PWN" scheme="https://www.mrskye.cn/categories/PWN/"/>
-    
-    <category term="环境配置" scheme="https://www.mrskye.cn/categories/PWN/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
-    
-    
-    <category term="ida" scheme="https://www.mrskye.cn/tags/ida/"/>
     
   </entry>
   
