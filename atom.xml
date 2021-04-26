@@ -125,7 +125,7 @@
     <link href="https://www.mrskye.cn/archives/bdb75c49/"/>
     <id>https://www.mrskye.cn/archives/bdb75c49/</id>
     <published>2021-03-21T04:02:34.000Z</published>
-    <updated>2021-03-28T07:57:34.289Z</updated>
+    <updated>2021-04-26T14:09:22.189Z</updated>
     
     
       
@@ -146,7 +146,9 @@
     
     <category term="NEPCTF" scheme="https://www.mrskye.cn/tags/NEPCTF/"/>
     
-    <category term="劫持stdout" scheme="https://www.mrskye.cn/tags/%E5%8A%AB%E6%8C%81stdout/"/>
+    <category term="劫持stdout泄露libc地址" scheme="https://www.mrskye.cn/tags/%E5%8A%AB%E6%8C%81stdout%E6%B3%84%E9%9C%B2libc%E5%9C%B0%E5%9D%80/"/>
+    
+    <category term="无输出堆题" scheme="https://www.mrskye.cn/tags/%E6%97%A0%E8%BE%93%E5%87%BA%E5%A0%86%E9%A2%98/"/>
     
   </entry>
   
@@ -261,33 +263,6 @@
   </entry>
   
   <entry>
-    <title>ZDI-CAN-11360 格式化字符串漏洞复现</title>
-    <link href="https://www.mrskye.cn/archives/af28835/"/>
-    <id>https://www.mrskye.cn/archives/af28835/</id>
-    <published>2021-02-16T13:26:17.000Z</published>
-    <updated>2021-04-06T05:14:37.997Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;ZDI-CAN-11360-格式化字符串漏洞复现&quot;&gt;&lt;a href=&quot;#ZDI-CAN-11360-格式化字符串漏洞复现&quot; class=&quot;headerlink&quot; title=&quot;ZDI-CAN-11360 格式化字符串漏洞复现&quot;&gt;&lt;/a&gt;ZDI-CAN-11360</summary>
-        
-      
-    
-    
-    
-    <category term="IOT" scheme="https://www.mrskye.cn/categories/IOT/"/>
-    
-    <category term="漏洞复现" scheme="https://www.mrskye.cn/categories/IOT/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
-    
-    
-    <category term="ZDI-CAN-11360" scheme="https://www.mrskye.cn/tags/ZDI-CAN-11360/"/>
-    
-  </entry>
-  
-  <entry>
     <title>ZDI-20-1437 登录验证绕过复现</title>
     <link href="https://www.mrskye.cn/archives/70459c25/"/>
     <id>https://www.mrskye.cn/archives/70459c25/</id>
@@ -311,6 +286,33 @@
     
     
     <category term="ZDI-20-1437" scheme="https://www.mrskye.cn/tags/ZDI-20-1437/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ZDI-CAN-11360 格式化字符串漏洞复现</title>
+    <link href="https://www.mrskye.cn/archives/af28835/"/>
+    <id>https://www.mrskye.cn/archives/af28835/</id>
+    <published>2021-02-16T13:26:17.000Z</published>
+    <updated>2021-04-06T05:14:37.997Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;ZDI-CAN-11360-格式化字符串漏洞复现&quot;&gt;&lt;a href=&quot;#ZDI-CAN-11360-格式化字符串漏洞复现&quot; class=&quot;headerlink&quot; title=&quot;ZDI-CAN-11360 格式化字符串漏洞复现&quot;&gt;&lt;/a&gt;ZDI-CAN-11360</summary>
+        
+      
+    
+    
+    
+    <category term="IOT" scheme="https://www.mrskye.cn/categories/IOT/"/>
+    
+    <category term="漏洞复现" scheme="https://www.mrskye.cn/categories/IOT/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+    
+    <category term="ZDI-CAN-11360" scheme="https://www.mrskye.cn/tags/ZDI-CAN-11360/"/>
     
   </entry>
   
@@ -479,7 +481,7 @@
     <link href="https://www.mrskye.cn/archives/7e703b17/"/>
     <id>https://www.mrskye.cn/archives/7e703b17/</id>
     <published>2021-01-26T15:19:50.000Z</published>
-    <updated>2021-04-06T09:24:26.881Z</updated>
+    <updated>2021-04-26T14:17:04.408Z</updated>
     
     
       
