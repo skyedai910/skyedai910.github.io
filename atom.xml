@@ -6,7 +6,7 @@
   <link href="https://www.mrskye.cn/atom.xml" rel="self"/>
   
   <link href="https://www.mrskye.cn/"/>
-  <updated>2021-04-25T16:24:54.873Z</updated>
+  <updated>2021-05-06T12:28:05.259Z</updated>
   <id>https://www.mrskye.cn/</id>
   
   <author>
@@ -15,6 +15,61 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2021年全国网络空间安全技术大赛Writeup</title>
+    <link href="https://www.mrskye.cn/archives/38aa2360/"/>
+    <id>https://www.mrskye.cn/archives/38aa2360/</id>
+    <published>2021-05-06T12:14:24.000Z</published>
+    <updated>2021-05-06T12:28:05.259Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;bank&quot;&gt;&lt;a href=&quot;#bank&quot; class=&quot;headerlink&quot; title=&quot;bank&quot;&gt;&lt;/a&gt;bank&lt;/h2&gt;&lt;p&gt;最直观就是格式化字符串漏洞，用来读取堆上的 flag ：&lt;/p&gt;
+&lt;p&gt;&lt;img src=</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>第五届蓝帽杯Writeup</title>
+    <link href="https://www.mrskye.cn/archives/aa7945ba/"/>
+    <id>https://www.mrskye.cn/archives/aa7945ba/</id>
+    <published>2021-04-29T12:30:27.000Z</published>
+    <updated>2021-05-07T16:26:03.767Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;slient&quot;&gt;&lt;a href=&quot;#slient&quot; class=&quot;headerlink&quot; title=&quot;slient&quot;&gt;&lt;/a&gt;slient&lt;/h2&gt;&lt;p&gt;第四届蓝帽杯线下原题，只是 flag 放的位置换了。写 shellcode</summary>
+        
+      
+    
+    
+    
+    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
+    
+    
+    <category term="shellcode" scheme="https://www.mrskye.cn/tags/shellcode/"/>
+    
+    <category term="沙盒" scheme="https://www.mrskye.cn/tags/%E6%B2%99%E7%9B%92/"/>
+    
+    <category term="tcache" scheme="https://www.mrskye.cn/tags/tcache/"/>
+    
+    <category term="double free" scheme="https://www.mrskye.cn/tags/double-free/"/>
+    
+    <category term="fastbin泄露libc" scheme="https://www.mrskye.cn/tags/fastbin%E6%B3%84%E9%9C%B2libc/"/>
+    
+  </entry>
   
   <entry>
     <title>d4cc29fc</title>
@@ -481,7 +536,7 @@
     <link href="https://www.mrskye.cn/archives/7e703b17/"/>
     <id>https://www.mrskye.cn/archives/7e703b17/</id>
     <published>2021-01-26T15:19:50.000Z</published>
-    <updated>2021-04-26T14:17:04.408Z</updated>
+    <updated>2021-05-01T05:30:28.906Z</updated>
     
     
       
@@ -498,63 +553,6 @@
     
     
     <category term="IO-FILE" scheme="https://www.mrskye.cn/tags/IO-FILE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Pwn _IO_FILE</title>
-    <link href="https://www.mrskye.cn/archives/221/"/>
-    <id>https://www.mrskye.cn/archives/221/</id>
-    <published>2021-01-26T15:19:50.000Z</published>
-    <updated>2021-03-13T16:47:52.247Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;IO-结构体知识&quot;&gt;&lt;a href=&quot;#IO-结构体知识&quot; class=&quot;headerlink&quot; title=&quot;IO 结构体知识&quot;&gt;&lt;/a&gt;IO 结构体知识&lt;/h2&gt;&lt;h3 id=&quot;IO-FILE-结构&quot;&gt;&lt;a href=&quot;#IO-FILE-结构&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="PWN" scheme="https://www.mrskye.cn/categories/PWN/"/>
-    
-    
-    <category term="IO-FILE" scheme="https://www.mrskye.cn/tags/IO-FILE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>劫持 fileno 控制文件流</title>
-    <link href="https://www.mrskye.cn/archives/bd0188a8/"/>
-    <id>https://www.mrskye.cn/archives/bd0188a8/</id>
-    <published>2021-01-26T15:14:38.000Z</published>
-    <updated>2021-04-06T08:42:08.969Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;先来了解一下 linux 的 file 文件结构，fileno 等概念。&lt;/p&gt;
-&lt;h2 id=&quot;IO-FILE-结构&quot;&gt;&lt;a href=&quot;#IO-FILE-结构&quot; class=&quot;headerlink&quot; title=&quot;_IO_FILE 结构&quot;&gt;&lt;/a&gt;_IO_FILE</summary>
-        
-      
-    
-    
-    
-    <category term="PWN" scheme="https://www.mrskye.cn/categories/PWN/"/>
-    
-    
-    <category term="PWN" scheme="https://www.mrskye.cn/tags/PWN/"/>
-    
-    <category term="i春秋" scheme="https://www.mrskye.cn/tags/i%E6%98%A5%E7%A7%8B/"/>
-    
-    <category term="fileno" scheme="https://www.mrskye.cn/tags/fileno/"/>
-    
-    <category term="housr of sprit" scheme="https://www.mrskye.cn/tags/housr-of-sprit/"/>
     
   </entry>
   
