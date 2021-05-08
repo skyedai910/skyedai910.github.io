@@ -6,7 +6,7 @@
   <link href="https://www.mrskye.cn/atom.xml" rel="self"/>
   
   <link href="https://www.mrskye.cn/"/>
-  <updated>2021-05-06T12:28:05.259Z</updated>
+  <updated>2021-05-08T12:44:58.097Z</updated>
   <id>https://www.mrskye.cn/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>2021 CVVD首届车联网漏洞挖掘赛线上初赛Writeup</title>
+    <link href="https://www.mrskye.cn/archives/cb381383/"/>
+    <id>https://www.mrskye.cn/archives/cb381383/</id>
+    <published>2021-05-08T12:42:07.000Z</published>
+    <updated>2021-05-08T12:44:58.097Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;2021-CVVD首届车联网漏洞挖掘赛线上初赛G2mtu-Writeup&quot;&gt;&lt;a href=&quot;#2021-CVVD首届车联网漏洞挖掘赛线上初赛G2mtu-Writeup&quot; class=&quot;headerlink&quot; title=&quot;2021</summary>
+        
+      
+    
+    
+    
+    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
+    
+    
+    <category term="流量分析" scheme="https://www.mrskye.cn/tags/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/"/>
+    
+    <category term="ECU" scheme="https://www.mrskye.cn/tags/ECU/"/>
+    
+  </entry>
+  
+  <entry>
     <title>2021年全国网络空间安全技术大赛Writeup</title>
     <link href="https://www.mrskye.cn/archives/38aa2360/"/>
     <id>https://www.mrskye.cn/archives/38aa2360/</id>
     <published>2021-05-06T12:14:24.000Z</published>
-    <updated>2021-05-06T12:28:05.259Z</updated>
+    <updated>2021-05-07T16:26:42.076Z</updated>
     
     
       
@@ -43,7 +70,7 @@
     <link href="https://www.mrskye.cn/archives/aa7945ba/"/>
     <id>https://www.mrskye.cn/archives/aa7945ba/</id>
     <published>2021-04-29T12:30:27.000Z</published>
-    <updated>2021-05-07T16:26:03.767Z</updated>
+    <updated>2021-05-07T16:26:42.079Z</updated>
     
     
       
@@ -528,31 +555,6 @@
     <category term="Writeup" scheme="https://www.mrskye.cn/tags/Writeup/"/>
     
     <category term="HWS" scheme="https://www.mrskye.cn/tags/HWS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>glibc2.24下IO_FILE的利用</title>
-    <link href="https://www.mrskye.cn/archives/7e703b17/"/>
-    <id>https://www.mrskye.cn/archives/7e703b17/</id>
-    <published>2021-01-26T15:19:50.000Z</published>
-    <updated>2021-05-01T05:30:28.906Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;glibc-2-24-下-IO-FILE-的利用&quot;&gt;&lt;a href=&quot;#glibc-2-24-下-IO-FILE-的利用&quot; class=&quot;headerlink&quot; title=&quot;glibc 2.24 下 IO_FILE 的利用&quot;&gt;&lt;/a&gt;glibc 2.24 下</summary>
-        
-      
-    
-    
-    
-    <category term="PWN" scheme="https://www.mrskye.cn/categories/PWN/"/>
-    
-    
-    <category term="IO-FILE" scheme="https://www.mrskye.cn/tags/IO-FILE/"/>
     
   </entry>
   
