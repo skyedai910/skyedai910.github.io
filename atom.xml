@@ -6,7 +6,7 @@
   <link href="https://www.mrskye.cn/atom.xml" rel="self"/>
   
   <link href="https://www.mrskye.cn/"/>
-  <updated>2021-05-08T12:44:58.097Z</updated>
+  <updated>2021-05-12T15:50:16.343Z</updated>
   <id>https://www.mrskye.cn/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>2021津门杯Writeup</title>
+    <link href="https://www.mrskye.cn/archives/a24f3497/"/>
+    <id>https://www.mrskye.cn/archives/a24f3497/</id>
+    <published>2021-05-11T15:44:26.000Z</published>
+    <updated>2021-05-12T15:50:16.343Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;easypwn&quot;&gt;&lt;a href=&quot;#easypwn&quot; class=&quot;headerlink&quot; title=&quot;easypwn&quot;&gt;&lt;/a&gt;easypwn&lt;/h2&gt;&lt;p&gt;新建的堆块时，存在 off by one &lt;/p&gt;
+&lt;p&gt;&lt;img src=</summary>
+        
+      
+    
+    
+    
+    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
+    
+    
+    <category term="津门杯" scheme="https://www.mrskye.cn/tags/%E6%B4%A5%E9%97%A8%E6%9D%AF/"/>
+    
+  </entry>
+  
+  <entry>
     <title>2021 CVVD首届车联网漏洞挖掘赛线上初赛Writeup</title>
     <link href="https://www.mrskye.cn/archives/cb381383/"/>
     <id>https://www.mrskye.cn/archives/cb381383/</id>
     <published>2021-05-08T12:42:07.000Z</published>
-    <updated>2021-05-08T12:44:58.097Z</updated>
+    <updated>2021-05-08T12:45:34.505Z</updated>
     
     
       
@@ -528,33 +554,6 @@
     <category term="沙盒" scheme="https://www.mrskye.cn/tags/%E6%B2%99%E7%9B%92/"/>
     
     <category term="堆溢出" scheme="https://www.mrskye.cn/tags/%E5%A0%86%E6%BA%A2%E5%87%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HWS冬令营选拔赛部分Writeup</title>
-    <link href="https://www.mrskye.cn/archives/222/"/>
-    <id>https://www.mrskye.cn/archives/222/</id>
-    <published>2021-02-04T16:10:39.000Z</published>
-    <updated>2021-03-13T05:32:00.633Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Pwn&quot;&gt;&lt;a href=&quot;#Pwn&quot; class=&quot;headerlink&quot; title=&quot;Pwn&quot;&gt;&lt;/a&gt;Pwn&lt;/h2&gt;&lt;h3 id=&quot;emarm&quot;&gt;&lt;a href=&quot;#emarm&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
-    
-    
-    <category term="Writeup" scheme="https://www.mrskye.cn/tags/Writeup/"/>
-    
-    <category term="HWS" scheme="https://www.mrskye.cn/tags/HWS/"/>
     
   </entry>
   
