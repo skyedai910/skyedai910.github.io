@@ -6,7 +6,7 @@
   <link href="https://www.mrskye.cn/atom.xml" rel="self"/>
   
   <link href="https://www.mrskye.cn/"/>
-  <updated>2021-05-12T15:50:16.343Z</updated>
+  <updated>2021-05-13T15:59:21.119Z</updated>
   <id>https://www.mrskye.cn/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>2021 ISCC 信息安全与对抗技术竞赛Writeup</title>
+    <link href="https://www.mrskye.cn/archives/f4b801d2/"/>
+    <id>https://www.mrskye.cn/archives/f4b801d2/</id>
+    <published>2021-05-13T15:52:51.000Z</published>
+    <updated>2021-05-13T15:59:21.119Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;M78&quot;&gt;&lt;a href=&quot;#M78&quot; class=&quot;headerlink&quot; title=&quot;M78&quot;&gt;&lt;/a&gt;M78&lt;/h2&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
+    
+    
+    <category term="ISCC" scheme="https://www.mrskye.cn/tags/ISCC/"/>
+    
+  </entry>
+  
+  <entry>
     <title>2021津门杯Writeup</title>
     <link href="https://www.mrskye.cn/archives/a24f3497/"/>
     <id>https://www.mrskye.cn/archives/a24f3497/</id>
     <published>2021-05-11T15:44:26.000Z</published>
-    <updated>2021-05-12T15:50:16.343Z</updated>
+    <updated>2021-05-12T15:50:44.311Z</updated>
     
     
       
@@ -39,6 +64,33 @@
     
     
     <category term="津门杯" scheme="https://www.mrskye.cn/tags/%E6%B4%A5%E9%97%A8%E6%9D%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第四届红帽杯Writeup</title>
+    <link href="https://www.mrskye.cn/archives/44c34994/"/>
+    <id>https://www.mrskye.cn/archives/44c34994/</id>
+    <published>2021-05-09T15:44:41.000Z</published>
+    <updated>2021-05-13T15:50:06.166Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Web&quot;&gt;&lt;a href=&quot;#Web&quot; class=&quot;headerlink&quot; title=&quot;Web&quot;&gt;&lt;/a&gt;Web&lt;/h1&gt;&lt;h2 id=&quot;find-it&quot;&gt;&lt;a href=&quot;#find-it&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
+    
+    
+    <category term="红帽杯" scheme="https://www.mrskye.cn/tags/%E7%BA%A2%E5%B8%BD%E6%9D%AF/"/>
+    
+    <category term="格式化字符串" scheme="https://www.mrskye.cn/tags/%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     
   </entry>
   
@@ -502,58 +554,6 @@
     
     
     <category term="Dlink" scheme="https://www.mrskye.cn/tags/Dlink/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>IOT环境配置V1&amp;入门练习</title>
-    <link href="https://www.mrskye.cn/archives/6130b222/"/>
-    <id>https://www.mrskye.cn/archives/6130b222/</id>
-    <published>2021-02-09T03:33:14.000Z</published>
-    <updated>2021-03-18T13:03:37.994Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;这里 IOT</summary>
-        
-      
-    
-    
-    
-    <category term="IOT" scheme="https://www.mrskye.cn/categories/IOT/"/>
-    
-    <category term="环境配置" scheme="https://www.mrskye.cn/categories/IOT/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>沙盒堆溢出学习</title>
-    <link href="https://www.mrskye.cn/archives/233/"/>
-    <id>https://www.mrskye.cn/archives/233/</id>
-    <published>2021-02-04T16:16:26.000Z</published>
-    <updated>2021-03-13T16:55:08.799Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;在复现 SWPUCTF2020 jailbreak 遇到打开沙盒堆溢出题目，这条题目实际上还有 chroot 逃逸，这个先放后面。沙盒堆溢出利用方法关键是 &lt;code&gt;setcontext()&lt;/code&gt; ，以这个点搜寻其他同类题目。年前的高校战役 lgd ，七月份</summary>
-        
-      
-    
-    
-    
-    <category term="PWN" scheme="https://www.mrskye.cn/categories/PWN/"/>
-    
-    
-    <category term="沙盒" scheme="https://www.mrskye.cn/tags/%E6%B2%99%E7%9B%92/"/>
-    
-    <category term="堆溢出" scheme="https://www.mrskye.cn/tags/%E5%A0%86%E6%BA%A2%E5%87%BA/"/>
     
   </entry>
   
