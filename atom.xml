@@ -54,7 +54,7 @@
         
         
     <summary type="html">&lt;h2 id=&quot;easypwn&quot;&gt;&lt;a href=&quot;#easypwn&quot; class=&quot;headerlink&quot; title=&quot;easypwn&quot;&gt;&lt;/a&gt;easypwn&lt;/h2&gt;&lt;p&gt;新建的堆块时，存在 off by one &lt;/p&gt;
-&lt;p&gt;&lt;img src=</summary>
+&lt;p&gt;&lt;img</summary>
         
       
     
@@ -134,7 +134,7 @@
         
         
     <summary type="html">&lt;h2 id=&quot;bank&quot;&gt;&lt;a href=&quot;#bank&quot; class=&quot;headerlink&quot; title=&quot;bank&quot;&gt;&lt;/a&gt;bank&lt;/h2&gt;&lt;p&gt;最直观就是格式化字符串漏洞，用来读取堆上的 flag ：&lt;/p&gt;
-&lt;p&gt;&lt;img src=</summary>
+&lt;p&gt;&lt;img</summary>
         
       
     
@@ -293,7 +293,7 @@
         
         
     <summary type="html">&lt;h2 id=&quot;xhh&quot;&gt;&lt;a href=&quot;#xhh&quot; class=&quot;headerlink&quot; title=&quot;xhh&quot;&gt;&lt;/a&gt;xhh&lt;/h2&gt;&lt;p&gt;main 函数退出时会调用 buf[2] 里面的函数：&lt;/p&gt;
-&lt;p&gt;&lt;img src= &quot;/img/loading.gif&quot;</summary>
+&lt;p&gt;&lt;img</summary>
         
       
     
