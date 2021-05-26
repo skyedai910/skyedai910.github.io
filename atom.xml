@@ -6,7 +6,7 @@
   <link href="https://www.mrskye.cn/atom.xml" rel="self"/>
   
   <link href="https://www.mrskye.cn/"/>
-  <updated>2021-05-24T09:05:12.241Z</updated>
+  <updated>2021-05-26T08:55:06.804Z</updated>
   <id>https://www.mrskye.cn/</id>
   
   <author>
@@ -17,11 +17,59 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>2021 MTCTF Writeup</title>
+    <link href="https://www.mrskye.cn/archives/1499f4e1/"/>
+    <id>https://www.mrskye.cn/archives/1499f4e1/</id>
+    <published>2021-05-26T08:24:33.000Z</published>
+    <updated>2021-05-26T08:55:06.804Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;baby-focal&quot;&gt;&lt;a href=&quot;#baby-focal&quot; class=&quot;headerlink&quot; title=&quot;baby_focal&quot;&gt;&lt;/a&gt;baby_focal&lt;/h2&gt;&lt;p&gt;glibc 2.31 ，没有 PIE</summary>
+        
+      
+    
+    
+    
+    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
+    
+    
+    <category term="MTCTF" scheme="https://www.mrskye.cn/tags/MTCTF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>e150a036</title>
+    <link href="https://www.mrskye.cn/archives/e150a036/"/>
+    <id>https://www.mrskye.cn/archives/e150a036/</id>
+    <published>2021-05-24T15:12:15.000Z</published>
+    <updated>2021-05-25T10:10:31.052Z</updated>
+    
+    
+    <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
+    
+    
+    
+    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
+    
+    
+    <category term="模板注入" scheme="https://www.mrskye.cn/tags/%E6%A8%A1%E6%9D%BF%E6%B3%A8%E5%85%A5/"/>
+    
+    <category term="SSTI" scheme="https://www.mrskye.cn/tags/SSTI/"/>
+    
+    <category term="flask" scheme="https://www.mrskye.cn/tags/flask/"/>
+    
+  </entry>
+  
+  <entry>
     <title>第一届广东省大学生网络安全攻防大赛PWN Writeup</title>
     <link href="https://www.mrskye.cn/archives/c8352f42/"/>
     <id>https://www.mrskye.cn/archives/c8352f42/</id>
     <published>2021-05-24T08:17:17.000Z</published>
-    <updated>2021-05-24T09:05:12.241Z</updated>
+    <updated>2021-05-24T09:08:16.130Z</updated>
     
     
       
@@ -242,7 +290,7 @@
     <link href="https://www.mrskye.cn/archives/d4cc29fc/"/>
     <id>https://www.mrskye.cn/archives/d4cc29fc/</id>
     <published>2021-04-23T10:07:50.000Z</published>
-    <updated>2021-05-21T05:30:55.436Z</updated>
+    <updated>2021-05-24T13:29:22.302Z</updated>
     
     
     <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
@@ -484,33 +532,6 @@
   </entry>
   
   <entry>
-    <title>ZDI-CAN-11360 格式化字符串漏洞复现</title>
-    <link href="https://www.mrskye.cn/archives/af28835/"/>
-    <id>https://www.mrskye.cn/archives/af28835/</id>
-    <published>2021-02-16T13:26:17.000Z</published>
-    <updated>2021-04-06T05:14:37.997Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;ZDI-CAN-11360-格式化字符串漏洞复现&quot;&gt;&lt;a href=&quot;#ZDI-CAN-11360-格式化字符串漏洞复现&quot; class=&quot;headerlink&quot; title=&quot;ZDI-CAN-11360 格式化字符串漏洞复现&quot;&gt;&lt;/a&gt;ZDI-CAN-11360</summary>
-        
-      
-    
-    
-    
-    <category term="IOT" scheme="https://www.mrskye.cn/categories/IOT/"/>
-    
-    <category term="漏洞复现" scheme="https://www.mrskye.cn/categories/IOT/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
-    
-    
-    <category term="ZDI-CAN-11360" scheme="https://www.mrskye.cn/tags/ZDI-CAN-11360/"/>
-    
-  </entry>
-  
-  <entry>
     <title>ZDI-20-1437 登录验证绕过复现</title>
     <link href="https://www.mrskye.cn/archives/70459c25/"/>
     <id>https://www.mrskye.cn/archives/70459c25/</id>
@@ -534,31 +555,6 @@
     
     
     <category term="ZDI-20-1437" scheme="https://www.mrskye.cn/tags/ZDI-20-1437/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ida反编译后查找函数外部库方法</title>
-    <link href="https://www.mrskye.cn/archives/26741a3d/"/>
-    <id>https://www.mrskye.cn/archives/26741a3d/</id>
-    <published>2021-02-16T09:44:18.000Z</published>
-    <updated>2021-04-06T05:12:01.912Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;ida反编译后查找函数外部哪个库方法&quot;&gt;&lt;a href=&quot;#ida反编译后查找函数外部哪个库方法&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    
-    <category term="ida" scheme="https://www.mrskye.cn/tags/ida/"/>
-    
-    <category term="grep" scheme="https://www.mrskye.cn/tags/grep/"/>
     
   </entry>
   
