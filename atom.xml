@@ -6,7 +6,7 @@
   <link href="https://www.mrskye.cn/atom.xml" rel="self"/>
   
   <link href="https://www.mrskye.cn/"/>
-  <updated>2021-05-26T08:55:06.804Z</updated>
+  <updated>2021-05-27T16:49:06.554Z</updated>
   <id>https://www.mrskye.cn/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>pwntools发送eof信号</title>
+    <link href="https://www.mrskye.cn/archives/31fc9d87/"/>
+    <id>https://www.mrskye.cn/archives/31fc9d87/</id>
+    <published>2021-05-27T16:24:58.000Z</published>
+    <updated>2021-05-27T16:49:06.554Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;做题目遇到的两种 eof 信号需求情况：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;发送 eof 之后，后续不需要继续输入（&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="PWN" scheme="https://www.mrskye.cn/categories/PWN/"/>
+    
+    
+    <category term="EOF" scheme="https://www.mrskye.cn/tags/EOF/"/>
+    
+  </entry>
+  
+  <entry>
     <title>2021 MTCTF Writeup</title>
     <link href="https://www.mrskye.cn/archives/1499f4e1/"/>
     <id>https://www.mrskye.cn/archives/1499f4e1/</id>
     <published>2021-05-26T08:24:33.000Z</published>
-    <updated>2021-05-26T08:55:06.804Z</updated>
+    <updated>2021-05-27T16:22:02.024Z</updated>
     
     
       
@@ -38,6 +65,14 @@
     
     
     <category term="MTCTF" scheme="https://www.mrskye.cn/tags/MTCTF/"/>
+    
+    <category term="劫持exit" scheme="https://www.mrskye.cn/tags/%E5%8A%AB%E6%8C%81exit/"/>
+    
+    <category term="沙盒堆" scheme="https://www.mrskye.cn/tags/%E6%B2%99%E7%9B%92%E5%A0%86/"/>
+    
+    <category term="无输出堆题" scheme="https://www.mrskye.cn/tags/%E6%97%A0%E8%BE%93%E5%87%BA%E5%A0%86%E9%A2%98/"/>
+    
+    <category term="劫持stdout泄露libc地址" scheme="https://www.mrskye.cn/tags/%E5%8A%AB%E6%8C%81stdout%E6%B3%84%E9%9C%B2libc%E5%9C%B0%E5%9D%80/"/>
     
   </entry>
   
@@ -86,9 +121,9 @@
     <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
     
     
-    <category term="劫持stdout泄露libc地址" scheme="https://www.mrskye.cn/tags/%E5%8A%AB%E6%8C%81stdout%E6%B3%84%E9%9C%B2libc%E5%9C%B0%E5%9D%80/"/>
-    
     <category term="无输出堆题" scheme="https://www.mrskye.cn/tags/%E6%97%A0%E8%BE%93%E5%87%BA%E5%A0%86%E9%A2%98/"/>
+    
+    <category term="劫持stdout泄露libc地址" scheme="https://www.mrskye.cn/tags/%E5%8A%AB%E6%8C%81stdout%E6%B3%84%E9%9C%B2libc%E5%9C%B0%E5%9D%80/"/>
     
     <category term="省赛" scheme="https://www.mrskye.cn/tags/%E7%9C%81%E8%B5%9B/"/>
     
@@ -383,9 +418,9 @@
     
     <category term="Writeup" scheme="https://www.mrskye.cn/tags/Writeup/"/>
     
-    <category term="DASCTF" scheme="https://www.mrskye.cn/tags/DASCTF/"/>
-    
     <category term="沙盒堆" scheme="https://www.mrskye.cn/tags/%E6%B2%99%E7%9B%92%E5%A0%86/"/>
+    
+    <category term="DASCTF" scheme="https://www.mrskye.cn/tags/DASCTF/"/>
     
   </entry>
   
@@ -413,11 +448,11 @@
     
     <category term="Writeup" scheme="https://www.mrskye.cn/tags/Writeup/"/>
     
-    <category term="NEPCTF" scheme="https://www.mrskye.cn/tags/NEPCTF/"/>
+    <category term="无输出堆题" scheme="https://www.mrskye.cn/tags/%E6%97%A0%E8%BE%93%E5%87%BA%E5%A0%86%E9%A2%98/"/>
     
     <category term="劫持stdout泄露libc地址" scheme="https://www.mrskye.cn/tags/%E5%8A%AB%E6%8C%81stdout%E6%B3%84%E9%9C%B2libc%E5%9C%B0%E5%9D%80/"/>
     
-    <category term="无输出堆题" scheme="https://www.mrskye.cn/tags/%E6%97%A0%E8%BE%93%E5%87%BA%E5%A0%86%E9%A2%98/"/>
+    <category term="NEPCTF" scheme="https://www.mrskye.cn/tags/NEPCTF/"/>
     
   </entry>
   
@@ -528,33 +563,6 @@
     
     <category term="资料" scheme="https://www.mrskye.cn/categories/IOT/%E8%B5%84%E6%96%99/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>ZDI-20-1437 登录验证绕过复现</title>
-    <link href="https://www.mrskye.cn/archives/70459c25/"/>
-    <id>https://www.mrskye.cn/archives/70459c25/</id>
-    <published>2021-02-16T13:26:17.000Z</published>
-    <updated>2021-04-06T05:14:28.503Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;ZDI-20-1437-登录验证绕过复现&quot;&gt;&lt;a href=&quot;#ZDI-20-1437-登录验证绕过复现&quot; class=&quot;headerlink&quot; title=&quot;ZDI-20-1437 登录验证绕过复现&quot;&gt;&lt;/a&gt;ZDI-20-1437</summary>
-        
-      
-    
-    
-    
-    <category term="IOT" scheme="https://www.mrskye.cn/categories/IOT/"/>
-    
-    <category term="漏洞复现" scheme="https://www.mrskye.cn/categories/IOT/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
-    
-    
-    <category term="ZDI-20-1437" scheme="https://www.mrskye.cn/tags/ZDI-20-1437/"/>
     
   </entry>
   
