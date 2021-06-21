@@ -6,7 +6,7 @@
   <link href="https://www.mrskye.cn/atom.xml" rel="self"/>
   
   <link href="https://www.mrskye.cn/"/>
-  <updated>2021-05-27T16:49:06.554Z</updated>
+  <updated>2021-06-21T13:14:20.460Z</updated>
   <id>https://www.mrskye.cn/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2021国赛华南赛区决赛Writeup</title>
+    <link href="https://www.mrskye.cn/archives/ba728db4/"/>
+    <id>https://www.mrskye.cn/archives/ba728db4/</id>
+    <published>2021-06-20T11:57:14.000Z</published>
+    <updated>2021-06-21T13:14:20.460Z</updated>
+    
+    
+    <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
+    
+    
+    
+    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
+    
+    
+    <category term="CICSN" scheme="https://www.mrskye.cn/tags/CICSN/"/>
+    
+    <category term="国赛" scheme="https://www.mrskye.cn/tags/%E5%9B%BD%E8%B5%9B/"/>
+    
+    <category term="offbynull" scheme="https://www.mrskye.cn/tags/offbynull/"/>
+    
+    <category term="fini_array" scheme="https://www.mrskye.cn/tags/fini-array/"/>
+    
+    <category term="64位静态程序" scheme="https://www.mrskye.cn/tags/64%E4%BD%8D%E9%9D%99%E6%80%81%E7%A8%8B%E5%BA%8F/"/>
+    
+    <category term="静态程序" scheme="https://www.mrskye.cn/tags/%E9%9D%99%E6%80%81%E7%A8%8B%E5%BA%8F/"/>
+    
+    <category term="栈迁移" scheme="https://www.mrskye.cn/tags/%E6%A0%88%E8%BF%81%E7%A7%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>pwntools发送eof信号</title>
@@ -48,7 +79,7 @@
     <link href="https://www.mrskye.cn/archives/1499f4e1/"/>
     <id>https://www.mrskye.cn/archives/1499f4e1/</id>
     <published>2021-05-26T08:24:33.000Z</published>
-    <updated>2021-05-27T16:22:02.024Z</updated>
+    <updated>2021-06-02T07:26:07.652Z</updated>
     
     
       
@@ -74,6 +105,8 @@
     
     <category term="劫持stdout泄露libc地址" scheme="https://www.mrskye.cn/tags/%E5%8A%AB%E6%8C%81stdout%E6%B3%84%E9%9C%B2libc%E5%9C%B0%E5%9D%80/"/>
     
+    <category term="setcontext" scheme="https://www.mrskye.cn/tags/setcontext/"/>
+    
   </entry>
   
   <entry>
@@ -81,7 +114,7 @@
     <link href="https://www.mrskye.cn/archives/e150a036/"/>
     <id>https://www.mrskye.cn/archives/e150a036/</id>
     <published>2021-05-24T15:12:15.000Z</published>
-    <updated>2021-05-25T10:10:31.052Z</updated>
+    <updated>2021-06-15T17:02:03.688Z</updated>
     
     
     <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
@@ -325,7 +358,7 @@
     <link href="https://www.mrskye.cn/archives/d4cc29fc/"/>
     <id>https://www.mrskye.cn/archives/d4cc29fc/</id>
     <published>2021-04-23T10:07:50.000Z</published>
-    <updated>2021-05-24T13:29:22.302Z</updated>
+    <updated>2021-06-07T07:49:02.672Z</updated>
     
     
     <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
@@ -538,31 +571,6 @@
     <category term="firmadyne" scheme="https://www.mrskye.cn/tags/firmadyne/"/>
     
     <category term="attify" scheme="https://www.mrskye.cn/tags/attify/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>路由器资源整理</title>
-    <link href="https://www.mrskye.cn/archives/e244711/"/>
-    <id>https://www.mrskye.cn/archives/e244711/</id>
-    <published>2021-03-07T08:21:44.000Z</published>
-    <updated>2021-03-28T15:19:01.084Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;固件下载&quot;&gt;&lt;a href=&quot;#固件下载&quot; class=&quot;headerlink&quot; title=&quot;固件下载&quot;&gt;&lt;/a&gt;固件下载&lt;/h2&gt;&lt;h3 id=&quot;Dlink&quot;&gt;&lt;a href=&quot;#Dlink&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="IOT" scheme="https://www.mrskye.cn/categories/IOT/"/>
-    
-    <category term="资料" scheme="https://www.mrskye.cn/categories/IOT/%E8%B5%84%E6%96%99/"/>
-    
     
   </entry>
   
