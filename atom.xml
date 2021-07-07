@@ -6,7 +6,7 @@
   <link href="https://www.mrskye.cn/atom.xml" rel="self"/>
   
   <link href="https://www.mrskye.cn/"/>
-  <updated>2021-06-21T13:14:20.460Z</updated>
+  <updated>2021-06-26T09:54:43.329Z</updated>
   <id>https://www.mrskye.cn/</id>
   
   <author>
@@ -17,25 +17,94 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>2021国赛华南赛区决赛Writeup</title>
-    <link href="https://www.mrskye.cn/archives/ba728db4/"/>
-    <id>https://www.mrskye.cn/archives/ba728db4/</id>
-    <published>2021-06-20T11:57:14.000Z</published>
-    <updated>2021-06-21T13:14:20.460Z</updated>
+    <title>2021国赛华北赛区决赛Writeup</title>
+    <link href="https://www.mrskye.cn/archives/25a80e2a/"/>
+    <id>https://www.mrskye.cn/archives/25a80e2a/</id>
+    <published>2021-06-24T06:21:23.000Z</published>
+    <updated>2021-06-26T09:54:43.329Z</updated>
     
     
-    <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Pwn-checkin&quot;&gt;&lt;a href=&quot;#Pwn-checkin&quot; class=&quot;headerlink&quot; title=&quot;Pwn_checkin&quot;&gt;&lt;/a&gt;Pwn_checkin&lt;/h2&gt;&lt;p&gt;glibc 2.32 影响不大，没有涉及相关的防护措施，也给了</summary>
+        
+      
     
     
     
     <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
     
     
+    <category term="国赛" scheme="https://www.mrskye.cn/tags/%E5%9B%BD%E8%B5%9B/"/>
+    
     <category term="CICSN" scheme="https://www.mrskye.cn/tags/CICSN/"/>
+    
+    <category term="栈迁移" scheme="https://www.mrskye.cn/tags/%E6%A0%88%E8%BF%81%E7%A7%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>仅offbynull攻击总结</title>
+    <link href="https://www.mrskye.cn/archives/3cd31180/"/>
+    <id>https://www.mrskye.cn/archives/3cd31180/</id>
+    <published>2021-06-21T15:38:01.000Z</published>
+    <updated>2021-06-23T15:31:53.064Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;特征标志&quot;&gt;&lt;a href=&quot;#特征标志&quot; class=&quot;headerlink&quot; title=&quot;特征标志&quot;&gt;&lt;/a&gt;特征标志&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;仅存在 off by null 漏洞&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;不能申请大于 fastbin</summary>
+        
+      
+    
+    
+    
+    <category term="PWN" scheme="https://www.mrskye.cn/categories/PWN/"/>
+    
+    <category term="总结" scheme="https://www.mrskye.cn/categories/PWN/%E6%80%BB%E7%BB%93/"/>
+    
+    
+    <category term="offbynull" scheme="https://www.mrskye.cn/tags/offbynull/"/>
+    
+    <category term="scanf" scheme="https://www.mrskye.cn/tags/scanf/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2021国赛华南赛区决赛Writeup</title>
+    <link href="https://www.mrskye.cn/archives/ba728db4/"/>
+    <id>https://www.mrskye.cn/archives/ba728db4/</id>
+    <published>2021-06-20T11:57:14.000Z</published>
+    <updated>2021-07-07T14:30:33.833Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;iNote&quot;&gt;&lt;a href=&quot;#iNote&quot; class=&quot;headerlink&quot; title=&quot;iNote&quot;&gt;&lt;/a&gt;iNote&lt;/h2&gt;&lt;h3 id=&quot;漏洞点&quot;&gt;&lt;a href=&quot;#漏洞点&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
+    
+    
+    <category term="offbynull" scheme="https://www.mrskye.cn/tags/offbynull/"/>
     
     <category term="国赛" scheme="https://www.mrskye.cn/tags/%E5%9B%BD%E8%B5%9B/"/>
     
-    <category term="offbynull" scheme="https://www.mrskye.cn/tags/offbynull/"/>
+    <category term="CICSN" scheme="https://www.mrskye.cn/tags/CICSN/"/>
+    
+    <category term="栈迁移" scheme="https://www.mrskye.cn/tags/%E6%A0%88%E8%BF%81%E7%A7%BB/"/>
     
     <category term="fini_array" scheme="https://www.mrskye.cn/tags/fini-array/"/>
     
@@ -43,7 +112,31 @@
     
     <category term="静态程序" scheme="https://www.mrskye.cn/tags/%E9%9D%99%E6%80%81%E7%A8%8B%E5%BA%8F/"/>
     
-    <category term="栈迁移" scheme="https://www.mrskye.cn/tags/%E6%A0%88%E8%BF%81%E7%A7%BB/"/>
+  </entry>
+  
+  <entry>
+    <title>2021蓝帽杯华南赛区决赛Writeup</title>
+    <link href="https://www.mrskye.cn/archives/c8c111be/"/>
+    <id>https://www.mrskye.cn/archives/c8c111be/</id>
+    <published>2021-06-04T09:53:35.000Z</published>
+    <updated>2021-06-26T09:54:43.330Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;cover&quot;&gt;&lt;a href=&quot;#cover&quot; class=&quot;headerlink&quot; title=&quot;cover&quot;&gt;&lt;/a&gt;cover&lt;/h2&gt;&lt;p&gt;Main 函数有一个任意地址写入 1 字节漏洞：&lt;/p&gt;
+&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
+    
+    
+    <category term="蓝帽杯" scheme="https://www.mrskye.cn/tags/%E8%93%9D%E5%B8%BD%E6%9D%AF/"/>
     
   </entry>
   
@@ -486,91 +579,6 @@
     <category term="劫持stdout泄露libc地址" scheme="https://www.mrskye.cn/tags/%E5%8A%AB%E6%8C%81stdout%E6%B3%84%E9%9C%B2libc%E5%9C%B0%E5%9D%80/"/>
     
     <category term="NEPCTF" scheme="https://www.mrskye.cn/tags/NEPCTF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VNCTF2021 Writeup</title>
-    <link href="https://www.mrskye.cn/archives/328d0a9c/"/>
-    <id>https://www.mrskye.cn/archives/328d0a9c/</id>
-    <published>2021-03-14T18:31:50.000Z</published>
-    <updated>2021-03-21T04:01:15.883Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;White-Give-Flag&quot;&gt;&lt;a href=&quot;#White-Give-Flag&quot; class=&quot;headerlink&quot; title=&quot;White_Give_Flag&quot;&gt;&lt;/a&gt;White_Give_Flag&lt;/h2&gt;&lt;p&gt;init 函数打开了</summary>
-        
-      
-    
-    
-    
-    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
-    
-    
-    <category term="Writeup" scheme="https://www.mrskye.cn/tags/Writeup/"/>
-    
-    <category term="VNCTF" scheme="https://www.mrskye.cn/tags/VNCTF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DVRF路由器漏洞靶机题目笔记</title>
-    <link href="https://www.mrskye.cn/archives/6f13cd09/"/>
-    <id>https://www.mrskye.cn/archives/6f13cd09/</id>
-    <published>2021-03-11T14:45:45.000Z</published>
-    <updated>2021-03-21T14:37:45.851Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;DVRF-项目介绍&quot;&gt;&lt;a href=&quot;#DVRF-项目介绍&quot; class=&quot;headerlink&quot; title=&quot;DVRF 项目介绍&quot;&gt;&lt;/a&gt;DVRF 项目介绍&lt;/h2&gt;&lt;p&gt;该项目目标是模拟一个真实的环境，帮助人们了解 x86_64 之外的其他 CPU</summary>
-        
-      
-    
-    
-    
-    <category term="IOT" scheme="https://www.mrskye.cn/categories/IOT/"/>
-    
-    
-    <category term="合天" scheme="https://www.mrskye.cn/tags/%E5%90%88%E5%A4%A9/"/>
-    
-    <category term="DVRF" scheme="https://www.mrskye.cn/tags/DVRF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>IOT环境配置V2</title>
-    <link href="https://www.mrskye.cn/archives/a9578bea/"/>
-    <id>https://www.mrskye.cn/archives/a9578bea/</id>
-    <published>2021-03-09T03:33:14.000Z</published>
-    <updated>2021-03-18T13:58:12.783Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;更新环境原因&quot;&gt;&lt;a href=&quot;#更新环境原因&quot; class=&quot;headerlink&quot; title=&quot;更新环境原因&quot;&gt;&lt;/a&gt;更新环境原因&lt;/h2&gt;&lt;p&gt;概述 V1版本情况：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;采用一台 ubuntu 1804 配有基本 pwn</summary>
-        
-      
-    
-    
-    
-    <category term="IOT" scheme="https://www.mrskye.cn/categories/IOT/"/>
-    
-    <category term="环境配置" scheme="https://www.mrskye.cn/categories/IOT/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
-    
-    
-    <category term="firmadyne" scheme="https://www.mrskye.cn/tags/firmadyne/"/>
-    
-    <category term="attify" scheme="https://www.mrskye.cn/tags/attify/"/>
     
   </entry>
   
