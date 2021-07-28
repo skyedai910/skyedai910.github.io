@@ -6,7 +6,7 @@
   <link href="https://www.mrskye.cn/atom.xml" rel="self"/>
   
   <link href="https://www.mrskye.cn/"/>
-  <updated>2021-06-26T09:54:43.329Z</updated>
+  <updated>2021-07-28T02:10:04.698Z</updated>
   <id>https://www.mrskye.cn/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2021红帽杯决赛Writeup</title>
+    <link href="https://www.mrskye.cn/archives/887a5205/"/>
+    <id>https://www.mrskye.cn/archives/887a5205/</id>
+    <published>2021-07-27T06:36:37.000Z</published>
+    <updated>2021-07-28T02:10:04.698Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Ruuuuust&quot;&gt;&lt;a href=&quot;#Ruuuuust&quot; class=&quot;headerlink&quot; title=&quot;Ruuuuust&quot;&gt;&lt;/a&gt;Ruuuuust&lt;/h2&gt;&lt;h3 id=&quot;程序分析&quot;&gt;&lt;a href=&quot;#程序分析&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
+    
+    
+    <category term="Rust" scheme="https://www.mrskye.cn/tags/Rust/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2021卫生CTFWritreup</title>
+    <link href="https://www.mrskye.cn/archives/562e05a9/"/>
+    <id>https://www.mrskye.cn/archives/562e05a9/</id>
+    <published>2021-07-26T01:08:30.000Z</published>
+    <updated>2021-07-28T03:29:39.832Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;notebook&quot;&gt;&lt;a href=&quot;#notebook&quot; class=&quot;headerlink&quot; title=&quot;notebook&quot;&gt;&lt;/a&gt;notebook&lt;/h2&gt;&lt;p&gt;add 构造固定大小 0x108 的堆块，用下一个堆块的 prev_size</summary>
+        
+      
+    
+    
+    
+    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
+    
+    
+    <category term="arm，UAF" scheme="https://www.mrskye.cn/tags/arm%EF%BC%8CUAF/"/>
+    
+  </entry>
   
   <entry>
     <title>2021国赛华北赛区决赛Writeup</title>
@@ -168,11 +218,11 @@
   </entry>
   
   <entry>
-    <title>2021 MTCTF Writeup</title>
+    <title>2021MTCTFWriteup</title>
     <link href="https://www.mrskye.cn/archives/1499f4e1/"/>
     <id>https://www.mrskye.cn/archives/1499f4e1/</id>
     <published>2021-05-26T08:24:33.000Z</published>
-    <updated>2021-06-02T07:26:07.652Z</updated>
+    <updated>2021-07-28T02:10:27.151Z</updated>
     
     
       
@@ -188,11 +238,11 @@
     <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
     
     
+    <category term="沙盒堆" scheme="https://www.mrskye.cn/tags/%E6%B2%99%E7%9B%92%E5%A0%86/"/>
+    
     <category term="MTCTF" scheme="https://www.mrskye.cn/tags/MTCTF/"/>
     
     <category term="劫持exit" scheme="https://www.mrskye.cn/tags/%E5%8A%AB%E6%8C%81exit/"/>
-    
-    <category term="沙盒堆" scheme="https://www.mrskye.cn/tags/%E6%B2%99%E7%9B%92%E5%A0%86/"/>
     
     <category term="无输出堆题" scheme="https://www.mrskye.cn/tags/%E6%97%A0%E8%BE%93%E5%87%BA%E5%A0%86%E9%A2%98/"/>
     
@@ -517,68 +567,6 @@
     <category term="栈溢出" scheme="https://www.mrskye.cn/tags/%E6%A0%88%E6%BA%A2%E5%87%BA/"/>
     
     <category term="CVE" scheme="https://www.mrskye.cn/tags/CVE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2021DASCTF四月赛Writeup</title>
-    <link href="https://www.mrskye.cn/archives/b88f4a53/"/>
-    <id>https://www.mrskye.cn/archives/b88f4a53/</id>
-    <published>2021-03-29T09:44:18.000Z</published>
-    <updated>2021-04-01T07:47:34.555Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;fruitpie&quot;&gt;&lt;a href=&quot;#fruitpie&quot; class=&quot;headerlink&quot; title=&quot;fruitpie&quot;&gt;&lt;/a&gt;fruitpie&lt;/h2&gt;&lt;p&gt;malloc 申请 size 没有上限，后面会输出堆地址。&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
-    
-    
-    <category term="Writeup" scheme="https://www.mrskye.cn/tags/Writeup/"/>
-    
-    <category term="沙盒堆" scheme="https://www.mrskye.cn/tags/%E6%B2%99%E7%9B%92%E5%A0%86/"/>
-    
-    <category term="DASCTF" scheme="https://www.mrskye.cn/tags/DASCTF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>NEPCTF2021 Writeup</title>
-    <link href="https://www.mrskye.cn/archives/bdb75c49/"/>
-    <id>https://www.mrskye.cn/archives/bdb75c49/</id>
-    <published>2021-03-21T04:02:34.000Z</published>
-    <updated>2021-04-26T14:09:22.189Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;xhh&quot;&gt;&lt;a href=&quot;#xhh&quot; class=&quot;headerlink&quot; title=&quot;xhh&quot;&gt;&lt;/a&gt;xhh&lt;/h2&gt;&lt;p&gt;main 函数退出时会调用 buf[2] 里面的函数：&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
-    
-    
-    <category term="Writeup" scheme="https://www.mrskye.cn/tags/Writeup/"/>
-    
-    <category term="无输出堆题" scheme="https://www.mrskye.cn/tags/%E6%97%A0%E8%BE%93%E5%87%BA%E5%A0%86%E9%A2%98/"/>
-    
-    <category term="劫持stdout泄露libc地址" scheme="https://www.mrskye.cn/tags/%E5%8A%AB%E6%8C%81stdout%E6%B3%84%E9%9C%B2libc%E5%9C%B0%E5%9D%80/"/>
-    
-    <category term="NEPCTF" scheme="https://www.mrskye.cn/tags/NEPCTF/"/>
     
   </entry>
   
