@@ -6,7 +6,7 @@
   <link href="https://www.mrskye.cn/atom.xml" rel="self"/>
   
   <link href="https://www.mrskye.cn/"/>
-  <updated>2021-07-28T02:10:04.698Z</updated>
+  <updated>2021-09-01T14:48:37.719Z</updated>
   <id>https://www.mrskye.cn/</id>
   
   <author>
@@ -17,18 +17,96 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>PWN-WAF</title>
+    <link href="https://www.mrskye.cn/archives/5873d99/"/>
+    <id>https://www.mrskye.cn/archives/5873d99/</id>
+    <published>2021-08-31T09:57:34.000Z</published>
+    <updated>2021-09-01T14:48:37.719Z</updated>
+    
+    
+    <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>2021 蓝帽杯决赛 writeup</title>
+    <link href="https://www.mrskye.cn/archives/fa64a24c/"/>
+    <id>https://www.mrskye.cn/archives/fa64a24c/</id>
+    <published>2021-08-24T08:16:56.000Z</published>
+    <updated>2021-08-24T08:26:46.465Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;secretcode&quot;&gt;&lt;a href=&quot;#secretcode&quot; class=&quot;headerlink&quot; title=&quot;secretcode&quot;&gt;&lt;/a&gt;secretcode&lt;/h2&gt;&lt;p&gt;去年决赛、今年线上初赛题目、今年决赛还是这题，一题 3</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>2021_巅峰极客Writeup</title>
+    <link href="https://www.mrskye.cn/archives/b0b9566a/"/>
+    <id>https://www.mrskye.cn/archives/b0b9566a/</id>
+    <published>2021-08-10T02:03:07.000Z</published>
+    <updated>2021-08-10T09:11:49.081Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;mimic-game&quot;&gt;&lt;a href=&quot;#mimic-game&quot; class=&quot;headerlink&quot; title=&quot;mimic-game&quot;&gt;&lt;/a&gt;mimic-game&lt;/h2&gt;&lt;p&gt;拟态题目，语言实现同一个程序，最后通过 obs</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>ret2dlresolve</title>
+    <link href="https://www.mrskye.cn/archives/3a92d93f/"/>
+    <id>https://www.mrskye.cn/archives/3a92d93f/</id>
+    <published>2021-08-03T06:02:14.000Z</published>
+    <updated>2021-08-10T14:11:59.392Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;ret2dlresolve&quot;&gt;&lt;a href=&quot;#ret2dlresolve&quot; class=&quot;headerlink&quot; title=&quot;ret2dlresolve&quot;&gt;&lt;/a&gt;ret2dlresolve&lt;/h1&gt;&lt;h2 id=&quot;原理概述&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>2021红帽杯决赛Writeup</title>
     <link href="https://www.mrskye.cn/archives/887a5205/"/>
     <id>https://www.mrskye.cn/archives/887a5205/</id>
     <published>2021-07-27T06:36:37.000Z</published>
-    <updated>2021-07-28T02:10:04.698Z</updated>
+    <updated>2021-07-30T06:23:40.351Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;Ruuuuust&quot;&gt;&lt;a href=&quot;#Ruuuuust&quot; class=&quot;headerlink&quot; title=&quot;Ruuuuust&quot;&gt;&lt;/a&gt;Ruuuuust&lt;/h2&gt;&lt;h3 id=&quot;程序分析&quot;&gt;&lt;a href=&quot;#程序分析&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;oooohMsgHTTP&quot;&gt;&lt;a href=&quot;#oooohMsgHTTP&quot; class=&quot;headerlink&quot; title=&quot;oooohMsgHTTP&quot;&gt;&lt;/a&gt;oooohMsgHTTP&lt;/h2&gt;&lt;p&gt;c语言实现的 http</summary>
         
       
     
@@ -38,6 +116,10 @@
     
     
     <category term="Rust" scheme="https://www.mrskye.cn/tags/Rust/"/>
+    
+    <category term="httpd" scheme="https://www.mrskye.cn/tags/httpd/"/>
+    
+    <category term="python解释器" scheme="https://www.mrskye.cn/tags/python%E8%A7%A3%E9%87%8A%E5%99%A8/"/>
     
   </entry>
   
@@ -460,113 +542,6 @@
     
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>第五届蓝帽杯Writeup</title>
-    <link href="https://www.mrskye.cn/archives/aa7945ba/"/>
-    <id>https://www.mrskye.cn/archives/aa7945ba/</id>
-    <published>2021-04-29T12:30:27.000Z</published>
-    <updated>2021-05-07T16:26:42.079Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;slient&quot;&gt;&lt;a href=&quot;#slient&quot; class=&quot;headerlink&quot; title=&quot;slient&quot;&gt;&lt;/a&gt;slient&lt;/h2&gt;&lt;p&gt;第四届蓝帽杯线下原题，只是 flag 放的位置换了。写 shellcode</summary>
-        
-      
-    
-    
-    
-    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
-    
-    
-    <category term="shellcode" scheme="https://www.mrskye.cn/tags/shellcode/"/>
-    
-    <category term="沙盒" scheme="https://www.mrskye.cn/tags/%E6%B2%99%E7%9B%92/"/>
-    
-    <category term="tcache" scheme="https://www.mrskye.cn/tags/tcache/"/>
-    
-    <category term="double free" scheme="https://www.mrskye.cn/tags/double-free/"/>
-    
-    <category term="fastbin泄露libc" scheme="https://www.mrskye.cn/tags/fastbin%E6%B3%84%E9%9C%B2libc/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>d4cc29fc</title>
-    <link href="https://www.mrskye.cn/archives/d4cc29fc/"/>
-    <id>https://www.mrskye.cn/archives/d4cc29fc/</id>
-    <published>2021-04-23T10:07:50.000Z</published>
-    <updated>2021-06-07T07:49:02.672Z</updated>
-    
-    
-    <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://www.mrskye.cn/archives/0/"/>
-    <id>https://www.mrskye.cn/archives/0/</id>
-    <published>2021-04-20T13:15:33.000Z</published>
-    <updated>2021-04-25T16:23:02.900Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>CVE-2020-8423栈溢出复现</title>
-    <link href="https://www.mrskye.cn/archives/e77640bd/"/>
-    <id>https://www.mrskye.cn/archives/e77640bd/</id>
-    <published>2021-04-12T12:08:05.000Z</published>
-    <updated>2021-04-20T13:21:18.022Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;这个漏洞复现学习到的姿势点挺多的：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;通过 hook 关键函数修复固件运行环境&lt;/li&gt;
-&lt;li&gt;编写 shellcode 的指令逃逸&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;简介&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="IOT" scheme="https://www.mrskye.cn/categories/IOT/"/>
-    
-    
-    <category term="TPLink" scheme="https://www.mrskye.cn/tags/TPLink/"/>
-    
-    <category term="TL-WR841N" scheme="https://www.mrskye.cn/tags/TL-WR841N/"/>
-    
-    <category term="栈溢出" scheme="https://www.mrskye.cn/tags/%E6%A0%88%E6%BA%A2%E5%87%BA/"/>
-    
-    <category term="CVE" scheme="https://www.mrskye.cn/tags/CVE/"/>
     
   </entry>
   
