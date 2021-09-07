@@ -6,7 +6,7 @@
   <link href="https://www.mrskye.cn/atom.xml" rel="self"/>
   
   <link href="https://www.mrskye.cn/"/>
-  <updated>2021-09-01T14:48:37.719Z</updated>
+  <updated>2021-09-07T15:32:50.407Z</updated>
   <id>https://www.mrskye.cn/</id>
   
   <author>
@@ -17,11 +17,61 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>2021 allesctf writeup</title>
+    <link href="https://www.mrskye.cn/archives/b5e22d13/"/>
+    <id>https://www.mrskye.cn/archives/b5e22d13/</id>
+    <published>2021-09-07T14:45:27.000Z</published>
+    <updated>2021-09-07T15:32:50.407Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;jumpy&quot;&gt;&lt;a href=&quot;#jumpy&quot; class=&quot;headerlink&quot; title=&quot;jumpy&quot;&gt;&lt;/a&gt;jumpy&lt;/h2&gt;&lt;p&gt;给出程序是个解释器，设计愿意只能写入：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;mov eax,</summary>
+        
+      
+    
+    
+    
+    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
+    
+    
+    <category term="vsyscall" scheme="https://www.mrskye.cn/tags/vsyscall/"/>
+    
+    <category term="shellcode分段" scheme="https://www.mrskye.cn/tags/shellcode%E5%88%86%E6%AE%B5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vsyscall滑动绕过</title>
+    <link href="https://www.mrskye.cn/archives/2209e390/"/>
+    <id>https://www.mrskye.cn/archives/2209e390/</id>
+    <published>2021-09-06T13:41:59.000Z</published>
+    <updated>2021-09-07T09:19:44.843Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;vsyscall-介绍&quot;&gt;&lt;a href=&quot;#vsyscall-介绍&quot; class=&quot;headerlink&quot; title=&quot;vsyscall 介绍&quot;&gt;&lt;/a&gt;vsyscall 介绍&lt;/h2&gt;&lt;p&gt;&lt;code&gt;vsyscall&lt;/code&gt; 和</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>PWN-WAF</title>
     <link href="https://www.mrskye.cn/archives/5873d99/"/>
     <id>https://www.mrskye.cn/archives/5873d99/</id>
     <published>2021-08-31T09:57:34.000Z</published>
-    <updated>2021-09-01T14:48:37.719Z</updated>
+    <updated>2021-09-06T13:35:06.315Z</updated>
     
     
     <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
@@ -36,7 +86,7 @@
     <link href="https://www.mrskye.cn/archives/fa64a24c/"/>
     <id>https://www.mrskye.cn/archives/fa64a24c/</id>
     <published>2021-08-24T08:16:56.000Z</published>
-    <updated>2021-08-24T08:26:46.465Z</updated>
+    <updated>2021-09-07T15:31:44.276Z</updated>
     
     
       
@@ -49,6 +99,8 @@
     
     
     
+    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
+    
     
   </entry>
   
@@ -57,7 +109,7 @@
     <link href="https://www.mrskye.cn/archives/b0b9566a/"/>
     <id>https://www.mrskye.cn/archives/b0b9566a/</id>
     <published>2021-08-10T02:03:07.000Z</published>
-    <updated>2021-08-10T09:11:49.081Z</updated>
+    <updated>2021-09-07T15:31:50.904Z</updated>
     
     
       
@@ -70,6 +122,8 @@
     
     
     
+    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
+    
     
   </entry>
   
@@ -78,7 +132,7 @@
     <link href="https://www.mrskye.cn/archives/3a92d93f/"/>
     <id>https://www.mrskye.cn/archives/3a92d93f/</id>
     <published>2021-08-03T06:02:14.000Z</published>
-    <updated>2021-08-10T14:11:59.392Z</updated>
+    <updated>2021-09-06T13:35:06.326Z</updated>
     
     
       
@@ -493,55 +547,6 @@
     <category term="红帽杯" scheme="https://www.mrskye.cn/tags/%E7%BA%A2%E5%B8%BD%E6%9D%AF/"/>
     
     <category term="格式化字符串" scheme="https://www.mrskye.cn/tags/%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2021 CVVD首届车联网漏洞挖掘赛线上初赛Writeup</title>
-    <link href="https://www.mrskye.cn/archives/cb381383/"/>
-    <id>https://www.mrskye.cn/archives/cb381383/</id>
-    <published>2021-05-08T12:42:07.000Z</published>
-    <updated>2021-05-08T12:45:34.505Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;2021-CVVD首届车联网漏洞挖掘赛线上初赛G2mtu-Writeup&quot;&gt;&lt;a href=&quot;#2021-CVVD首届车联网漏洞挖掘赛线上初赛G2mtu-Writeup&quot; class=&quot;headerlink&quot; title=&quot;2021</summary>
-        
-      
-    
-    
-    
-    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
-    
-    
-    <category term="流量分析" scheme="https://www.mrskye.cn/tags/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/"/>
-    
-    <category term="ECU" scheme="https://www.mrskye.cn/tags/ECU/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2021年全国网络空间安全技术大赛Writeup</title>
-    <link href="https://www.mrskye.cn/archives/38aa2360/"/>
-    <id>https://www.mrskye.cn/archives/38aa2360/</id>
-    <published>2021-05-06T12:14:24.000Z</published>
-    <updated>2021-05-07T16:26:42.076Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;bank&quot;&gt;&lt;a href=&quot;#bank&quot; class=&quot;headerlink&quot; title=&quot;bank&quot;&gt;&lt;/a&gt;bank&lt;/h2&gt;&lt;p&gt;最直观就是格式化字符串漏洞，用来读取堆上的 flag ：&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
     
   </entry>
   
