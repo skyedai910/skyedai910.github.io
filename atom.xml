@@ -6,7 +6,7 @@
   <link href="https://www.mrskye.cn/atom.xml" rel="self"/>
   
   <link href="https://www.mrskye.cn/"/>
-  <updated>2021-09-22T09:58:38.081Z</updated>
+  <updated>2021-09-23T15:46:47.124Z</updated>
   <id>https://www.mrskye.cn/</id>
   
   <author>
@@ -17,11 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>2021 天翼杯 Writeup</title>
+    <link href="https://www.mrskye.cn/archives/d84336d9/"/>
+    <id>https://www.mrskye.cn/archives/d84336d9/</id>
+    <published>2021-09-23T09:41:56.000Z</published>
+    <updated>2021-09-23T15:46:47.124Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;chaos&quot;&gt;&lt;a href=&quot;#chaos&quot; class=&quot;headerlink&quot; title=&quot;chaos&quot;&gt;&lt;/a&gt;chaos&lt;/h2&gt;&lt;p&gt;绕过逆向之后，进入菜单就是经典题目。堆块最后存 size 和下一个堆地址，size</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>2021 长安杯(企业组) Writeup</title>
     <link href="https://www.mrskye.cn/archives/721dfd6c/"/>
     <id>https://www.mrskye.cn/archives/721dfd6c/</id>
     <published>2021-09-21T09:26:46.000Z</published>
-    <updated>2021-09-22T09:58:38.081Z</updated>
+    <updated>2021-09-22T09:59:04.403Z</updated>
     
     
       
@@ -46,7 +67,7 @@
     <link href="https://www.mrskye.cn/archives/2d515188/"/>
     <id>https://www.mrskye.cn/archives/2d515188/</id>
     <published>2021-09-12T05:29:19.000Z</published>
-    <updated>2021-09-12T06:34:27.088Z</updated>
+    <updated>2021-09-22T09:59:04.401Z</updated>
     
     
       
@@ -67,7 +88,7 @@
     <link href="https://www.mrskye.cn/archives/32d2b5/"/>
     <id>https://www.mrskye.cn/archives/32d2b5/</id>
     <published>2021-09-09T16:26:38.000Z</published>
-    <updated>2021-09-22T03:46:13.034Z</updated>
+    <updated>2021-09-22T09:59:04.397Z</updated>
     
     
       
@@ -88,7 +109,7 @@
     <link href="https://www.mrskye.cn/archives/8b3b5c42/"/>
     <id>https://www.mrskye.cn/archives/8b3b5c42/</id>
     <published>2021-09-08T16:27:35.000Z</published>
-    <updated>2021-09-10T12:39:51.077Z</updated>
+    <updated>2021-09-22T09:59:04.408Z</updated>
     
     
       
@@ -503,36 +524,6 @@
     <category term="SSTI" scheme="https://www.mrskye.cn/tags/SSTI/"/>
     
     <category term="flask" scheme="https://www.mrskye.cn/tags/flask/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>第一届广东省大学生网络安全攻防大赛PWN Writeup</title>
-    <link href="https://www.mrskye.cn/archives/c8352f42/"/>
-    <id>https://www.mrskye.cn/archives/c8352f42/</id>
-    <published>2021-05-24T08:17:17.000Z</published>
-    <updated>2021-05-24T09:08:16.130Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;两个题目都是无输出堆题，最近一次比赛在 nepctf 遇到：&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
-    
-    
-    <category term="无输出堆题" scheme="https://www.mrskye.cn/tags/%E6%97%A0%E8%BE%93%E5%87%BA%E5%A0%86%E9%A2%98/"/>
-    
-    <category term="劫持stdout泄露libc地址" scheme="https://www.mrskye.cn/tags/%E5%8A%AB%E6%8C%81stdout%E6%B3%84%E9%9C%B2libc%E5%9C%B0%E5%9D%80/"/>
-    
-    <category term="省赛" scheme="https://www.mrskye.cn/tags/%E7%9C%81%E8%B5%9B/"/>
     
   </entry>
   
