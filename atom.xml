@@ -6,7 +6,7 @@
   <link href="https://www.mrskye.cn/atom.xml" rel="self"/>
   
   <link href="https://www.mrskye.cn/"/>
-  <updated>2021-10-04T14:53:22.014Z</updated>
+  <updated>2021-10-04T15:26:14.641Z</updated>
   <id>https://www.mrskye.cn/</id>
   
   <author>
@@ -17,14 +17,20 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>angr</title>
+    <title>angr学习</title>
     <link href="https://www.mrskye.cn/archives/74204420/"/>
     <id>https://www.mrskye.cn/archives/74204420/</id>
     <published>2021-09-28T12:17:30.000Z</published>
-    <updated>2021-10-04T14:53:22.014Z</updated>
+    <updated>2021-10-04T15:26:14.641Z</updated>
     
     
-    <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;angr-安装&quot;&gt;&lt;a href=&quot;#angr-安装&quot; class=&quot;headerlink&quot; title=&quot;angr 安装&quot;&gt;&lt;/a&gt;angr 安装&lt;/h1&gt;&lt;p&gt;angr 需要使用到 z3、pyvex ，但使用的版本会与原本有去区别，所以推荐在</summary>
+        
+      
     
     
     
