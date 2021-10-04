@@ -6,7 +6,7 @@
   <link href="https://www.mrskye.cn/atom.xml" rel="self"/>
   
   <link href="https://www.mrskye.cn/"/>
-  <updated>2021-09-23T15:46:47.124Z</updated>
+  <updated>2021-10-04T11:48:12.138Z</updated>
   <id>https://www.mrskye.cn/</id>
   
   <author>
@@ -17,11 +17,26 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>angr</title>
+    <link href="https://www.mrskye.cn/archives/74204420/"/>
+    <id>https://www.mrskye.cn/archives/74204420/</id>
+    <published>2021-09-28T12:17:30.000Z</published>
+    <updated>2021-10-04T11:48:12.138Z</updated>
+    
+    
+    <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>2021 天翼杯 Writeup</title>
     <link href="https://www.mrskye.cn/archives/d84336d9/"/>
     <id>https://www.mrskye.cn/archives/d84336d9/</id>
     <published>2021-09-23T09:41:56.000Z</published>
-    <updated>2021-09-23T15:46:47.124Z</updated>
+    <updated>2021-10-04T14:49:59.983Z</updated>
     
     
       
@@ -34,6 +49,10 @@
     
     
     
+    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
+    
+    
+    <category term="天翼杯" scheme="https://www.mrskye.cn/tags/%E5%A4%A9%E7%BF%BC%E6%9D%AF/"/>
     
   </entry>
   
@@ -67,7 +86,7 @@
     <link href="https://www.mrskye.cn/archives/2d515188/"/>
     <id>https://www.mrskye.cn/archives/2d515188/</id>
     <published>2021-09-12T05:29:19.000Z</published>
-    <updated>2021-09-22T09:59:04.401Z</updated>
+    <updated>2021-09-23T15:59:04.108Z</updated>
     
     
       
@@ -80,6 +99,10 @@
     
     
     
+    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
+    
+    
+    <category term="羊城杯" scheme="https://www.mrskye.cn/tags/%E7%BE%8A%E5%9F%8E%E6%9D%AF/"/>
     
   </entry>
   
@@ -319,6 +342,34 @@
   </entry>
   
   <entry>
+    <title>2021 ijctf Writeup</title>
+    <link href="https://www.mrskye.cn/archives/d1763e3c/"/>
+    <id>https://www.mrskye.cn/archives/d1763e3c/</id>
+    <published>2021-07-24T15:28:50.000Z</published>
+    <updated>2021-09-24T16:11:32.770Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;baby-sum&quot;&gt;&lt;a href=&quot;#baby-sum&quot; class=&quot;headerlink&quot; title=&quot;baby-sum&quot;&gt;&lt;/a&gt;baby-sum&lt;/h2&gt;&lt;p&gt;简而言之的话就是格式化字符串加上特殊栈空间排布&lt;/p&gt;
+&lt;p&gt;welcome</summary>
+        
+      
+    
+    
+    
+    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
+    
+    
+    <category term="ijctf" scheme="https://www.mrskye.cn/tags/ijctf/"/>
+    
+    <category term="格式化字符串" scheme="https://www.mrskye.cn/tags/%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    
+  </entry>
+  
+  <entry>
     <title>2021国赛华北赛区决赛Writeup</title>
     <link href="https://www.mrskye.cn/archives/25a80e2a/"/>
     <id>https://www.mrskye.cn/archives/25a80e2a/</id>
@@ -466,64 +517,6 @@
     
     
     <category term="EOF" scheme="https://www.mrskye.cn/tags/EOF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2021MTCTFWriteup</title>
-    <link href="https://www.mrskye.cn/archives/1499f4e1/"/>
-    <id>https://www.mrskye.cn/archives/1499f4e1/</id>
-    <published>2021-05-26T08:24:33.000Z</published>
-    <updated>2021-07-28T02:10:27.151Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;baby-focal&quot;&gt;&lt;a href=&quot;#baby-focal&quot; class=&quot;headerlink&quot; title=&quot;baby_focal&quot;&gt;&lt;/a&gt;baby_focal&lt;/h2&gt;&lt;p&gt;glibc 2.31 ，没有 PIE</summary>
-        
-      
-    
-    
-    
-    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
-    
-    
-    <category term="沙盒堆" scheme="https://www.mrskye.cn/tags/%E6%B2%99%E7%9B%92%E5%A0%86/"/>
-    
-    <category term="MTCTF" scheme="https://www.mrskye.cn/tags/MTCTF/"/>
-    
-    <category term="劫持exit" scheme="https://www.mrskye.cn/tags/%E5%8A%AB%E6%8C%81exit/"/>
-    
-    <category term="无输出堆题" scheme="https://www.mrskye.cn/tags/%E6%97%A0%E8%BE%93%E5%87%BA%E5%A0%86%E9%A2%98/"/>
-    
-    <category term="劫持stdout泄露libc地址" scheme="https://www.mrskye.cn/tags/%E5%8A%AB%E6%8C%81stdout%E6%B3%84%E9%9C%B2libc%E5%9C%B0%E5%9D%80/"/>
-    
-    <category term="setcontext" scheme="https://www.mrskye.cn/tags/setcontext/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>e150a036</title>
-    <link href="https://www.mrskye.cn/archives/e150a036/"/>
-    <id>https://www.mrskye.cn/archives/e150a036/</id>
-    <published>2021-05-24T15:12:15.000Z</published>
-    <updated>2021-06-15T17:02:03.688Z</updated>
-    
-    
-    <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
-    
-    
-    
-    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
-    
-    
-    <category term="模板注入" scheme="https://www.mrskye.cn/tags/%E6%A8%A1%E6%9D%BF%E6%B3%A8%E5%85%A5/"/>
-    
-    <category term="SSTI" scheme="https://www.mrskye.cn/tags/SSTI/"/>
-    
-    <category term="flask" scheme="https://www.mrskye.cn/tags/flask/"/>
     
   </entry>
   
