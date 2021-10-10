@@ -6,7 +6,7 @@
   <link href="https://www.mrskye.cn/atom.xml" rel="self"/>
   
   <link href="https://www.mrskye.cn/"/>
-  <updated>2021-10-04T15:26:14.641Z</updated>
+  <updated>2021-10-10T09:24:23.173Z</updated>
   <id>https://www.mrskye.cn/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>2021 鹤城杯 Writeup</title>
+    <link href="https://www.mrskye.cn/archives/f43a7780/"/>
+    <id>https://www.mrskye.cn/archives/f43a7780/</id>
+    <published>2021-10-09T16:10:01.000Z</published>
+    <updated>2021-10-10T09:24:23.173Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;babyof&quot;&gt;&lt;a href=&quot;#babyof&quot; class=&quot;headerlink&quot; title=&quot;babyof&quot;&gt;&lt;/a&gt;babyof&lt;/h2&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
+    
+    
+    <category term="鹤城杯" scheme="https://www.mrskye.cn/tags/%E9%B9%A4%E5%9F%8E%E6%9D%AF/"/>
+    
+  </entry>
+  
+  <entry>
     <title>angr学习</title>
     <link href="https://www.mrskye.cn/archives/74204420/"/>
     <id>https://www.mrskye.cn/archives/74204420/</id>
     <published>2021-09-28T12:17:30.000Z</published>
-    <updated>2021-10-04T15:26:14.641Z</updated>
+    <updated>2021-10-07T16:17:23.042Z</updated>
     
     
       
@@ -496,33 +521,6 @@
     
     
     <category term="蓝帽杯" scheme="https://www.mrskye.cn/tags/%E8%93%9D%E5%B8%BD%E6%9D%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>pwntools发送eof信号</title>
-    <link href="https://www.mrskye.cn/archives/31fc9d87/"/>
-    <id>https://www.mrskye.cn/archives/31fc9d87/</id>
-    <published>2021-05-27T16:24:58.000Z</published>
-    <updated>2021-05-27T16:49:06.554Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;做题目遇到的两种 eof 信号需求情况：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;发送 eof 之后，后续不需要继续输入（&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="PWN" scheme="https://www.mrskye.cn/categories/PWN/"/>
-    
-    
-    <category term="EOF" scheme="https://www.mrskye.cn/tags/EOF/"/>
     
   </entry>
   
