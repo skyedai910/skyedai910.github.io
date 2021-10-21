@@ -6,7 +6,7 @@
   <link href="https://www.mrskye.cn/atom.xml" rel="self"/>
   
   <link href="https://www.mrskye.cn/"/>
-  <updated>2021-10-10T09:25:02.688Z</updated>
+  <updated>2021-10-21T14:31:55.011Z</updated>
   <id>https://www.mrskye.cn/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2021 长城杯决赛 Writeup</title>
+    <link href="https://www.mrskye.cn/archives/5a8ecb34/"/>
+    <id>https://www.mrskye.cn/archives/5a8ecb34/</id>
+    <published>2021-10-21T14:18:34.000Z</published>
+    <updated>2021-10-21T14:31:55.011Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;决赛是早上 4 小时 awd ，下午 4 小时仿真环境渗透。&lt;/p&gt;
+&lt;p&gt;awd pwn 题目进入菜单的 xtea 加密确实头大，获取密码之后就是一个堆溢出。。。&lt;/p&gt;
+&lt;p&gt;这题也是 2021 xman</summary>
+        
+      
+    
+    
+    
+    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
+    
+    
+    <category term="长城杯" scheme="https://www.mrskye.cn/tags/%E9%95%BF%E5%9F%8E%E6%9D%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>去除花指令总结</title>
+    <link href="https://www.mrskye.cn/archives/1864d911/"/>
+    <id>https://www.mrskye.cn/archives/1864d911/</id>
+    <published>2021-10-19T15:51:22.000Z</published>
+    <updated>2021-10-19T16:42:44.928Z</updated>
+    
+    
+    <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
+    
+    
+    
+    
+    <category term="花指令" scheme="https://www.mrskye.cn/tags/%E8%8A%B1%E6%8C%87%E4%BB%A4/"/>
+    
+  </entry>
   
   <entry>
     <title>2021 鹤城杯 Writeup</title>
@@ -460,69 +504,6 @@
     <category term="offbynull" scheme="https://www.mrskye.cn/tags/offbynull/"/>
     
     <category term="scanf" scheme="https://www.mrskye.cn/tags/scanf/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2021国赛华南赛区决赛Writeup</title>
-    <link href="https://www.mrskye.cn/archives/ba728db4/"/>
-    <id>https://www.mrskye.cn/archives/ba728db4/</id>
-    <published>2021-06-20T11:57:14.000Z</published>
-    <updated>2021-07-07T14:30:33.833Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;iNote&quot;&gt;&lt;a href=&quot;#iNote&quot; class=&quot;headerlink&quot; title=&quot;iNote&quot;&gt;&lt;/a&gt;iNote&lt;/h2&gt;&lt;h3 id=&quot;漏洞点&quot;&gt;&lt;a href=&quot;#漏洞点&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
-    
-    
-    <category term="offbynull" scheme="https://www.mrskye.cn/tags/offbynull/"/>
-    
-    <category term="国赛" scheme="https://www.mrskye.cn/tags/%E5%9B%BD%E8%B5%9B/"/>
-    
-    <category term="CICSN" scheme="https://www.mrskye.cn/tags/CICSN/"/>
-    
-    <category term="栈迁移" scheme="https://www.mrskye.cn/tags/%E6%A0%88%E8%BF%81%E7%A7%BB/"/>
-    
-    <category term="fini_array" scheme="https://www.mrskye.cn/tags/fini-array/"/>
-    
-    <category term="64位静态程序" scheme="https://www.mrskye.cn/tags/64%E4%BD%8D%E9%9D%99%E6%80%81%E7%A8%8B%E5%BA%8F/"/>
-    
-    <category term="静态程序" scheme="https://www.mrskye.cn/tags/%E9%9D%99%E6%80%81%E7%A8%8B%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2021蓝帽杯华南赛区决赛Writeup</title>
-    <link href="https://www.mrskye.cn/archives/c8c111be/"/>
-    <id>https://www.mrskye.cn/archives/c8c111be/</id>
-    <published>2021-06-04T09:53:35.000Z</published>
-    <updated>2021-06-26T09:54:43.330Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;cover&quot;&gt;&lt;a href=&quot;#cover&quot; class=&quot;headerlink&quot; title=&quot;cover&quot;&gt;&lt;/a&gt;cover&lt;/h2&gt;&lt;p&gt;Main 函数有一个任意地址写入 1 字节漏洞：&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
-    
-    
-    <category term="蓝帽杯" scheme="https://www.mrskye.cn/tags/%E8%93%9D%E5%B8%BD%E6%9D%AF/"/>
     
   </entry>
   
