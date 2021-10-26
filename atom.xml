@@ -6,7 +6,7 @@
   <link href="https://www.mrskye.cn/atom.xml" rel="self"/>
   
   <link href="https://www.mrskye.cn/"/>
-  <updated>2021-10-21T14:31:55.011Z</updated>
+  <updated>2021-10-26T16:33:45.953Z</updated>
   <id>https://www.mrskye.cn/</id>
   
   <author>
@@ -17,11 +17,33 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>2021 长城杯决赛 Writeup</title>
+    <title>2021 强网拟态 Writeup</title>
+    <link href="https://www.mrskye.cn/archives/dd6b8a05/"/>
+    <id>https://www.mrskye.cn/archives/dd6b8a05/</id>
+    <published>2021-10-25T08:54:35.000Z</published>
+    <updated>2021-10-26T16:33:45.953Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;sonic&quot;&gt;&lt;a href=&quot;#sonic&quot; class=&quot;headerlink&quot; title=&quot;sonic&quot;&gt;&lt;/a&gt;sonic&lt;/h2&gt;&lt;p&gt;远程服务器上 /usr/bin/cli 是个 cat flag 程序，栈溢出劫持运行后面函数即可&lt;/p&gt;
+&lt;h3</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>2021 长安杯决赛 Writeup</title>
     <link href="https://www.mrskye.cn/archives/5a8ecb34/"/>
     <id>https://www.mrskye.cn/archives/5a8ecb34/</id>
     <published>2021-10-21T14:18:34.000Z</published>
-    <updated>2021-10-21T14:31:55.011Z</updated>
+    <updated>2021-10-26T16:33:29.201Z</updated>
     
     
       
@@ -39,7 +61,7 @@
     <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
     
     
-    <category term="长城杯" scheme="https://www.mrskye.cn/tags/%E9%95%BF%E5%9F%8E%E6%9D%AF/"/>
+    <category term="长安杯" scheme="https://www.mrskye.cn/tags/%E9%95%BF%E5%AE%89%E6%9D%AF/"/>
     
   </entry>
   
@@ -48,7 +70,7 @@
     <link href="https://www.mrskye.cn/archives/1864d911/"/>
     <id>https://www.mrskye.cn/archives/1864d911/</id>
     <published>2021-10-19T15:51:22.000Z</published>
-    <updated>2021-10-19T16:42:44.928Z</updated>
+    <updated>2021-10-21T14:39:35.793Z</updated>
     
     
     <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
@@ -472,38 +494,6 @@
     <category term="CICSN" scheme="https://www.mrskye.cn/tags/CICSN/"/>
     
     <category term="栈迁移" scheme="https://www.mrskye.cn/tags/%E6%A0%88%E8%BF%81%E7%A7%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>仅offbynull攻击总结</title>
-    <link href="https://www.mrskye.cn/archives/3cd31180/"/>
-    <id>https://www.mrskye.cn/archives/3cd31180/</id>
-    <published>2021-06-21T15:38:01.000Z</published>
-    <updated>2021-06-23T15:31:53.064Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;特征标志&quot;&gt;&lt;a href=&quot;#特征标志&quot; class=&quot;headerlink&quot; title=&quot;特征标志&quot;&gt;&lt;/a&gt;特征标志&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;仅存在 off by null 漏洞&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;不能申请大于 fastbin</summary>
-        
-      
-    
-    
-    
-    <category term="PWN" scheme="https://www.mrskye.cn/categories/PWN/"/>
-    
-    <category term="总结" scheme="https://www.mrskye.cn/categories/PWN/%E6%80%BB%E7%BB%93/"/>
-    
-    
-    <category term="offbynull" scheme="https://www.mrskye.cn/tags/offbynull/"/>
-    
-    <category term="scanf" scheme="https://www.mrskye.cn/tags/scanf/"/>
     
   </entry>
   
