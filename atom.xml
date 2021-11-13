@@ -6,7 +6,7 @@
   <link href="https://www.mrskye.cn/atom.xml" rel="self"/>
   
   <link href="https://www.mrskye.cn/"/>
-  <updated>2021-10-26T16:33:45.953Z</updated>
+  <updated>2021-11-13T12:57:12.082Z</updated>
   <id>https://www.mrskye.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2021 广东省强网杯决赛 日记</title>
+    <link href="https://www.mrskye.cn/archives/5a616790/"/>
+    <id>https://www.mrskye.cn/archives/5a616790/</id>
+    <published>2021-11-13T07:42:10.000Z</published>
+    <updated>2021-11-13T12:57:12.082Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;决赛赛制分为上午的运维赛、下午的 AWDP 攻防赛。&lt;/p&gt;
+&lt;h2 id=&quot;运维赛&quot;&gt;&lt;a href=&quot;#运维赛&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
+    
+    
+    <category term="广东省强网杯" scheme="https://www.mrskye.cn/tags/%E5%B9%BF%E4%B8%9C%E7%9C%81%E5%BC%BA%E7%BD%91%E6%9D%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>2021 强网拟态 Writeup</title>
@@ -465,35 +491,6 @@
     <category term="ijctf" scheme="https://www.mrskye.cn/tags/ijctf/"/>
     
     <category term="格式化字符串" scheme="https://www.mrskye.cn/tags/%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2021国赛华北赛区决赛Writeup</title>
-    <link href="https://www.mrskye.cn/archives/25a80e2a/"/>
-    <id>https://www.mrskye.cn/archives/25a80e2a/</id>
-    <published>2021-06-24T06:21:23.000Z</published>
-    <updated>2021-06-26T09:54:43.329Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Pwn-checkin&quot;&gt;&lt;a href=&quot;#Pwn-checkin&quot; class=&quot;headerlink&quot; title=&quot;Pwn_checkin&quot;&gt;&lt;/a&gt;Pwn_checkin&lt;/h2&gt;&lt;p&gt;glibc 2.32 影响不大，没有涉及相关的防护措施，也给了</summary>
-        
-      
-    
-    
-    
-    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
-    
-    
-    <category term="国赛" scheme="https://www.mrskye.cn/tags/%E5%9B%BD%E8%B5%9B/"/>
-    
-    <category term="CICSN" scheme="https://www.mrskye.cn/tags/CICSN/"/>
-    
-    <category term="栈迁移" scheme="https://www.mrskye.cn/tags/%E6%A0%88%E8%BF%81%E7%A7%BB/"/>
     
   </entry>
   
