@@ -6,7 +6,7 @@
   <link href="https://www.mrskye.cn/atom.xml" rel="self"/>
   
   <link href="https://www.mrskye.cn/"/>
-  <updated>2021-11-13T12:57:12.082Z</updated>
+  <updated>2021-12-22T11:50:45.170Z</updated>
   <id>https://www.mrskye.cn/</id>
   
   <author>
@@ -17,11 +17,226 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>树莓派开启VNC远程连接</title>
+    <link href="https://www.mrskye.cn/archives/1321cf/"/>
+    <id>https://www.mrskye.cn/archives/1321cf/</id>
+    <published>2021-12-22T09:36:21.000Z</published>
+    <updated>2021-12-22T11:50:45.170Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;系统环境&quot;&gt;&lt;a href=&quot;#系统环境&quot; class=&quot;headerlink&quot; title=&quot;系统环境&quot;&gt;&lt;/a&gt;系统环境&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;树莓派 4B &lt;ul&gt;
+&lt;li&gt;系统：Raspberry Pi</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://www.mrskye.cn/archives/0/"/>
+    <id>https://www.mrskye.cn/archives/0/</id>
+    <published>2021-12-15T14:51:36.196Z</published>
+    <updated>2021-12-16T06:30:09.537Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;联合注入&quot;&gt;&lt;a href=&quot;#联合注入&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://www.mrskye.cn/archives/0/"/>
+    <id>https://www.mrskye.cn/archives/0/</id>
+    <published>2021-12-15T10:42:42.129Z</published>
+    <updated>2021-12-15T10:42:42.231Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;WEB1&quot;&gt;&lt;a href=&quot;#WEB1&quot; class=&quot;headerlink&quot; title=&quot;WEB1&quot;&gt;&lt;/a&gt;WEB1&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;开发注释未及时删除&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://www.mrskye.cn/archives/0/"/>
+    <id>https://www.mrskye.cn/archives/0/</id>
+    <published>2021-12-15T10:42:25.745Z</published>
+    <updated>2021-12-16T06:30:02.614Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;代码审计&quot;&gt;&lt;a href=&quot;#代码审计&quot; class=&quot;headerlink&quot; title=&quot;代码审计&quot;&gt;&lt;/a&gt;代码审计&lt;/h2&gt;&lt;h3 id=&quot;HCTF-2018-WarmUp：初步代码审计；文件包含；&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://www.mrskye.cn/archives/0/"/>
+    <id>https://www.mrskye.cn/archives/0/</id>
+    <published>2021-12-15T10:41:33.213Z</published>
+    <updated>2021-12-15T10:41:33.313Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;DVWA-1-1-Brute-Force（暴力破解）-Low&quot;&gt;&lt;a href=&quot;#DVWA-1-1-Brute-Force（暴力破解）-Low&quot; class=&quot;headerlink&quot; title=&quot;DVWA-1.1 Brute</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://www.mrskye.cn/archives/0/"/>
+    <id>https://www.mrskye.cn/archives/0/</id>
+    <published>2021-12-13T03:29:29.000Z</published>
+    <updated>2021-12-14T12:50:34.373Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;内幕比赛，详情见知乎：&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
+    
+    
+    <category term="NSSCCTF" scheme="https://www.mrskye.cn/tags/NSSCCTF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2021 NCTF ezheap Writeup(glibc2.32以上 UAF)</title>
+    <link href="https://www.mrskye.cn/archives/16cb363f/"/>
+    <id>https://www.mrskye.cn/archives/16cb363f/</id>
+    <published>2021-12-01T03:20:52.000Z</published>
+    <updated>2021-12-01T09:56:54.121Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;更换-glibc&quot;&gt;&lt;a href=&quot;#更换-glibc&quot; class=&quot;headerlink&quot; title=&quot;更换 glibc&quot;&gt;&lt;/a&gt;更换 glibc&lt;/h2&gt;&lt;p&gt;题目附件中包含有 glibc 2.33 没有符号表，习惯使用 glibc all in</summary>
+        
+      
+    
+    
+    
+    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
+    
+    
+    <category term="NCTF" scheme="https://www.mrskye.cn/tags/NCTF/"/>
+    
+    <category term="glibc2.32" scheme="https://www.mrskye.cn/tags/glibc2-32/"/>
+    
+    <category term="UAF" scheme="https://www.mrskye.cn/tags/UAF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2021 西湖论剑 Writeup</title>
+    <link href="https://www.mrskye.cn/archives/a638cd72/"/>
+    <id>https://www.mrskye.cn/archives/a638cd72/</id>
+    <published>2021-11-26T03:10:35.000Z</published>
+    <updated>2021-11-26T08:10:44.944Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Pwn&quot;&gt;&lt;a href=&quot;#Pwn&quot; class=&quot;headerlink&quot; title=&quot;Pwn&quot;&gt;&lt;/a&gt;Pwn&lt;/h2&gt;&lt;h3 id=&quot;string-go&quot;&gt;&lt;a href=&quot;#string-go&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
+    
+    
+    <category term="西湖论剑" scheme="https://www.mrskye.cn/tags/%E8%A5%BF%E6%B9%96%E8%AE%BA%E5%89%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2021 湖湘杯 Writeup</title>
+    <link href="https://www.mrskye.cn/archives/da46adfa/"/>
+    <id>https://www.mrskye.cn/archives/da46adfa/</id>
+    <published>2021-11-15T07:25:29.000Z</published>
+    <updated>2021-11-19T08:43:53.207Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;tiny-httpd&quot;&gt;&lt;a href=&quot;#tiny-httpd&quot; class=&quot;headerlink&quot; title=&quot;tiny_httpd&quot;&gt;&lt;/a&gt;tiny_httpd&lt;/h2&gt;&lt;p&gt;C语言实现的 httpd 服务，题目是基于框架改过来的，加了 url</summary>
+        
+      
+    
+    
+    
+    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
+    
+    
+    <category term="湖湘杯" scheme="https://www.mrskye.cn/tags/%E6%B9%96%E6%B9%98%E6%9D%AF/"/>
+    
+  </entry>
+  
+  <entry>
     <title>2021 广东省强网杯决赛 日记</title>
     <link href="https://www.mrskye.cn/archives/5a616790/"/>
     <id>https://www.mrskye.cn/archives/5a616790/</id>
     <published>2021-11-13T07:42:10.000Z</published>
-    <updated>2021-11-13T12:57:12.082Z</updated>
+    <updated>2021-11-13T12:57:32.536Z</updated>
     
     
       
@@ -272,225 +487,11 @@
     
     
     
+    <category term="UAF" scheme="https://www.mrskye.cn/tags/UAF/"/>
+    
     <category term="house of banana" scheme="https://www.mrskye.cn/tags/house-of-banana/"/>
     
     <category term="largebin attack" scheme="https://www.mrskye.cn/tags/largebin-attack/"/>
-    
-    <category term="UAF" scheme="https://www.mrskye.cn/tags/UAF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2021 allesctf writeup</title>
-    <link href="https://www.mrskye.cn/archives/b5e22d13/"/>
-    <id>https://www.mrskye.cn/archives/b5e22d13/</id>
-    <published>2021-09-07T14:45:27.000Z</published>
-    <updated>2021-09-07T15:33:16.394Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;jumpy&quot;&gt;&lt;a href=&quot;#jumpy&quot; class=&quot;headerlink&quot; title=&quot;jumpy&quot;&gt;&lt;/a&gt;jumpy&lt;/h2&gt;&lt;p&gt;给出程序是个解释器，设计愿意只能写入：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;mov eax,</summary>
-        
-      
-    
-    
-    
-    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
-    
-    
-    <category term="vsyscall" scheme="https://www.mrskye.cn/tags/vsyscall/"/>
-    
-    <category term="shellcode分段" scheme="https://www.mrskye.cn/tags/shellcode%E5%88%86%E6%AE%B5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vsyscall滑动绕过</title>
-    <link href="https://www.mrskye.cn/archives/2209e390/"/>
-    <id>https://www.mrskye.cn/archives/2209e390/</id>
-    <published>2021-09-06T13:41:59.000Z</published>
-    <updated>2021-09-07T15:33:16.396Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;vsyscall-介绍&quot;&gt;&lt;a href=&quot;#vsyscall-介绍&quot; class=&quot;headerlink&quot; title=&quot;vsyscall 介绍&quot;&gt;&lt;/a&gt;vsyscall 介绍&lt;/h2&gt;&lt;p&gt;&lt;code&gt;vsyscall&lt;/code&gt; 和</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>PWN-WAF</title>
-    <link href="https://www.mrskye.cn/archives/5873d99/"/>
-    <id>https://www.mrskye.cn/archives/5873d99/</id>
-    <published>2021-08-31T09:57:34.000Z</published>
-    <updated>2021-09-06T13:35:06.315Z</updated>
-    
-    
-    <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>2021 蓝帽杯决赛 writeup</title>
-    <link href="https://www.mrskye.cn/archives/fa64a24c/"/>
-    <id>https://www.mrskye.cn/archives/fa64a24c/</id>
-    <published>2021-08-24T08:16:56.000Z</published>
-    <updated>2021-09-07T15:31:44.276Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;secretcode&quot;&gt;&lt;a href=&quot;#secretcode&quot; class=&quot;headerlink&quot; title=&quot;secretcode&quot;&gt;&lt;/a&gt;secretcode&lt;/h2&gt;&lt;p&gt;去年决赛、今年线上初赛题目、今年决赛还是这题，一题 3</summary>
-        
-      
-    
-    
-    
-    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>2021_巅峰极客Writeup</title>
-    <link href="https://www.mrskye.cn/archives/b0b9566a/"/>
-    <id>https://www.mrskye.cn/archives/b0b9566a/</id>
-    <published>2021-08-10T02:03:07.000Z</published>
-    <updated>2021-09-07T15:31:50.904Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;mimic-game&quot;&gt;&lt;a href=&quot;#mimic-game&quot; class=&quot;headerlink&quot; title=&quot;mimic-game&quot;&gt;&lt;/a&gt;mimic-game&lt;/h2&gt;&lt;p&gt;拟态题目，语言实现同一个程序，最后通过 obs</summary>
-        
-      
-    
-    
-    
-    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>ret2dlresolve</title>
-    <link href="https://www.mrskye.cn/archives/3a92d93f/"/>
-    <id>https://www.mrskye.cn/archives/3a92d93f/</id>
-    <published>2021-08-03T06:02:14.000Z</published>
-    <updated>2021-09-06T13:35:06.326Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;ret2dlresolve&quot;&gt;&lt;a href=&quot;#ret2dlresolve&quot; class=&quot;headerlink&quot; title=&quot;ret2dlresolve&quot;&gt;&lt;/a&gt;ret2dlresolve&lt;/h1&gt;&lt;h2 id=&quot;原理概述&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>2021红帽杯决赛Writeup</title>
-    <link href="https://www.mrskye.cn/archives/887a5205/"/>
-    <id>https://www.mrskye.cn/archives/887a5205/</id>
-    <published>2021-07-27T06:36:37.000Z</published>
-    <updated>2021-07-30T06:23:40.351Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;oooohMsgHTTP&quot;&gt;&lt;a href=&quot;#oooohMsgHTTP&quot; class=&quot;headerlink&quot; title=&quot;oooohMsgHTTP&quot;&gt;&lt;/a&gt;oooohMsgHTTP&lt;/h2&gt;&lt;p&gt;c语言实现的 http</summary>
-        
-      
-    
-    
-    
-    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
-    
-    
-    <category term="Rust" scheme="https://www.mrskye.cn/tags/Rust/"/>
-    
-    <category term="httpd" scheme="https://www.mrskye.cn/tags/httpd/"/>
-    
-    <category term="python解释器" scheme="https://www.mrskye.cn/tags/python%E8%A7%A3%E9%87%8A%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2021卫生CTFWritreup</title>
-    <link href="https://www.mrskye.cn/archives/562e05a9/"/>
-    <id>https://www.mrskye.cn/archives/562e05a9/</id>
-    <published>2021-07-26T01:08:30.000Z</published>
-    <updated>2021-07-28T03:29:39.832Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;notebook&quot;&gt;&lt;a href=&quot;#notebook&quot; class=&quot;headerlink&quot; title=&quot;notebook&quot;&gt;&lt;/a&gt;notebook&lt;/h2&gt;&lt;p&gt;add 构造固定大小 0x108 的堆块，用下一个堆块的 prev_size</summary>
-        
-      
-    
-    
-    
-    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
-    
-    
-    <category term="arm，UAF" scheme="https://www.mrskye.cn/tags/arm%EF%BC%8CUAF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2021 ijctf Writeup</title>
-    <link href="https://www.mrskye.cn/archives/d1763e3c/"/>
-    <id>https://www.mrskye.cn/archives/d1763e3c/</id>
-    <published>2021-07-24T15:28:50.000Z</published>
-    <updated>2021-10-04T14:50:37.962Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;baby-sum&quot;&gt;&lt;a href=&quot;#baby-sum&quot; class=&quot;headerlink&quot; title=&quot;baby-sum&quot;&gt;&lt;/a&gt;baby-sum&lt;/h2&gt;&lt;p&gt;简而言之的话就是格式化字符串加上特殊栈空间排布&lt;/p&gt;
-&lt;p&gt;welcome</summary>
-        
-      
-    
-    
-    
-    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
-    
-    
-    <category term="ijctf" scheme="https://www.mrskye.cn/tags/ijctf/"/>
-    
-    <category term="格式化字符串" scheme="https://www.mrskye.cn/tags/%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     
   </entry>
   
