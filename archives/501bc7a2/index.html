@@ -1,0 +1,397 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>树莓派提取固件 | SkYe231 Blog</title><meta name="keywords" content="树莓派"><meta name="author" content="SkYe231"><meta name="copyright" content="SkYe231"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="准备工作工具 树莓派 4B（OS：Raspberry Pi OS）  flashrom   双母头杜邦线  测试钩      开启树莓派SPI（串行外设接口）默认情况下禁用 SPI ，需要手动开启： 1sudo raspi-config  打开树莓派设置 -&gt; Interface Options -&gt; SPI -&gt; enable 。配置完整后 &#x2F;boot&#x2F;config.txt 会">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树莓派提取固件">
+<meta property="og:url" content="https://www.mrskye.cn/archives/501bc7a2/index.html">
+<meta property="og:site_name" content="SkYe231 Blog">
+<meta property="og:description" content="准备工作工具 树莓派 4B（OS：Raspberry Pi OS）  flashrom   双母头杜邦线  测试钩      开启树莓派SPI（串行外设接口）默认情况下禁用 SPI ，需要手动开启： 1sudo raspi-config  打开树莓派设置 -&gt; Interface Options -&gt; SPI -&gt; enable 。配置完整后 &#x2F;boot&#x2F;config.txt 会">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.mrskye.cn/img/default_cover2.png">
+<meta property="article:published_time" content="2021-12-24T06:09:05.000Z">
+<meta property="article:modified_time" content="2021-12-26T15:15:31.778Z">
+<meta property="article:author" content="SkYe231">
+<meta property="article:tag" content="树莓派">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.mrskye.cn/img/default_cover2.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.mrskye.cn/archives/501bc7a2/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?8184ae9371af7cedfa47d27c247e16b8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-154693872-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-154693872-1');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"这篇文章距离上次更新已经","messageNext":"天，内容可能已经过时了。"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":200,"languages":{"author":"作者: SkYe231","link":"链接: ","source":"来源: SkYe231 Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '树莓派提取固件',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-12-26 23:15:31'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="//at.alicdn.com/t/font_2567732_2yo06945456.css"><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="SkYe231 Blog" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">146</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">184</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">19</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-wrench"></i><span> 工具</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="http://mrskye.gitee.io/cyberchef/"><i class="fa-fw fas fa-key"></i><span> cyberchef</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://travellings.link"><i class="fa-fw fas fa-subway"></i><span> 开往</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fas fa-rss"></i><span> RSS</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/default_cover2.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">SkYe231 Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-wrench"></i><span> 工具</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="http://mrskye.gitee.io/cyberchef/"><i class="fa-fw fas fa-key"></i><span> cyberchef</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://travellings.link"><i class="fa-fw fas fa-subway"></i><span> 开往</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fas fa-rss"></i><span> RSS</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">树莓派提取固件</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-12-24T06:09:05.000Z" title="发表于 2021-12-24 14:09:05">2021-12-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-12-26T15:15:31.778Z" title="更新于 2021-12-26 23:15:31">2021-12-26</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">885</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="树莓派提取固件"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><ul>
+<li><p>树莓派 4B（OS：Raspberry Pi OS）</p>
+<ul>
+<li>flashrom</li>
+</ul>
+</li>
+<li><p>双母头杜邦线</p>
+</li>
+<li><p>测试钩</p>
+<p>  <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://gitee.com/mrskye/Picbed/raw/master/img/20211225002406.jpg"></p>
+</li>
+</ul>
+<h3 id="开启树莓派SPI（串行外设接口）"><a href="#开启树莓派SPI（串行外设接口）" class="headerlink" title="开启树莓派SPI（串行外设接口）"></a>开启树莓派SPI（串行外设接口）</h3><p>默认情况下禁用 SPI ，需要手动开启：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo raspi-config</span><br></pre></td></tr></table></figure>
+
+<p>打开树莓派设置 -&gt; Interface Options -&gt; SPI -&gt; enable 。配置完整后 /boot/config.txt 会取消注释 <code>dtparam=spi=on</code> ，代表是启用 SPI0 ，默认情况下使用 2 条芯片选择线（片选通道）。</p>
+<p>如果正常开启会在 /dev 下会有两个驱动对应两个片选：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls /dev/spi*</span><br><span class="line"><span class="comment">#/dev/spidev0.0  /dev/spidev0.1</span></span><br></pre></td></tr></table></figure>
+
+<p>Rapsberry Pi Zero、1、2 和 3 具有三个 SPI 控制器：</p>
+<ul>
+<li>SPI0 具有两个芯片片选，在 Pi 都可用；还有一个仅在计算模块上的备用替代映射。</li>
+<li>SPI1 具有三个芯片片选，除 Pi 1 以外的都能用。</li>
+<li>SPI2 具有三个芯片片选，仅在 Pi 1、3 和 3+ 上可用。</li>
+</ul>
+<p>在 Pi 4 上，有额外四个的 SPI 总线：SPI3-SPI6，每个都有 2 个芯片片选。额外的 SPI 总线通过特定 GPIO 引脚上的备用映射分配。关于 SPI 更详细信息查阅<a target="_blank" rel="noopener" href="https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#spi-hardware">官方文档SPI硬件</a>、<a target="_blank" rel="noopener" href="https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#driver">官方文档开启其他SPI配置</a>。</p>
+<p>内核也会加载对应 mod ，默认的 Linux 驱动程序是<code>spi-bcm2835</code> 。这个驱动文件与上面开启 SPI3-SPI6 总线有关，开启这部分总线需要更换驱动程序为 <code>spi-bcm2711</code>，具体查阅<a target="_blank" rel="noopener" href="https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#pingpio-mappings">官方文档</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lsmod | grep spi</span><br><span class="line"><span class="comment">#spidev                 24576  0</span></span><br><span class="line"><span class="comment">#spi_bcm2835            24576  0</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="树莓派引脚定义"><a href="#树莓派引脚定义" class="headerlink" title="树莓派引脚定义"></a>树莓派引脚定义</h3><p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://gitee.com/mrskye/Picbed/raw/master/img/20211225014322.png" alt="GPIO-Pinout-Diagram-2"></p>
+<h4 id="代号含义"><a href="#代号含义" class="headerlink" title="代号含义"></a>代号含义</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SCLK - Serial CLocK | 时钟</span><br><span class="line">CE   - Chip Enable (often called Chip Select) | 片选</span><br><span class="line">MOSI - Master Out Slave In	| </span><br><span class="line">MISO - Master In Slave Out</span><br><span class="line">MOMI - Master Out Master In</span><br></pre></td></tr></table></figure>
+
+<h3 id="SPI功能引脚定义"><a href="#SPI功能引脚定义" class="headerlink" title="SPI功能引脚定义"></a>SPI功能引脚定义</h3><p>主要使用 SPI0、SPI1 ，其他 <a target="_blank" rel="noopener" href="https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#pingpio-mappings">SPI 总线引脚映射</a>。</p>
+<h4 id="SPI0"><a href="#SPI0" class="headerlink" title="SPI0"></a>SPI0</h4><table>
+<thead>
+<tr>
+<th>SPI Function</th>
+<th>Header Pin</th>
+<th>Broadcom Pin Name</th>
+<th>Broadcom Pin Function</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MOSI</td>
+<td>19</td>
+<td>GPIO10</td>
+<td>SPI0_MOSI</td>
+</tr>
+<tr>
+<td>MISO</td>
+<td>21</td>
+<td>GPIO09</td>
+<td>SPI0_MISO</td>
+</tr>
+<tr>
+<td>SCLK</td>
+<td>23</td>
+<td>GPIO11</td>
+<td>SPI0_SCLK</td>
+</tr>
+<tr>
+<td>CE0</td>
+<td>24</td>
+<td>GPIO08</td>
+<td>SPI0_CE0_N</td>
+</tr>
+<tr>
+<td>CE1</td>
+<td>26</td>
+<td>GPIO07</td>
+<td>SPI0_CE1_N</td>
+</tr>
+</tbody></table>
+<h4 id="SPI1"><a href="#SPI1" class="headerlink" title="SPI1"></a>SPI1</h4><table>
+<thead>
+<tr>
+<th>SPI Function</th>
+<th>Header Pin</th>
+<th>Broadcom Pin Name</th>
+<th>Broadcom Pin Function</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MOSI</td>
+<td>38</td>
+<td>GPIO20</td>
+<td>SPI1_MOSI</td>
+</tr>
+<tr>
+<td>MISO</td>
+<td>35</td>
+<td>GPIO19</td>
+<td>SPI1_MISO</td>
+</tr>
+<tr>
+<td>SCLK</td>
+<td>40</td>
+<td>GPIO21</td>
+<td>SPI1_SCLK</td>
+</tr>
+<tr>
+<td>CE0</td>
+<td>12</td>
+<td>GPIO18</td>
+<td>SPI1_CE0_N</td>
+</tr>
+<tr>
+<td>CE1</td>
+<td>11</td>
+<td>GPIO17</td>
+<td>SPI1_CE1_N</td>
+</tr>
+<tr>
+<td>CE2</td>
+<td>36</td>
+<td>GPIO16</td>
+<td>SPI1_CE2_N</td>
+</tr>
+</tbody></table>
+<h2 id="从Flash中提取"><a href="#从Flash中提取" class="headerlink" title="从Flash中提取"></a>从Flash中提取</h2><h3 id="寻找"><a href="#寻找" class="headerlink" title="寻找"></a>寻找</h3><p>针对 <strong>SOP8/16 封装的 SPI Flash 芯片</strong>。寻找到主板上 flash 后到**<a target="_blank" rel="noopener" href="http://www.semiee.com/">半导小芯</a>**查询芯片手册，描述会有说明芯片通信协议。</p>
+<p>SOP 8/16 封装引脚定义图：</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://gitee.com/mrskye/Picbed/raw/master/img/20211225014311.png" alt="SOP8/SOP16"></p>
+<h3 id="接线"><a href="#接线" class="headerlink" title="接线"></a>接线</h3><blockquote>
+<p>flashrom document 接线说明：<a target="_blank" rel="noopener" href="https://www.flashrom.org/RaspberryPi">https://www.flashrom.org/RaspberryPi</a></p>
+</blockquote>
+<blockquote>
+<p>用的是 Pi 4B 文档提及 3.3V 不能大于 50mA 问题不存在，就不用管</p>
+</blockquote>
+<p><strong>SPI0 片选0 接线方式</strong>，片选 1 区别就是将 24 脚换成 26 脚</p>
+<table>
+<thead>
+<tr>
+<th>RPi header</th>
+<th>Broadcom Pin Function</th>
+<th>SPI flash</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>25</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>24</td>
+<td>SPI0_CE0_N</td>
+<td>/CS</td>
+</tr>
+<tr>
+<td>23</td>
+<td>SPI0_SCLK</td>
+<td>CLK</td>
+</tr>
+<tr>
+<td>21</td>
+<td>SPI0_MISO</td>
+<td>DO</td>
+</tr>
+<tr>
+<td>19</td>
+<td>SPI0_MOSI</td>
+<td>DI</td>
+</tr>
+<tr>
+<td>17</td>
+<td>3v3 Power</td>
+<td>VCC 3.3V (/HOLD, /WP)</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>In general the other pins (usually pin 3 is /WP and pin 7 is /HOLD) should be connected to Vcc unless they are required to be floating or connected to GND (both extremely uncommon for SPI flash chips). </p>
+<p><strong>一般 /WP 和 /HOLD 应该接 3.3V</strong>，除非是需要这两引脚需要悬空或者接地，具体查一下芯片手册</p>
+</blockquote>
+<p>对于 SOP8 封装芯片就按照上面引脚接线，如果是 SOP16 封装芯片忽略 NC 引脚，剩余 8 个引脚和 SOP8 一样接线方法。</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://gitee.com/mrskye/Picbed/raw/master/img/20211225204105.jpeg" alt="WechatIMG89-min"></p>
+<h3 id="提取"><a href="#提取" class="headerlink" title="提取"></a>提取</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flashrom -p linux_spi:dev=/dev/spidev0.0,spispeed=1000 -r rasp.bin</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>-p</code> ：指定 SPI 总线，注意片选接要对应，SPI0 接 24 脚对应是片选 0</li>
+<li><code>spispeed</code> ：读写速率</li>
+<li><code>-r</code> ：输出文件名</li>
+<li><code>-c</code> ：选择芯片型号。自动识别可能会识别出多个型号，需要根据提示选择合适型号</li>
+</ul>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://delikely.github.io/2021/01/11/%E5%85%8D%E6%8B%86%E8%8A%AF%E7%89%87%E6%8F%90%E5%8F%96%E5%9B%BA%E4%BB%B6">https://delikely.github.io/2021/01/11/%E5%85%8D%E6%8B%86%E8%8A%AF%E7%89%87%E6%8F%90%E5%8F%96%E5%9B%BA%E4%BB%B6</a></li>
+<li><a target="_blank" rel="noopener" href="https://wrongbaud.github.io/posts/BasicFUN-flashing/">https://wrongbaud.github.io/posts/BasicFUN-flashing/</a></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">SkYe231</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.mrskye.cn/archives/501bc7a2/">https://www.mrskye.cn/archives/501bc7a2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.mrskye.cn" target="_blank">SkYe231 Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a></div><div class="post_share"><div class="social-share" data-image="/img/default_cover2.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/archives/1321cf/"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/default_cover3.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">树莓派开启VNC远程连接</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">SkYe231</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">146</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">184</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">19</div></a></div></div><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:skye231@foxmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://www.mrskye.cn/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a><a class="social-icon" href="http://wpa.qq.com/msgrd?uin=910437231" target="_blank" title="QQ"><i class="iconfont icon-QQ"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">请修改默认公告</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7"><span class="toc-number">1.1.</span> <span class="toc-text">工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%90%AF%E6%A0%91%E8%8E%93%E6%B4%BESPI%EF%BC%88%E4%B8%B2%E8%A1%8C%E5%A4%96%E8%AE%BE%E6%8E%A5%E5%8F%A3%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">开启树莓派SPI（串行外设接口）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%91%E8%8E%93%E6%B4%BE%E5%BC%95%E8%84%9A%E5%AE%9A%E4%B9%89"><span class="toc-number">1.3.</span> <span class="toc-text">树莓派引脚定义</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E5%8F%B7%E5%90%AB%E4%B9%89"><span class="toc-number">1.3.1.</span> <span class="toc-text">代号含义</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SPI%E5%8A%9F%E8%83%BD%E5%BC%95%E8%84%9A%E5%AE%9A%E4%B9%89"><span class="toc-number">1.4.</span> <span class="toc-text">SPI功能引脚定义</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#SPI0"><span class="toc-number">1.4.1.</span> <span class="toc-text">SPI0</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SPI1"><span class="toc-number">1.4.2.</span> <span class="toc-text">SPI1</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8EFlash%E4%B8%AD%E6%8F%90%E5%8F%96"><span class="toc-number">2.</span> <span class="toc-text">从Flash中提取</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BB%E6%89%BE"><span class="toc-number">2.1.</span> <span class="toc-text">寻找</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E7%BA%BF"><span class="toc-number">2.2.</span> <span class="toc-text">接线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E5%8F%96"><span class="toc-number">2.3.</span> <span class="toc-text">提取</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="toc-number">3.</span> <span class="toc-text">参考文章</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/archives/5a1bc7a3/" title="伪造 vtable 劫持程序流程"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/default_cover5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="伪造 vtable 劫持程序流程"/></a><div class="content"><a class="title" href="/archives/5a1bc7a3/" title="伪造 vtable 劫持程序流程">伪造 vtable 劫持程序流程</a><time datetime="2021-12-26T15:36:32.879Z" title="更新于 2021-12-26 23:36:32">2021-12-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/501b87a3/" title="libc2.29_tcache_doublefree"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/default_cover4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="libc2.29_tcache_doublefree"/></a><div class="content"><a class="title" href="/archives/501b87a3/" title="libc2.29_tcache_doublefree">libc2.29_tcache_doublefree</a><time datetime="2021-12-26T15:35:22.359Z" title="更新于 2021-12-26 23:35:22">2021-12-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/5017c7a3/" title="Libc2.29类unlink_attack"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/default_cover1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Libc2.29类unlink_attack"/></a><div class="content"><a class="title" href="/archives/5017c7a3/" title="Libc2.29类unlink_attack">Libc2.29类unlink_attack</a><time datetime="2021-12-26T15:31:26.208Z" title="更新于 2021-12-26 23:31:26">2021-12-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/581bc7a3/" title="House_Of_Force"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/default_cover6.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="House_Of_Force"/></a><div class="content"><a class="title" href="/archives/581bc7a3/" title="House_Of_Force">House_Of_Force</a><time datetime="2021-12-26T15:30:25.281Z" title="更新于 2021-12-26 23:30:25">2021-12-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/533bc7a3/" title="SQL注入"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/default_cover1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SQL注入"/></a><div class="content"><a class="title" href="/archives/533bc7a3/" title="SQL注入">SQL注入</a><time datetime="2021-12-26T15:29:23.183Z" title="更新于 2021-12-26 23:29:23">2021-12-26</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/default_cover2.png')"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2021 By SkYe231</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a href="https://cloud.tencent.com/product/wh?from=12331" target="_blank">Hosted BY 云开发 Cloudbase</a>&nbsp;|&nbsp;<a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://mrskye.cn-gd.ufileos.com/img/2020-07-01-lGwrnPz3GuV4odmM.png" align="top" style="width:48px"></a><br /><div class="github-badge"><a rel="license" href="http://beian.miit.gov.cn/" target="_blank" title="粤ICP备20056619号"><span class="badge-subject">粤ICP备</span><span class="badge-value bg-black">20056619号</span></a></div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'default',
+      })
+      false && mermaid.init()
+    })
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善" data-fontsize="15px" data-random="true" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
