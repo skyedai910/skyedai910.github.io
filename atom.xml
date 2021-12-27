@@ -6,7 +6,7 @@
   <link href="https://www.mrskye.cn/atom.xml" rel="self"/>
   
   <link href="https://www.mrskye.cn/"/>
-  <updated>2021-12-26T15:15:31.778Z</updated>
+  <updated>2021-12-26T16:20:44.950Z</updated>
   <id>https://www.mrskye.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>命令执行</title>
+    <link href="https://www.mrskye.cn/archives/cf64b99a/"/>
+    <id>https://www.mrskye.cn/archives/cf64b99a/</id>
+    <published>2021-12-26T16:06:44.000Z</published>
+    <updated>2021-12-26T16:20:44.950Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;参考文章&quot;&gt;&lt;a href=&quot;#参考文章&quot; class=&quot;headerlink&quot; title=&quot;参考文章&quot;&gt;&lt;/a&gt;参考文章&lt;/h2&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://www.mrskye.cn/categories/Web/"/>
+    
+    
+    <category term="Web" scheme="https://www.mrskye.cn/tags/Web/"/>
+    
+    <category term="命令执行" scheme="https://www.mrskye.cn/tags/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/"/>
+    
+  </entry>
   
   <entry>
     <title>树莓派提取固件</title>
@@ -142,6 +169,29 @@
   </entry>
   
   <entry>
+    <title>DVWA Writeup</title>
+    <link href="https://www.mrskye.cn/archives/501bc7a3/"/>
+    <id>https://www.mrskye.cn/archives/501bc7a3/</id>
+    <published>2021-12-13T03:29:29.000Z</published>
+    <updated>2021-12-26T15:20:26.992Z</updated>
+    
+    
+    <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
+    
+    
+    
+    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
+    
+    <category term="Web" scheme="https://www.mrskye.cn/categories/Writeup/Web/"/>
+    
+    
+    <category term="Web" scheme="https://www.mrskye.cn/tags/Web/"/>
+    
+    <category term="DVWA" scheme="https://www.mrskye.cn/tags/DVWA/"/>
+    
+  </entry>
+  
+  <entry>
     <title>BUU Web Writeup</title>
     <link href="https://www.mrskye.cn/archives/501bc79/"/>
     <id>https://www.mrskye.cn/archives/501bc79/</id>
@@ -163,29 +213,6 @@
     
     
     <category term="Web" scheme="https://www.mrskye.cn/tags/Web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DVWA Writeup</title>
-    <link href="https://www.mrskye.cn/archives/501bc7a3/"/>
-    <id>https://www.mrskye.cn/archives/501bc7a3/</id>
-    <published>2021-12-13T03:29:29.000Z</published>
-    <updated>2021-12-26T15:20:26.992Z</updated>
-    
-    
-    <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
-    
-    
-    
-    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
-    
-    <category term="Web" scheme="https://www.mrskye.cn/categories/Writeup/Web/"/>
-    
-    
-    <category term="Web" scheme="https://www.mrskye.cn/tags/Web/"/>
-    
-    <category term="DVWA" scheme="https://www.mrskye.cn/tags/DVWA/"/>
     
   </entry>
   
@@ -480,27 +507,6 @@
     <category term="羊城杯" scheme="https://www.mrskye.cn/tags/%E7%BE%8A%E5%9F%8E%E6%9D%AF/"/>
     
     <category term="沙盒堆" scheme="https://www.mrskye.cn/tags/%E6%B2%99%E7%9B%92%E5%A0%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2021 祥云杯 Writeup</title>
-    <link href="https://www.mrskye.cn/archives/32d2b5/"/>
-    <id>https://www.mrskye.cn/archives/32d2b5/</id>
-    <published>2021-09-09T16:26:38.000Z</published>
-    <updated>2021-09-22T09:59:04.397Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;JigSaw’sCage&quot;&gt;&lt;a href=&quot;#JigSaw’sCage&quot; class=&quot;headerlink&quot; title=&quot;JigSaw’sCage&quot;&gt;&lt;/a&gt;JigSaw’sCage&lt;/h2&gt;&lt;p&gt;开始菜单 make choice 输入有个整形溢出，将</summary>
-        
-      
-    
-    
-    
     
   </entry>
   
