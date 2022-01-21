@@ -6,7 +6,7 @@
   <link href="https://www.mrskye.cn/atom.xml" rel="self"/>
   
   <link href="https://www.mrskye.cn/"/>
-  <updated>2022-01-19T07:14:28.823Z</updated>
+  <updated>2022-01-21T09:18:15.514Z</updated>
   <id>https://www.mrskye.cn/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Flask安全</title>
+    <link href="https://www.mrskye.cn/archives/56c89add/"/>
+    <id>https://www.mrskye.cn/archives/56c89add/</id>
+    <published>2022-01-21T04:23:52.000Z</published>
+    <updated>2022-01-21T09:18:15.514Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;session-伪造（会话篡改）&quot;&gt;&lt;a href=&quot;#session-伪造（会话篡改）&quot; class=&quot;headerlink&quot; title=&quot;session 伪造（会话篡改）&quot;&gt;&lt;/a&gt;session 伪造（会话篡改）&lt;/h2&gt;&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://www.mrskye.cn/categories/Web/"/>
+    
+    
+    <category term="Flask" scheme="https://www.mrskye.cn/tags/Flask/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Web-Base</title>
+    <link href="https://www.mrskye.cn/archives/dee08d53/"/>
+    <id>https://www.mrskye.cn/archives/dee08d53/</id>
+    <published>2022-01-19T07:46:10.000Z</published>
+    <updated>2022-01-20T08:00:37.375Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;弱类型比较&quot;&gt;&lt;a href=&quot;#弱类型比较&quot; class=&quot;headerlink&quot; title=&quot;弱类型比较&quot;&gt;&lt;/a&gt;弱类型比较&lt;/h2&gt;&lt;h3 id=&quot;弱类型简介&quot;&gt;&lt;a href=&quot;#弱类型简介&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Web" scheme="https://www.mrskye.cn/categories/Web/"/>
+    
+    
+    <category term="Web" scheme="https://www.mrskye.cn/tags/Web/"/>
+    
+  </entry>
   
   <entry>
     <title>反序列化</title>
@@ -86,10 +136,16 @@
     <link href="https://www.mrskye.cn/archives/dcfd805b/"/>
     <id>https://www.mrskye.cn/archives/dcfd805b/</id>
     <published>2022-01-03T15:27:55.000Z</published>
-    <updated>2022-01-19T07:14:28.825Z</updated>
+    <updated>2022-01-19T07:43:29.961Z</updated>
     
     
-    <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;变化&quot;&gt;&lt;a href=&quot;#变化&quot; class=&quot;headerlink&quot; title=&quot;变化&quot;&gt;&lt;/a&gt;变化&lt;/h2&gt;&lt;p&gt;安卓 7 以后引入了 SSL pinning ，最直接影响是：用户所安装的证书不再被系统信任，导致不能抓取 https</summary>
+        
+      
     
     
     
@@ -219,7 +275,7 @@
     <link href="https://www.mrskye.cn/archives/533bc7a3/"/>
     <id>https://www.mrskye.cn/archives/533bc7a3/</id>
     <published>2021-12-13T03:29:29.000Z</published>
-    <updated>2022-01-19T07:12:03.233Z</updated>
+    <updated>2022-01-19T07:23:51.997Z</updated>
     
     
       
@@ -295,7 +351,7 @@
     <link href="https://www.mrskye.cn/archives/501bc79/"/>
     <id>https://www.mrskye.cn/archives/501bc79/</id>
     <published>2021-12-13T03:29:29.000Z</published>
-    <updated>2022-01-19T07:14:58.564Z</updated>
+    <updated>2022-01-21T09:40:53.088Z</updated>
     
     
       
@@ -308,9 +364,9 @@
     
     
     
-    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
+    <category term="Web" scheme="https://www.mrskye.cn/categories/Web/"/>
     
-    <category term="Web" scheme="https://www.mrskye.cn/categories/Writeup/Web/"/>
+    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Web/Writeup/"/>
     
     
     <category term="Web" scheme="https://www.mrskye.cn/tags/Web/"/>
@@ -441,50 +497,6 @@
     
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>2021 长安杯决赛 Writeup</title>
-    <link href="https://www.mrskye.cn/archives/5a8ecb34/"/>
-    <id>https://www.mrskye.cn/archives/5a8ecb34/</id>
-    <published>2021-10-21T14:18:34.000Z</published>
-    <updated>2021-10-26T16:33:29.201Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;决赛是早上 4 小时 awd ，下午 4 小时仿真环境渗透。&lt;/p&gt;
-&lt;p&gt;awd pwn 题目进入菜单的 xtea 加密确实头大，获取密码之后就是一个堆溢出。。。&lt;/p&gt;
-&lt;p&gt;这题也是 2021 xman</summary>
-        
-      
-    
-    
-    
-    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
-    
-    
-    <category term="长安杯" scheme="https://www.mrskye.cn/tags/%E9%95%BF%E5%AE%89%E6%9D%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>去除花指令总结</title>
-    <link href="https://www.mrskye.cn/archives/1864d911/"/>
-    <id>https://www.mrskye.cn/archives/1864d911/</id>
-    <published>2021-10-19T15:51:22.000Z</published>
-    <updated>2021-10-21T14:39:35.793Z</updated>
-    
-    
-    <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
-    
-    
-    
-    
-    <category term="花指令" scheme="https://www.mrskye.cn/tags/%E8%8A%B1%E6%8C%87%E4%BB%A4/"/>
     
   </entry>
   
