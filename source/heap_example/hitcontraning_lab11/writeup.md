@@ -28,7 +28,7 @@ printf("Please enter the new name of the item:", &v4);
 
 house of force 使用条件都满足，先明确将 topchunk 向上调多少。申请好等等用来溢出修改 topchunk size 的 chunk 之后，gdb 调试。
 
-![image-20201103111102583](https://gitee.com/mrskye/Picbed/raw/master/img/20201103111102.png)
+![image-20201103111102583](https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/20201103111102.png)
 
 这里就直接将堆申请覆盖整个第一个堆块，距离计算：
 
@@ -38,7 +38,7 @@ add(-0xa0,'b')
 add(0x10,'skye'*2+p64(elf.sym['magic']))
 ```
 
-![image-20201103112332803](https://gitee.com/mrskye/Picbed/raw/master/img/20201103112332.png)
+![image-20201103112332803](https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/20201103112332.png)
 
 后面就申请一个堆，写入内容，也就是任意地址写。
 

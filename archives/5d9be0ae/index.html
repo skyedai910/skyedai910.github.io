@@ -1,0 +1,321 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>利用HackRF进行GPS定位欺骗 | SkYe231 Blog</title><meta name="keywords" content="HackRF,GPS定位欺骗"><meta name="author" content="SkYe231"><meta name="copyright" content="SkYe231"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="需要硬件设备 HackRF  HackRF 连接数据线  外部时钟模块（TCXO 时钟模块）  天线（淘宝套餐中的 700MHz-2700MHz 吸盘天线）      需要软件应用 hackrf-tools Google Earth Pro gps-sdr-sim SatGen Trajectory Generation  操作流程概述 用 Google Earth Pro 制作运动轨迹坐标 km">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用HackRF进行GPS定位欺骗">
+<meta property="og:url" content="https://www.mrskye.cn/archives/5d9be0ae/index.html">
+<meta property="og:site_name" content="SkYe231 Blog">
+<meta property="og:description" content="需要硬件设备 HackRF  HackRF 连接数据线  外部时钟模块（TCXO 时钟模块）  天线（淘宝套餐中的 700MHz-2700MHz 吸盘天线）      需要软件应用 hackrf-tools Google Earth Pro gps-sdr-sim SatGen Trajectory Generation  操作流程概述 用 Google Earth Pro 制作运动轨迹坐标 km">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.mrskye.cn/img/default_cover5.jpg">
+<meta property="article:published_time" content="2022-03-01T06:22:32.000Z">
+<meta property="article:modified_time" content="2022-03-25T07:47:44.771Z">
+<meta property="article:author" content="SkYe231">
+<meta property="article:tag" content="HackRF">
+<meta property="article:tag" content="GPS定位欺骗">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.mrskye.cn/img/default_cover5.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.mrskye.cn/archives/5d9be0ae/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?8184ae9371af7cedfa47d27c247e16b8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-154693872-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-154693872-1');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"这篇文章距离上次更新已经","messageNext":"天，内容可能已经过时了。"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":200,"languages":{"author":"作者: SkYe231","link":"链接: ","source":"来源: SkYe231 Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '利用HackRF进行GPS定位欺骗',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-03-25 15:47:44'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="//at.alicdn.com/t/font_2567732_2yo06945456.css"><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="SkYe231 Blog" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">161</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">195</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">20</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-wrench"></i><span> 工具</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="http://mrskye.gitee.io/cyberchef/"><i class="fa-fw fas fa-key"></i><span> cyberchef</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://travellings.link"><i class="fa-fw fas fa-subway"></i><span> 开往</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fas fa-rss"></i><span> RSS</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/default_cover5.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">SkYe231 Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-wrench"></i><span> 工具</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="http://mrskye.gitee.io/cyberchef/"><i class="fa-fw fas fa-key"></i><span> cyberchef</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://travellings.link"><i class="fa-fw fas fa-subway"></i><span> 开往</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fas fa-rss"></i><span> RSS</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">利用HackRF进行GPS定位欺骗</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-03-01T06:22:32.000Z" title="发表于 2022-03-01 14:22:32">2022-03-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-03-25T07:47:44.771Z" title="更新于 2022-03-25 15:47:44">2022-03-25</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="利用HackRF进行GPS定位欺骗"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="需要硬件设备"><a href="#需要硬件设备" class="headerlink" title="需要硬件设备"></a>需要硬件设备</h2><ul>
+<li><p>HackRF</p>
+</li>
+<li><p>HackRF 连接数据线</p>
+</li>
+<li><p>外部时钟模块（TCXO 时钟模块）</p>
+</li>
+<li><p>天线（淘宝套餐中的 700MHz-2700MHz 吸盘天线）</p>
+<p>  <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/20220303001038.png" alt="image-20220303001036670"></p>
+</li>
+</ul>
+<h2 id="需要软件应用"><a href="#需要软件应用" class="headerlink" title="需要软件应用"></a>需要软件应用</h2><ul>
+<li>hackrf-tools</li>
+<li><a target="_blank" rel="noopener" href="https://www.google.com/earth/versions/#earth-pro">Google Earth Pro</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/osqzss/gps-sdr-sim">gps-sdr-sim</a></li>
+<li><a target="_blank" rel="noopener" href="https://files.cnblogs.com/files/k1two2/SatGenNMEAFree.zip">SatGen Trajectory Generation</a></li>
+</ul>
+<h2 id="操作流程概述"><a href="#操作流程概述" class="headerlink" title="操作流程概述"></a>操作流程概述</h2><ol>
+<li>用 Google Earth Pro 制作运动轨迹坐标 kml 文件</li>
+<li>前往 NASA 官网下载 GPS 导航电文</li>
+<li>用 gps-sdr-sim 将 GPS 导航电文和运动轨迹坐标 kml 文件生成采样文件</li>
+<li>hackrf_transfer 发射 GPS 欺骗信号</li>
+</ol>
+<h2 id="运动轨迹坐标文件"><a href="#运动轨迹坐标文件" class="headerlink" title="运动轨迹坐标文件"></a>运动轨迹坐标文件</h2><p><strong>Google Earth Pro 查看国内地图会存在火星偏移，即卫星图与显示地名、街道信息不对应，以卫星图为准！</strong></p>
+<p>启动 Google Earth Pro ，寻找需要模拟地点，点击添加路径：</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/20220301172542.png" alt="image-20220301172540965"></p>
+<p>用鼠标点击图上勾画出路径：</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/20220317125902.png" alt="image-20220317125855804"></p>
+<p>绘图完成并保存后，在 <code>位置</code> 可以找到保存的路径，右键<code>将位置另存为</code>导出 kml 文件：</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/20220301194157.png" alt="image-20220301194155815"></p>
+<p>kml 文件内容展示：</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/20220302005458.png" alt="image-20220302005431648"></p>
+<h2 id="NMEA文件"><a href="#NMEA文件" class="headerlink" title="NMEA文件"></a>NMEA文件</h2><p>NMEA 是 GPS 导航设备统一的 RTCM 标准协议，包含坐标、海拔、时间轨迹。</p>
+<p>将运动轨迹坐标 kml 文件导入 SatGen ，就会自动加载 kml 路径</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/20220302110033.png" alt="image-20220302110025742"></p>
+<h3 id="调参拟合"><a href="#调参拟合" class="headerlink" title="调参拟合"></a>调参拟合</h3><p>调整参数将速度轨迹向真实情况进行拟合，SatGen 会模拟真实运动情况，如：拐弯减速、起步&amp;结束停留……</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">output					数据更新率</span><br><span class="line">max longacc				最大纵向加速度</span><br><span class="line">max jerk				最大加速度</span><br><span class="line">max latacc				最大横向加速度</span><br><span class="line">max speed				最大速度</span><br><span class="line">stationary period		起步停留时间</span><br><span class="line">stationary period end	结束停留时间</span><br><span class="line">scenario distance		总路程长度</span><br><span class="line">total time 				总耗时</span><br></pre></td></tr></table></figure>
+
+<p>点击 <code>Generate NMEA file</code> ，即可生成标准的 NMEA 轨迹文件 </p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/20220302112119.png" alt="image-20220302111437637"></p>
+<p>GPGGA 格式，其内容定义如下：</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/20220302010636.png" alt="img"></p>
+<h3 id="绕圈轨迹制作"><a href="#绕圈轨迹制作" class="headerlink" title="绕圈轨迹制作"></a>绕圈轨迹制作</h3><p>要制作绕圈跑的 NMEA 轨迹只需要画一圈，将 NMEA 文件内容复制粘贴即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$GPGGA,090453.93,2306.36704898,N,11328.49988987,E,1,05,2.87,160.00,M,-21.3213,M,,*7C</span><br><span class="line">$GPGGA,090454.00,2306.36704898,N,11328.49988987,E,1,05,2.87,160.00,M,-21.3213,M,,*71</span><br><span class="line">……</span><br><span class="line">$GPGGA,090453.93,2306.36704898,N,11328.49988987,E,1,05,2.87,160.00,M,-21.3213,M,,*7C</span><br><span class="line">$GPGGA,090454.00,2306.36704898,N,11328.49988987,E,1,05,2.87,160.00,M,-21.3213,M,,*71</span><br><span class="line">……</span><br></pre></td></tr></table></figure>
+
+<h2 id="GPS导航电文"><a href="#GPS导航电文" class="headerlink" title="GPS导航电文"></a>GPS导航电文</h2><blockquote>
+<p>引用自：<a target="_blank" rel="noopener" href="http://www.beidou.gov.cn/zy/kpyd/201710/t20171011_4597.html">http://www.beidou.gov.cn/zy/kpyd/201710/t20171011_4597.html</a></p>
+</blockquote>
+<p>GPS 卫星发送的导航电文是每秒50位的连续的数据流，每颗卫星都同时向地面发送以下信息：系统时间、时钟校正值、自身精确的轨道数据、其他卫星的近似轨道信息、电离层模型参数和世界协调时（UTC）数据等系统状态信息。</p>
+<p>导航电文用于计算卫星当前的位置和信号传输的时间，从而使 GPS 接收机在接收导航电文后能确定自身的位置。</p>
+<p>各个接收机厂商普遍采用统一的 RINEX 格式，RINEX 本质上是文本文件，RINEX 文件遵循标准的<a target="_blank" rel="noopener" href="https://cddis.nasa.gov/Data_and_Derived_Products/GNSS/RINEX_Version_3.html">命名规则</a>，具体如下图所示：</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/20220301160628.png" alt="img"></p>
+<h3 id="获取GPS导航电文"><a href="#获取GPS导航电文" class="headerlink" title="获取GPS导航电文"></a>获取GPS导航电文</h3><p>可以在 NASA 官网上获取 RINEX 格式的 GPS 导航电文，原 <a href="ftp://cddis.gsfc.nasa.gov/pub/gps/data/daily">ftp</a> 地址在 2020 年 10 月由于安全原因停止使用，现在下载地址：<a target="_blank" rel="noopener" href="https://cddis.nasa.gov/archive/gnss/data/daily/">https://cddis.nasa.gov/archive/gnss/data/daily/</a> 。</p>
+<blockquote>
+<p>武汉大学 IGS 数据中心也可以下载广播星历，数据延迟一天</p>
+<p><a target="_blank" rel="noopener" href="http://www.igs.gnsswhu.cn/index.php/home/data_product/igs.html">http://www.igs.gnsswhu.cn/index.php/home/data_product/igs.html</a></p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/20220301161159.png" alt="image-20220301161157788"></p>
+<p>打开选择最新的年份，然后滑到最底部的 brdc ，点开找最新的导航电文（<code>n.gz</code> 结尾）：</p>
+<blockquote>
+<p>例如：<a target="_blank" rel="noopener" href="https://cddis.nasa.gov/archive/gnss/data/daily/2022/brdc/brdc0600.22n.gz">https://cddis.nasa.gov/archive/gnss/data/daily/2022/brdc/brdc0600.22n.gz</a></p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/20220301161351.png" alt="image-20220301161349695"></p>
+<h3 id="GPS导航电文定义"><a href="#GPS导航电文定义" class="headerlink" title="GPS导航电文定义"></a>GPS导航电文定义</h3><p>解压后可以用文本编辑器打开：</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/20220301163647.png" alt="image-20220301163645981"></p>
+<p>导航电文文件结果如图所示：</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/20220301163924.png" alt="img"></p>
+<h2 id="生成采样文件"><a href="#生成采样文件" class="headerlink" title="生成采样文件"></a>生成采样文件</h2><p>利用 <a target="_blank" rel="noopener" href="https://github.com/osqzss/gps-sdr-sim">gps-sdr-sim</a> 配合 GPS 导航电文和 NMEA 文件生成 HackRF 发射信号需要的采样文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/osqzss/gps-sdr-sim.git</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改动态模式时间上限"><a href="#修改动态模式时间上限" class="headerlink" title="修改动态模式时间上限"></a>修改动态模式时间上限</h3><p>gps-sdr-sim 默认动态模式最大只能生成 300s ；静态模式 86400s （10Hz）。结合实际情况修改 <code>gpssim.h</code> 的 <code>USER_MOTION_SIZE</code> 实现自定义时间上限。</p>
+<p>将 <code>USER_MOTION_SIZE</code> 调得比 NMEA 轨迹总耗时长 30s 以上。HackRF 开始发出信号，到手机 GPS 被欺骗需要一定时间（30s左右），所以时间上限比时间时间多加 30s ，让定位稳定被欺骗，以防在模拟定位与真实定位之间跳变</p>
+<p>最终运行作用时长取决于较短的那个时间。假如轨迹总耗时 400s ，<code>USER_MOTION_SIZE</code> 定义动态模拟时间上限 300s ，最终运行 300s 。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#3000 == 300s</span></span><br><span class="line">make USER_MOTION_SIZE=3000</span><br></pre></td></tr></table></figure>
+
+<h3 id="编译gps-sdr-sim"><a href="#编译gps-sdr-sim" class="headerlink" title="编译gps-sdr-sim"></a>编译gps-sdr-sim</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc gpssim.c -lm -O3 -o gps-sdr-sim</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">用法：gps-sdr-sim [选项]</span><br><span class="line">选项：</span><br><span class="line">   -e &lt;gps_nav&gt;用于GPS星历表的RINEX导航文件（必填）</span><br><span class="line">   -u &lt;user_motion&gt;用户动作文件（动态模式）</span><br><span class="line">   -g &lt;nmea_gga&gt; NMEA GGA流（动态模式）</span><br><span class="line">   -c &lt;位置&gt; ECEF X，Y，Z，以米为单位（静态模式），例如3967283.15,1022538.18,4872414.48</span><br><span class="line">   -l &lt;位置&gt; Lat，Lon，Hgt（静态模式），例如30.286502,120.032669,100</span><br><span class="line">   -t &lt;日期，时间&gt;场景开始时间YYYY / MM / DD，hh：mm：ss</span><br><span class="line">   -T &lt;日期，时间&gt;将TOC和TOE覆盖到方案开始时间</span><br><span class="line">   -d &lt;欺骗时间&gt;持续时间[秒]（动态模式最大值：300静态模式最大值：86400）</span><br><span class="line">   -o &lt;输出&gt; I/Q采样数据文件（默认值：gpssim.bin;使用 - 用于stdout）</span><br><span class="line">   -s &lt;频率&gt;采样频率[Hz]（默认值：2600000）</span><br><span class="line">   -b &lt;iq_bits&gt; I/Q数据格式[1/8/16]（默认值：16）</span><br><span class="line">   -i 禁用航天器场景的电离层延迟</span><br><span class="line">   -v 显示有关模拟频道的详细信息</span><br></pre></td></tr></table></figure>
+
+<h3 id="生成采样文件-1"><a href="#生成采样文件-1" class="headerlink" title="生成采样文件"></a>生成采样文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./gps-sdr-sim -e &lt;导航电文文件&gt; -g &lt;轨迹文件&gt; -b 8 -o &lt;输出二进制文件路径&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>-b 8</code>  ：降低输出文件大小。hackrf 支持的是8-bit的二进制文件，其他 sdr 查询 <a target="_blank" rel="noopener" href="https://github.com/osqzss/gps-sdr-sim">readme</a></li>
+</ul>
+<h2 id="发射GPS欺骗信号"><a href="#发射GPS欺骗信号" class="headerlink" title="发射GPS欺骗信号"></a>发射GPS欺骗信号</h2><h3 id="hackrf-tools-安装"><a href="#hackrf-tools-安装" class="headerlink" title="hackrf-tools 安装"></a>hackrf-tools 安装</h3><p>Mac brew 直接安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install hackrf</span><br></pre></td></tr></table></figure>
+
+<p>连接上 hackrf 之后，<code>hackrf_info</code> 查看连接是否成功：</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/20220304110332.png" alt="image-20220304110331956"></p>
+<h3 id="安装外部TCXO（时钟晶振）"><a href="#安装外部TCXO（时钟晶振）" class="headerlink" title="安装外部TCXO（时钟晶振）"></a>安装外部TCXO（时钟晶振）</h3><p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/20220304110043.png" alt="image-20220304110035458"></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/20220304110054.png"></p>
+<p>安装 TCXO 后，使用<code> hackrf_debug -–si5351c -n 0 -r</code>检查 TCXO 是否被识别和使用。输出<code> [0] -&gt; 0x01</code>表示使用 TCXO，而<code> [0] -&gt; 0x51</code>表示不使用 TCXO。</p>
+<h3 id="发射信号"><a href="#发射信号" class="headerlink" title="发射信号"></a>发射信号</h3><blockquote>
+<p>来源：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_51663706/article/details/121274801">https://blog.csdn.net/qq_51663706/article/details/121274801</a></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hackrf_transfer -t gpssim.bin -f 1575420000 -s 2600000 -a 1 -x 20 -R</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>-t：信号采样文件（gps-sdr-sim 生成的 bin 文件）</li>
+<li>-f：频率赫兹；美国官方的GPS L1信号频段1575420000Hz</li>
+<li>-s：HackRF 采样速率 2.6Msps（其他 sdr 查看 <a target="_blank" rel="noopener" href="https://github.com/osqzss/gps-sdr-sim">readme</a> ）</li>
+<li>-a：放大器使能，接收/发射射频放大器：1=使能；0=禁用</li>
+<li>-x：增益分贝，TX VGA(中频)增益，0-47db；1dB步长</li>
+<li>-R：重复发射模式</li>
+</ul>
+<h2 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/356119820">https://zhuanlan.zhihu.com/p/356119820</a></p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/k1two2/p/6387701.html">https://www.cnblogs.com/k1two2/p/6387701.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42652838/article/details/100128968">https://blog.csdn.net/qq_42652838/article/details/100128968</a></p>
+<p><a target="_blank" rel="noopener" href="https://wooyun.js.org/drops/%E7%8B%97%E6%B1%AA%E6%B1%AA%E7%8E%A9%E8%BD%AC%E6%97%A0%E7%BA%BF%E7%94%B5%20--%20GPS%20Hacking%20">https://wooyun.js.org/drops/%E7%8B%97%E6%B1%AA%E6%B1%AA%E7%8E%A9%E8%BD%AC%E6%97%A0%E7%BA%BF%E7%94%B5%20--%20GPS%20Hacking%20</a>(%E4%B8%8A%EF%BC%89.html</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">SkYe231</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.mrskye.cn/archives/5d9be0ae/">https://www.mrskye.cn/archives/5d9be0ae/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.mrskye.cn" target="_blank">SkYe231 Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/HackRF/">HackRF</a><a class="post-meta__tags" href="/tags/GPS%E5%AE%9A%E4%BD%8D%E6%AC%BA%E9%AA%97/">GPS定位欺骗</a></div><div class="post_share"><div class="social-share" data-image="/img/default_cover5.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/archives/93194e8e/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/default_cover2.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">busybox all in one</div></div></a></div><div class="next-post pull-right"><a href="/archives/ab1534f8/"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/default_cover5.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">CobaltStrike通过匿名域名&amp;CDN隐藏IP</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">SkYe231</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">161</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">195</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">20</div></a></div></div><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:skye231@foxmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://www.mrskye.cn/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a><a class="social-icon" href="http://wpa.qq.com/msgrd?uin=910437231" target="_blank" title="QQ"><i class="iconfont icon-QQ"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">请修改默认公告</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9C%80%E8%A6%81%E7%A1%AC%E4%BB%B6%E8%AE%BE%E5%A4%87"><span class="toc-number">1.</span> <span class="toc-text">需要硬件设备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9C%80%E8%A6%81%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">需要软件应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%B5%81%E7%A8%8B%E6%A6%82%E8%BF%B0"><span class="toc-number">3.</span> <span class="toc-text">操作流程概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E5%8A%A8%E8%BD%A8%E8%BF%B9%E5%9D%90%E6%A0%87%E6%96%87%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text">运动轨迹坐标文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NMEA%E6%96%87%E4%BB%B6"><span class="toc-number">5.</span> <span class="toc-text">NMEA文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E5%8F%82%E6%8B%9F%E5%90%88"><span class="toc-number">5.1.</span> <span class="toc-text">调参拟合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%95%E5%9C%88%E8%BD%A8%E8%BF%B9%E5%88%B6%E4%BD%9C"><span class="toc-number">5.2.</span> <span class="toc-text">绕圈轨迹制作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GPS%E5%AF%BC%E8%88%AA%E7%94%B5%E6%96%87"><span class="toc-number">6.</span> <span class="toc-text">GPS导航电文</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96GPS%E5%AF%BC%E8%88%AA%E7%94%B5%E6%96%87"><span class="toc-number">6.1.</span> <span class="toc-text">获取GPS导航电文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPS%E5%AF%BC%E8%88%AA%E7%94%B5%E6%96%87%E5%AE%9A%E4%B9%89"><span class="toc-number">6.2.</span> <span class="toc-text">GPS导航电文定义</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E9%87%87%E6%A0%B7%E6%96%87%E4%BB%B6"><span class="toc-number">7.</span> <span class="toc-text">生成采样文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%8A%A8%E6%80%81%E6%A8%A1%E5%BC%8F%E6%97%B6%E9%97%B4%E4%B8%8A%E9%99%90"><span class="toc-number">7.1.</span> <span class="toc-text">修改动态模式时间上限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91gps-sdr-sim"><span class="toc-number">7.2.</span> <span class="toc-text">编译gps-sdr-sim</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E9%87%87%E6%A0%B7%E6%96%87%E4%BB%B6-1"><span class="toc-number">7.3.</span> <span class="toc-text">生成采样文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%91%E5%B0%84GPS%E6%AC%BA%E9%AA%97%E4%BF%A1%E5%8F%B7"><span class="toc-number">8.</span> <span class="toc-text">发射GPS欺骗信号</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#hackrf-tools-%E5%AE%89%E8%A3%85"><span class="toc-number">8.1.</span> <span class="toc-text">hackrf-tools 安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%A4%96%E9%83%A8TCXO%EF%BC%88%E6%97%B6%E9%92%9F%E6%99%B6%E6%8C%AF%EF%BC%89"><span class="toc-number">8.2.</span> <span class="toc-text">安装外部TCXO（时钟晶振）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%91%E5%B0%84%E4%BF%A1%E5%8F%B7"><span class="toc-number">8.3.</span> <span class="toc-text">发射信号</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E6%96%B9%E6%B3%95"><span class="toc-number">9.</span> <span class="toc-text">其他方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="toc-number">10.</span> <span class="toc-text">参考文章</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/archives/dcfd805b/" title="安卓7以上APP抓包环境配置"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/default_cover2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="安卓7以上APP抓包环境配置"/></a><div class="content"><a class="title" href="/archives/dcfd805b/" title="安卓7以上APP抓包环境配置">安卓7以上APP抓包环境配置</a><time datetime="2022-03-25T07:47:45.279Z" title="更新于 2022-03-25 15:47:45">2022-03-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/d85b8fc8/" title="树莓派4b抓取IOT流量环境配置"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/default_cover0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="树莓派4b抓取IOT流量环境配置"/></a><div class="content"><a class="title" href="/archives/d85b8fc8/" title="树莓派4b抓取IOT流量环境配置">树莓派4b抓取IOT流量环境配置</a><time datetime="2022-03-25T07:47:45.278Z" title="更新于 2022-03-25 15:47:45">2022-03-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/d4cc29fc/" title="d4cc29fc"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/default_cover4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="d4cc29fc"/></a><div class="content"><a class="title" href="/archives/d4cc29fc/" title="d4cc29fc">d4cc29fc</a><time datetime="2022-03-25T07:47:45.259Z" title="更新于 2022-03-25 15:47:45">2022-03-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/1321cf/" title="树莓派开启VNC远程连接"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/default_cover1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="树莓派开启VNC远程连接"/></a><div class="content"><a class="title" href="/archives/1321cf/" title="树莓派开启VNC远程连接">树莓派开启VNC远程连接</a><time datetime="2022-03-25T07:47:45.258Z" title="更新于 2022-03-25 15:47:45">2022-03-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/8c4c947e/" title="代码执行"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/default_cover0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="代码执行"/></a><div class="content"><a class="title" href="/archives/8c4c947e/" title="代码执行">代码执行</a><time datetime="2022-03-25T07:47:45.258Z" title="更新于 2022-03-25 15:47:45">2022-03-25</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/default_cover5.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2022 By SkYe231</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a href="https://cloud.tencent.com/product/wh?from=12331" target="_blank">Hosted BY 云开发 Cloudbase</a>&nbsp;|&nbsp;<a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://mrskye.cn-gd.ufileos.com/img/2020-07-01-lGwrnPz3GuV4odmM.png" align="top" style="width:48px"></a><br /><div class="github-badge"><a rel="license" href="http://beian.miit.gov.cn/" target="_blank" title="粤ICP备20056619号"><span class="badge-subject">粤ICP备</span><span class="badge-value bg-black">20056619号</span></a></div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'default',
+      })
+      false && mermaid.init()
+    })
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善" data-fontsize="15px" data-random="true" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
