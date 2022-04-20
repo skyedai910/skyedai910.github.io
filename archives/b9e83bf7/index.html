@@ -1,0 +1,286 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WiFi安全科普（协议&amp;应用设置） | SkYe231 Blog</title><meta name="keywords" content="WiFi协议"><meta name="author" content="SkYe231"><meta name="copyright" content="SkYe231"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="工作上需要分享一次关于 WiFi 安全的内容，大概角度是协议与应用设置，下面是准备的文字稿  WiFi攻击下面是整理 WiFi 从协议、机制等角度的攻击面，不包含由于路由器系统开发疏忽而导致的软件漏洞。 ARP攻击网卡工作模式 广播模式（ Broad Cast Model ）:它的物理地址（ MAC ）地址是 0Xffffff 的帧为广播帧，工作在广播模式的网卡接收广播帧。   多播传送（ Mu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WiFi安全科普（协议&amp;应用设置）">
+<meta property="og:url" content="https://www.mrskye.cn/archives/b9e83bf7/index.html">
+<meta property="og:site_name" content="SkYe231 Blog">
+<meta property="og:description" content="工作上需要分享一次关于 WiFi 安全的内容，大概角度是协议与应用设置，下面是准备的文字稿  WiFi攻击下面是整理 WiFi 从协议、机制等角度的攻击面，不包含由于路由器系统开发疏忽而导致的软件漏洞。 ARP攻击网卡工作模式 广播模式（ Broad Cast Model ）:它的物理地址（ MAC ）地址是 0Xffffff 的帧为广播帧，工作在广播模式的网卡接收广播帧。   多播传送（ Mu">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.mrskye.cn/img/default_cover4.jpg">
+<meta property="article:published_time" content="2022-04-11T07:01:48.000Z">
+<meta property="article:modified_time" content="2022-04-20T07:30:06.925Z">
+<meta property="article:author" content="SkYe231">
+<meta property="article:tag" content="WiFi协议">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.mrskye.cn/img/default_cover4.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.mrskye.cn/archives/b9e83bf7/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?8184ae9371af7cedfa47d27c247e16b8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-154693872-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-154693872-1');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"这篇文章距离上次更新已经","messageNext":"天，内容可能已经过时了。"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":200,"languages":{"author":"作者: SkYe231","link":"链接: ","source":"来源: SkYe231 Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'WiFi安全科普（协议&应用设置）',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-04-20 15:30:06'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="//at.alicdn.com/t/font_2567732_2yo06945456.css"><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="SkYe231 Blog" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">166</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">201</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">20</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-wrench"></i><span> 工具</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="http://mrskye.gitee.io/cyberchef/"><i class="fa-fw fas fa-key"></i><span> cyberchef</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://travellings.link"><i class="fa-fw fas fa-subway"></i><span> 开往</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fas fa-rss"></i><span> RSS</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/default_cover4.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">SkYe231 Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-wrench"></i><span> 工具</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="http://mrskye.gitee.io/cyberchef/"><i class="fa-fw fas fa-key"></i><span> cyberchef</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://travellings.link"><i class="fa-fw fas fa-subway"></i><span> 开往</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fas fa-rss"></i><span> RSS</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">WiFi安全科普（协议&amp;应用设置）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-04-11T07:01:48.000Z" title="发表于 2022-04-11 15:01:48">2022-04-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-04-20T07:30:06.925Z" title="更新于 2022-04-20 15:30:06">2022-04-20</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>7分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="WiFi安全科普（协议&amp;应用设置）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p>工作上需要分享一次关于 WiFi 安全的内容，大概角度是协议与应用设置，下面是准备的文字稿</p>
+</blockquote>
+<h2 id="WiFi攻击"><a href="#WiFi攻击" class="headerlink" title="WiFi攻击"></a>WiFi攻击</h2><p>下面是整理 WiFi 从协议、机制等角度的攻击面，不包含由于路由器系统开发疏忽而导致的软件漏洞。</p>
+<h3 id="ARP攻击"><a href="#ARP攻击" class="headerlink" title="ARP攻击"></a>ARP攻击</h3><h4 id="网卡工作模式"><a href="#网卡工作模式" class="headerlink" title="网卡工作模式"></a>网卡工作模式</h4><ol>
+<li>广播模式（ Broad Cast Model ）:它的物理地址（ MAC ）地址是 0Xffffff 的帧为广播帧，工作在广播模式的网卡接收广播帧。  </li>
+<li>多播传送（ MultiCast Model ）：多播传送地址作为目的物理地址的帧可以被组内的其它主机同时接收，而组外主机却接收不到。但是，如果将网卡设置为多播传送模式，它可以接受所有的多播传送帧，而不论它是不是组内成员。  </li>
+<li>直接模式（ Direct Mode l）：工作在直接模式下的网卡只接收目地址是自己 Mac 地址的帧。  </li>
+<li>混杂模式（ Promiscuous Model ）：工作在混杂模式下的网卡接收所有的流过网卡的帧，信包捕获程序就是在这种模式下运行的。</li>
+</ol>
+<p>网卡的缺省工作模式包含广播模式和直接模式，即它只接收广播帧和发给自己的帧。</p>
+<p><strong>如果采用混杂模式，网卡将接受同一网络内所有站点所发送的数据包，达到对网络流量监视捕获的目的。</strong> 如果机器上自带网卡不支持配置混杂模式，可以淘宝买一个外置网卡，实现相同效果。</p>
+<h4 id="ARP协议及工作原理"><a href="#ARP协议及工作原理" class="headerlink" title="ARP协议及工作原理"></a>ARP协议及工作原理</h4><p>ARP（Address Resolution Protocol）地址转换协议是工作在 OSI 模型的数据链路层的协议。在以太网中，网络设备之间互相通信是用 MAC 地址而不是 IP 地址，ARP 协议就是用来把 IP 地址转换为 MAC 地址的。</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/202204111715500.png"></p>
+<p>正常 APR 运作逻辑是：假设 A 与 C 在同一局域网，A 要和 C 实现通信，A 会查询本地的 ARP 缓存表，找到 C 的 IP 地址对应的 MAC 地址后，就会进行数据传输。如果未找到，A会找广播地址（网关）广播一个 ARP 请求报文，所有主机都收到 ARP 请求，只有 C 主机会回复一个数据包给 A ，同时 A 主机会将返回的这个地址保存在 ARP 缓存表中。</p>
+<h4 id="ARP攻击手段"><a href="#ARP攻击手段" class="headerlink" title="ARP攻击手段"></a>ARP攻击手段</h4><p>ARP 攻击方法都是通过广播 ARP 欺骗数据包，以此修改受害机器的 ARP 缓存表，依据受害者不同可以细分为下面几类。</p>
+<h5 id="冒充网关（ARP中间人攻击）"><a href="#冒充网关（ARP中间人攻击）" class="headerlink" title="冒充网关（ARP中间人攻击）"></a>冒充网关（ARP中间人攻击）</h5><p><strong>ARP 病毒发送伪造的网关 ARP 报文，欺骗同网段内的其它主机</strong>，导致其他终端用户不能正常访问网关。</p>
+<p>网络中主机访问网关的流量被重定向到一个错误的 MAC 地址：</p>
+<ul>
+<li><p>攻击者自身的 MAC 地址，导致该用户信息泄露。</p>
+</li>
+<li><p>不存在的 MAC 地址)，导致该用户无法正常访问外网。</p>
+</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/202204111741646.png"></p>
+<h5 id="欺骗网关"><a href="#欺骗网关" class="headerlink" title="欺骗网关"></a>欺骗网关</h5><p><strong>ARP 病毒发送错误的终端用户 IP＋MAC 对应关系给网关，导致网关无法和合法终端用户正常通信。</strong></p>
+<p>虚假的ARP报文欺骗网关相同网段内的某一合法用户的MAC地址已经更新。网关发给该用户的所有数据全部重定向到一个错误的MAC地址，导致该用户无法正常访问外网。</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/202204111740868.png"></p>
+<h5 id="欺骗终端"><a href="#欺骗终端" class="headerlink" title="欺骗终端"></a>欺骗终端</h5><p><strong>ARP 病毒发送错误的终端用户/服务器 IP＋MAC 对应关系给受害的终端用户，导致同网段内两个终端用户之间无法正常通信。</strong></p>
+<p>虚假的 ARP 报文欺骗相同网段内的其他主机该网段内某一合法用户的 MAC 地址已经更新。导致该网段内其他主机发给该用户的所有数据全部重定向到一个错误的 MAC 地址，导致同网段内的两台主机无法正常通信。</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/202204111736594.png"></p>
+<h5 id="泛洪攻击"><a href="#泛洪攻击" class="headerlink" title="泛洪攻击"></a>泛洪攻击</h5><p>伪造大量不同 ARP 报文在同网段内进行广播，导致网关 ARP 表项被占满，合法用户的 ARP 表项无法正常学习，<strong>导致合法用户无法正常访问外网</strong>。ARP 泛洪攻击主要是一种对局域网资源消耗的攻击手段。</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/202204111725594.png"></p>
+<h4 id="实战相关关键词"><a href="#实战相关关键词" class="headerlink" title="实战相关关键词"></a>实战相关关键词</h4><ul>
+<li>kali arpspoof </li>
+</ul>
+<h3 id="暴力破解密码"><a href="#暴力破解密码" class="headerlink" title="暴力破解密码"></a>暴力破解密码</h3><p>暴力破解 WiFi 密码是最浅显易懂的攻击手法，应该在 2010 年的时候 WiFi 破解吧风靡一时（现已关闭多年），从虚拟机整合包、外置网卡到代跑密码包提供一条龙服务。虽然贴吧关闭，当年的水滴虚拟机、跑 PIN 码等等工具被整合进入各大的 WiFi 测试项目框架、kali 等。</p>
+<p>爆破密码需要的数据包分为两种：设备与 WiFi 握手包、WPS 连接的 PIN 码包。前者爆破得到的是 WiFi 连接密码，后者得到的是 WPS 连接服务的 PIN 码，两者都是能够连入受害 WiFi 。爆破成功率后者会更高，但需要受害 WiFi 开启 WPS 服务。</p>
+<h4 id="握手包"><a href="#握手包" class="headerlink" title="握手包"></a>握手包</h4><p>802.11 WiFi 协议定义的管理帧是没有经过加密的，攻击者可以在无需连接该网络的情况下伪造、捕获这种帧。</p>
+<p>将网卡配置为混杂模式，选定攻击目标即可捕获设备连接 WiFi 时的握手包。如果长时间未未捕获，可以搭配[[#WiFi干扰]]，将设备强行踢下线重新连接。将捕获的握手包进行本地跑码得到密码。</p>
+<h5 id="实战相关关键词-1"><a href="#实战相关关键词-1" class="headerlink" title="实战相关关键词"></a>实战相关关键词</h5><ul>
+<li>kali aircrack-ng</li>
+</ul>
+<h4 id="PIN码（WPS包）"><a href="#PIN码（WPS包）" class="headerlink" title="PIN码（WPS包）"></a>PIN码（WPS包）</h4><h5 id="WPS-介绍及易攻击性"><a href="#WPS-介绍及易攻击性" class="headerlink" title="WPS 介绍及易攻击性"></a>WPS 介绍及易攻击性</h5><p>WPS（Wi-Fi Protected Setup）是由 Wi-Fi 联盟组织实施的可选认证项目，主要是为了简化无线局域网安全及安全性能的配置工作。用户只需要简单按下路由器上的 WPS 按钮或者输入 PIN 码，即可快速连接到 Wi-Fi 网络。  </p>
+<p>WPS PIN 码共 8 位，其中第 8 位是校验和，所以只需计算出前 7 位即可。在实施 PIN 破解时，可以分别判断 PIN 的前四位和后三位是否正确。因此，PIN 码只有<code>10^4+10^3=11000</code> 种变化。那么在实际破解尝试中，最多只需试验 11000 次，平均只需试验 5500 次就能破解。</p>
+<p>使用诸如 reaver 等攻击即可对目标 WiFi 进行在线跑 PIN 码，但是有可能会遇到尝试次数过多 WiFi 暂时锁定直到重启等情况。</p>
+<p>更为稳妥是捕获目标数据包进行本地跑 PIN 。将网卡配置为混杂模式，选定攻击目标即可捕获设备连接 WiFi 时的数据包，离线破解 PIN 。</p>
+<h5 id="实战相关关键词-2"><a href="#实战相关关键词-2" class="headerlink" title="实战相关关键词"></a>实战相关关键词</h5><ul>
+<li>reaver</li>
+<li>wifite</li>
+<li>bully</li>
+</ul>
+<h2 id="WiFi干扰"><a href="#WiFi干扰" class="headerlink" title="WiFi干扰"></a>WiFi干扰</h2><h3 id="WiFi干扰原理"><a href="#WiFi干扰原理" class="headerlink" title="WiFi干扰原理"></a>WiFi干扰原理</h3><p>802.11 WiFi 协议包含一个所谓的<a target="_blank" rel="noopener" href="https://mrncciew.com/2014/10/11/802-11-mgmt-deauth-disassociation-frames/">取消身份验证帧</a>。它用于安全地断开客户端与无线网络的连接。</p>
+<p>因为这些管理数据包是未加密的，所以您只需要 WiFi 路由器的 MAC 地址以及您要断开网络连接的客户端设备的 MAC 地址。您无需在网络中或知道密码，只要在其信号范围内攻击者就可以向目标用户所连接的 WiFi 发送连续的去认证帧来干扰 WiFi ，达到将用户踢出 WiFi 的效果。常在[[#握手包|获取握手包]]、[[#WiFi钓鱼]]等时配合使用。</p>
+<p>去认证帧既可以用 aircrack-ng 等工具发送，也有基于 arduino 的 WiFi 测试项目（<a target="_blank" rel="noopener" href="https://github.com/samdenty/Wi-PWN">Wi-PWN</a>）</p>
+<h3 id="Wi-PWN"><a href="#Wi-PWN" class="headerlink" title="Wi-PWN"></a>Wi-PWN</h3><p>Wi-PWN 是一种固件，可以使用廉价的 Arduino 板执行 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Wi-Fi_deauthentication_attack">deauth、Evil twin</a> 等攻击。项目地址：<a target="_blank" rel="noopener" href="https://github.com/samdenty/Wi-PWN">https://github.com/samdenty/Wi-PWN</a> 。</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/202204112231559.png"></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/202204112241157.png"></p>
+<p>通过使用 esp8266 开发板（上图）运行 Wi-PWN 。使用 IPEX 天线代替 PCB 天线攻击范围可到 100m 以上（下图）。</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/202204112241801.png"></p>
+<h3 id="防御方法"><a href="#防御方法" class="headerlink" title="防御方法"></a>防御方法</h3><p>升级 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/IEEE_802.11w-2009">802.11w-2009</a>标准协议，从该协议开始管理帧默认加密。</p>
+<p>升级到<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/IEEE_802.11w-2009">802.11w</a>标准通常既昂贵又困难，因为大量旧设备不支持新标准。由于维护噩梦，超过 95% 的设备使用易受攻击的 802.11 标准——即使新设备支持 802.11.w 准备。</p>
+<h2 id="WiFi钓鱼"><a href="#WiFi钓鱼" class="headerlink" title="WiFi钓鱼"></a>WiFi钓鱼</h2><p>根据攻击者与受害者初始网络关系，可以分为两种钓鱼方式：同一局域网、不同局域网。无论哪种方式，最后都是劫持受害者网络，返回一个精心准备的钓鱼网页。</p>
+<h3 id="同一局域网钓鱼"><a href="#同一局域网钓鱼" class="headerlink" title="同一局域网钓鱼"></a>同一局域网钓鱼</h3><p>通常发生在连接公共 WiFi 时，通过 ARP 攻击冒充网关，向受害者返回钓鱼页面。</p>
+<h3 id="不同局域网钓鱼"><a href="#不同局域网钓鱼" class="headerlink" title="不同局域网钓鱼"></a>不同局域网钓鱼</h3><p>需要配合 WiFi 干扰与 Evil twins 攻击。WiFi 干扰将目标 WiFi 全部设备踢下线，然后 Evil twins 复制出与目标一样的 SSID ，被踢下线的设备连入复制 WiFi ，再向其发送钓鱼页面。</p>
+<h3 id="防御方法-1"><a href="#防御方法-1" class="headerlink" title="防御方法"></a>防御方法</h3><ul>
+<li>避免使用公共 WiFi</li>
+<li>关闭设备自动连入 WiFi 功能，能够有效避免错误连入钓鱼 WiFi </li>
+</ul>
+<h2 id="Mesh协议漏洞"><a href="#Mesh协议漏洞" class="headerlink" title="Mesh协议漏洞"></a>Mesh协议漏洞</h2><p><a target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1716480730257296739&amp;wfr=spider&amp;for=pc">https://baijiahao.baidu.com/s?id=1716480730257296739&amp;wfr=spider&amp;for=pc</a></p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.sundray.com.cn/feedback/1806.html">https://www.sundray.com.cn/feedback/1806.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://gryffinbit.top/2021/05/05/wifi%E5%AF%86%E7%A0%81%E7%A0%B4%E8%A7%A3%E4%B9%8Bwps%E5%8A%A0%E5%AF%86/">https://gryffinbit.top/2021/05/05/wifi%E5%AF%86%E7%A0%81%E7%A0%B4%E8%A7%A3%E4%B9%8Bwps%E5%8A%A0%E5%AF%86/</a></li>
+<li><a target="_blank" rel="noopener" href="https://itigic.com/zh-CN/how-to-crack-wps-of-wifi-routers-with-various-methods/">https://itigic.com/zh-CN/how-to-crack-wps-of-wifi-routers-with-various-methods/</a></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">SkYe231</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.mrskye.cn/archives/b9e83bf7/">https://www.mrskye.cn/archives/b9e83bf7/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.mrskye.cn" target="_blank">SkYe231 Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/WiFi%E5%8D%8F%E8%AE%AE/">WiFi协议</a></div><div class="post_share"><div class="social-share" data-image="/img/default_cover4.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/archives/d8866442/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/default_cover4.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">OpenWrt系路由系统逆向分析</div></div></a></div><div class="next-post pull-right"><a href="/archives/4049da68/"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/default_cover3.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">IOT出题</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">SkYe231</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">166</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">201</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">20</div></a></div></div><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:skye231@foxmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://www.mrskye.cn/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a><a class="social-icon" href="http://wpa.qq.com/msgrd?uin=910437231" target="_blank" title="QQ"><i class="iconfont icon-QQ"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">请修改默认公告</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#WiFi%E6%94%BB%E5%87%BB"><span class="toc-number">1.</span> <span class="toc-text">WiFi攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ARP%E6%94%BB%E5%87%BB"><span class="toc-number">1.1.</span> <span class="toc-text">ARP攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BD%91%E5%8D%A1%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.1.1.</span> <span class="toc-text">网卡工作模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ARP%E5%8D%8F%E8%AE%AE%E5%8F%8A%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">1.1.2.</span> <span class="toc-text">ARP协议及工作原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ARP%E6%94%BB%E5%87%BB%E6%89%8B%E6%AE%B5"><span class="toc-number">1.1.3.</span> <span class="toc-text">ARP攻击手段</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%86%92%E5%85%85%E7%BD%91%E5%85%B3%EF%BC%88ARP%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB%EF%BC%89"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">冒充网关（ARP中间人攻击）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%AC%BA%E9%AA%97%E7%BD%91%E5%85%B3"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">欺骗网关</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%AC%BA%E9%AA%97%E7%BB%88%E7%AB%AF"><span class="toc-number">1.1.3.3.</span> <span class="toc-text">欺骗终端</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B3%9B%E6%B4%AA%E6%94%BB%E5%87%BB"><span class="toc-number">1.1.3.4.</span> <span class="toc-text">泛洪攻击</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E6%88%98%E7%9B%B8%E5%85%B3%E5%85%B3%E9%94%AE%E8%AF%8D"><span class="toc-number">1.1.4.</span> <span class="toc-text">实战相关关键词</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3%E5%AF%86%E7%A0%81"><span class="toc-number">1.2.</span> <span class="toc-text">暴力破解密码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%A1%E6%89%8B%E5%8C%85"><span class="toc-number">1.2.1.</span> <span class="toc-text">握手包</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9E%E6%88%98%E7%9B%B8%E5%85%B3%E5%85%B3%E9%94%AE%E8%AF%8D-1"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">实战相关关键词</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PIN%E7%A0%81%EF%BC%88WPS%E5%8C%85%EF%BC%89"><span class="toc-number">1.2.2.</span> <span class="toc-text">PIN码（WPS包）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#WPS-%E4%BB%8B%E7%BB%8D%E5%8F%8A%E6%98%93%E6%94%BB%E5%87%BB%E6%80%A7"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">WPS 介绍及易攻击性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9E%E6%88%98%E7%9B%B8%E5%85%B3%E5%85%B3%E9%94%AE%E8%AF%8D-2"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">实战相关关键词</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WiFi%E5%B9%B2%E6%89%B0"><span class="toc-number">2.</span> <span class="toc-text">WiFi干扰</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#WiFi%E5%B9%B2%E6%89%B0%E5%8E%9F%E7%90%86"><span class="toc-number">2.1.</span> <span class="toc-text">WiFi干扰原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Wi-PWN"><span class="toc-number">2.2.</span> <span class="toc-text">Wi-PWN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B2%E5%BE%A1%E6%96%B9%E6%B3%95"><span class="toc-number">2.3.</span> <span class="toc-text">防御方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WiFi%E9%92%93%E9%B1%BC"><span class="toc-number">3.</span> <span class="toc-text">WiFi钓鱼</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E4%B8%80%E5%B1%80%E5%9F%9F%E7%BD%91%E9%92%93%E9%B1%BC"><span class="toc-number">3.1.</span> <span class="toc-text">同一局域网钓鱼</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E5%B1%80%E5%9F%9F%E7%BD%91%E9%92%93%E9%B1%BC"><span class="toc-number">3.2.</span> <span class="toc-text">不同局域网钓鱼</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B2%E5%BE%A1%E6%96%B9%E6%B3%95-1"><span class="toc-number">3.3.</span> <span class="toc-text">防御方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mesh%E5%8D%8F%E8%AE%AE%E6%BC%8F%E6%B4%9E"><span class="toc-number">4.</span> <span class="toc-text">Mesh协议漏洞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-number">5.</span> <span class="toc-text">小结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="toc-number">6.</span> <span class="toc-text">参考文章</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/archives/a61aad59/" title="gdbserver-all-in-one手册"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/default_cover2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="gdbserver-all-in-one手册"/></a><div class="content"><a class="title" href="/archives/a61aad59/" title="gdbserver-all-in-one手册">gdbserver-all-in-one手册</a><time datetime="2022-04-20T09:08:41.892Z" title="更新于 2022-04-20 17:08:41">2022-04-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/d8866442/" title="OpenWrt系路由系统逆向分析"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/default_cover4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="OpenWrt系路由系统逆向分析"/></a><div class="content"><a class="title" href="/archives/d8866442/" title="OpenWrt系路由系统逆向分析">OpenWrt系路由系统逆向分析</a><time datetime="2022-04-20T07:30:06.935Z" title="更新于 2022-04-20 15:30:06">2022-04-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/824ac3d0/" title="[object Object]"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/default_cover4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="[object Object]"/></a><div class="content"><a class="title" href="/archives/824ac3d0/" title="[object Object]">[object Object]</a><time datetime="2022-04-20T07:30:06.931Z" title="更新于 2022-04-20 15:30:06">2022-04-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/4049da68/" title="IOT出题"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/default_cover3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="IOT出题"/></a><div class="content"><a class="title" href="/archives/4049da68/" title="IOT出题">IOT出题</a><time datetime="2022-04-20T07:30:06.927Z" title="更新于 2022-04-20 15:30:06">2022-04-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/b9e83bf7/" title="WiFi安全科普（协议&amp;应用设置）"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/default_cover4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="WiFi安全科普（协议&amp;应用设置）"/></a><div class="content"><a class="title" href="/archives/b9e83bf7/" title="WiFi安全科普（协议&amp;应用设置）">WiFi安全科普（协议&amp;应用设置）</a><time datetime="2022-04-20T07:30:06.925Z" title="更新于 2022-04-20 15:30:06">2022-04-20</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/default_cover4.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2022 By SkYe231</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a href="https://cloud.tencent.com/product/wh?from=12331" target="_blank">Hosted BY 云开发 Cloudbase</a>&nbsp;|&nbsp;<a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://mrskye.cn-gd.ufileos.com/img/2020-07-01-lGwrnPz3GuV4odmM.png" align="top" style="width:48px"></a><br /><div class="github-badge"><a rel="license" href="http://beian.miit.gov.cn/" target="_blank" title="粤ICP备20056619号"><span class="badge-subject">粤ICP备</span><span class="badge-value bg-black">20056619号</span></a></div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'default',
+      })
+      false && mermaid.init()
+    })
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善" data-fontsize="15px" data-random="true" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

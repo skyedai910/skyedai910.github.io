@@ -6,7 +6,7 @@
   <link href="https://www.mrskye.cn/atom.xml" rel="self"/>
   
   <link href="https://www.mrskye.cn/"/>
-  <updated>2022-03-25T07:45:04.929Z</updated>
+  <updated>2022-04-20T09:08:41.892Z</updated>
   <id>https://www.mrskye.cn/</id>
   
   <author>
@@ -17,11 +17,125 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>gdbserver-all-in-one手册</title>
+    <link href="https://www.mrskye.cn/archives/a61aad59/"/>
+    <id>https://www.mrskye.cn/archives/a61aad59/</id>
+    <published>2022-04-20T07:23:58.000Z</published>
+    <updated>2022-04-20T09:08:41.892Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;What&quot;&gt;&lt;a href=&quot;#What&quot; class=&quot;headerlink&quot; title=&quot;What&quot;&gt;&lt;/a&gt;What&lt;/h2&gt;&lt;p&gt;为了方便，弄一个全架构全版本的 gdbserver 集合。全部 gdbserver</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>OpenWrt系路由系统逆向分析</title>
+    <link href="https://www.mrskye.cn/archives/d8866442/"/>
+    <id>https://www.mrskye.cn/archives/d8866442/</id>
+    <published>2022-04-13T06:38:34.000Z</published>
+    <updated>2022-04-20T07:30:06.935Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;怎么判断是OpenWrt&quot;&gt;&lt;a href=&quot;#怎么判断是OpenWrt&quot; class=&quot;headerlink&quot; title=&quot;怎么判断是OpenWrt&quot;&gt;&lt;/a&gt;怎么判断是OpenWrt&lt;/h2&gt;&lt;p&gt;从无 shell 和有 shell</summary>
+        
+      
+    
+    
+    
+    
+    <category term="openwrt" scheme="https://www.mrskye.cn/tags/openwrt/"/>
+    
+    <category term="uhttpd" scheme="https://www.mrskye.cn/tags/uhttpd/"/>
+    
+    <category term="lua" scheme="https://www.mrskye.cn/tags/lua/"/>
+    
+    <category term="luCI" scheme="https://www.mrskye.cn/tags/luCI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WiFi安全科普（协议&amp;应用设置）</title>
+    <link href="https://www.mrskye.cn/archives/b9e83bf7/"/>
+    <id>https://www.mrskye.cn/archives/b9e83bf7/</id>
+    <published>2022-04-11T07:01:48.000Z</published>
+    <updated>2022-04-20T07:30:06.925Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;工作上需要分享一次关于 WiFi 安全的内容，大概角度是协议与应用设置，下面是准备的文字稿&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;WiFi攻击&quot;&gt;&lt;a href=&quot;#WiFi攻击&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="WiFi协议" scheme="https://www.mrskye.cn/tags/WiFi%E5%8D%8F%E8%AE%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>IOT出题</title>
+    <link href="https://www.mrskye.cn/archives/4049da68/"/>
+    <id>https://www.mrskye.cn/archives/4049da68/</id>
+    <published>2022-04-09T14:39:30.000Z</published>
+    <updated>2022-04-20T07:30:06.927Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;路由器软件构成&quot;&gt;&lt;a href=&quot;#路由器软件构成&quot; class=&quot;headerlink&quot; title=&quot;路由器软件构成&quot;&gt;&lt;/a&gt;路由器软件构成&lt;/h2&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>[object Object]</title>
+    <link href="https://www.mrskye.cn/archives/824ac3d0/"/>
+    <id>https://www.mrskye.cn/archives/824ac3d0/</id>
+    <published>2022-04-01T07:00:13.000Z</published>
+    <updated>2022-04-20T07:30:06.931Z</updated>
+    
+    
+    <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
+    
+    
+    
+    
+    <category term="PHP伪协议" scheme="https://www.mrskye.cn/tags/PHP%E4%BC%AA%E5%8D%8F%E8%AE%AE/"/>
+    
+  </entry>
+  
+  <entry>
     <title>2022 西湖论剑决赛 Writeup</title>
     <link href="https://www.mrskye.cn/archives/e739e85b/"/>
     <id>https://www.mrskye.cn/archives/e739e85b/</id>
     <published>2022-03-23T07:29:56.000Z</published>
-    <updated>2022-03-25T07:45:04.929Z</updated>
+    <updated>2022-03-25T07:52:39.263Z</updated>
     
     
       
@@ -46,7 +160,7 @@
     <link href="https://www.mrskye.cn/archives/93194e8e/"/>
     <id>https://www.mrskye.cn/archives/93194e8e/</id>
     <published>2022-03-19T07:50:01.000Z</published>
-    <updated>2022-03-19T08:50:28.780Z</updated>
+    <updated>2022-03-25T07:52:39.267Z</updated>
     
     
     <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
@@ -63,7 +177,7 @@
     <link href="https://www.mrskye.cn/archives/5d9be0ae/"/>
     <id>https://www.mrskye.cn/archives/5d9be0ae/</id>
     <published>2022-03-01T06:22:32.000Z</published>
-    <updated>2022-03-25T07:47:44.771Z</updated>
+    <updated>2022-03-30T05:42:42.664Z</updated>
     
     
       
@@ -91,7 +205,7 @@
     <link href="https://www.mrskye.cn/archives/ab1534f8/"/>
     <id>https://www.mrskye.cn/archives/ab1534f8/</id>
     <published>2022-02-19T07:45:23.000Z</published>
-    <updated>2022-03-25T07:47:45.238Z</updated>
+    <updated>2022-03-25T07:52:39.279Z</updated>
     
     
     <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
@@ -110,7 +224,7 @@
     <link href="https://www.mrskye.cn/archives/45c442a2/"/>
     <id>https://www.mrskye.cn/archives/45c442a2/</id>
     <published>2022-02-18T07:45:23.000Z</published>
-    <updated>2022-02-18T07:46:01.301Z</updated>
+    <updated>2022-03-25T07:52:39.278Z</updated>
     
     
     <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
@@ -125,7 +239,7 @@
     <link href="https://www.mrskye.cn/archives/813434ca/"/>
     <id>https://www.mrskye.cn/archives/813434ca/</id>
     <published>2022-01-29T12:42:08.000Z</published>
-    <updated>2022-02-08T13:27:27.279Z</updated>
+    <updated>2022-03-25T07:52:39.275Z</updated>
     
     
     <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
@@ -144,7 +258,7 @@
     <link href="https://www.mrskye.cn/archives/dd3ada4/"/>
     <id>https://www.mrskye.cn/archives/dd3ada4/</id>
     <published>2022-01-28T05:23:30.000Z</published>
-    <updated>2022-03-25T07:47:45.074Z</updated>
+    <updated>2022-03-25T07:52:39.270Z</updated>
     
     
     <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
@@ -188,14 +302,14 @@
     <link href="https://www.mrskye.cn/archives/dee08d53/"/>
     <id>https://www.mrskye.cn/archives/dee08d53/</id>
     <published>2022-01-19T07:46:10.000Z</published>
-    <updated>2022-01-26T15:32:08.175Z</updated>
+    <updated>2022-04-01T06:59:41.262Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;弱类型比较&quot;&gt;&lt;a href=&quot;#弱类型比较&quot; class=&quot;headerlink&quot; title=&quot;弱类型比较&quot;&gt;&lt;/a&gt;弱类型比较&lt;/h2&gt;&lt;h3 id=&quot;弱类型简介&quot;&gt;&lt;a href=&quot;#弱类型简介&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;弱类型比较&quot;&gt;&lt;a href=&quot;#弱类型比较&quot; class=&quot;headerlink&quot; title=&quot;弱类型比较&quot;&gt;&lt;/a&gt;弱类型比较&lt;/h2&gt;&lt;h3 id=&quot;弱类型简介&quot;&gt;&lt;a href=&quot;#弱类型简介&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -213,7 +327,7 @@
     <link href="https://www.mrskye.cn/archives/d3333ead/"/>
     <id>https://www.mrskye.cn/archives/d3333ead/</id>
     <published>2022-01-18T14:54:24.000Z</published>
-    <updated>2022-03-25T07:47:45.219Z</updated>
+    <updated>2022-04-01T16:05:09.239Z</updated>
     
     
     <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
@@ -337,138 +451,6 @@
     <category term="Web" scheme="https://www.mrskye.cn/tags/Web/"/>
     
     <category term="命令执行" scheme="https://www.mrskye.cn/tags/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>树莓派提取固件</title>
-    <link href="https://www.mrskye.cn/archives/501bc7a2/"/>
-    <id>https://www.mrskye.cn/archives/501bc7a2/</id>
-    <published>2021-12-24T06:09:05.000Z</published>
-    <updated>2022-03-25T07:47:45.043Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h2&gt;&lt;h3 id=&quot;工具&quot;&gt;&lt;a href=&quot;#工具&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    
-    <category term="树莓派" scheme="https://www.mrskye.cn/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>树莓派开启VNC远程连接</title>
-    <link href="https://www.mrskye.cn/archives/1321cf/"/>
-    <id>https://www.mrskye.cn/archives/1321cf/</id>
-    <published>2021-12-22T09:36:21.000Z</published>
-    <updated>2022-03-25T07:47:45.258Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;系统环境&quot;&gt;&lt;a href=&quot;#系统环境&quot; class=&quot;headerlink&quot; title=&quot;系统环境&quot;&gt;&lt;/a&gt;系统环境&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;树莓派 4B &lt;ul&gt;
-&lt;li&gt;系统：Raspberry Pi</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>2021 NSSCCTF Writeup</title>
-    <link href="https://www.mrskye.cn/archives/501bc7a3/"/>
-    <id>https://www.mrskye.cn/archives/501bc7a3/</id>
-    <published>2021-12-13T03:29:29.000Z</published>
-    <updated>2022-03-25T07:47:44.245Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;内幕比赛，详情见知乎：&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
-    
-    
-    <category term="NSSCCTF" scheme="https://www.mrskye.cn/tags/NSSCCTF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CTFSHOW Web Writeup</title>
-    <link href="https://www.mrskye.cn/archives/501b47a3/"/>
-    <id>https://www.mrskye.cn/archives/501b47a3/</id>
-    <published>2021-12-13T03:29:29.000Z</published>
-    <updated>2021-12-26T15:27:16.911Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;WEB1&quot;&gt;&lt;a href=&quot;#WEB1&quot; class=&quot;headerlink&quot; title=&quot;WEB1&quot;&gt;&lt;/a&gt;WEB1&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;开发注释未及时删除&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="Writeup" scheme="https://www.mrskye.cn/categories/Writeup/"/>
-    
-    
-    <category term="CTFSHOW" scheme="https://www.mrskye.cn/tags/CTFSHOW/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SQL注入</title>
-    <link href="https://www.mrskye.cn/archives/533bc7a3/"/>
-    <id>https://www.mrskye.cn/archives/533bc7a3/</id>
-    <published>2021-12-13T03:29:29.000Z</published>
-    <updated>2022-03-25T07:47:45.052Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;SQL注入分类：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;回显正常&lt;ul&gt;
-&lt;li&gt;联合查询 union select&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;回显报错&lt;ul&gt;
-&lt;li&gt;Duplicate</summary>
-        
-      
-    
-    
-    
-    <category term="Web" scheme="https://www.mrskye.cn/categories/Web/"/>
-    
-    
-    <category term="SQL注入" scheme="https://www.mrskye.cn/tags/SQL%E6%B3%A8%E5%85%A5/"/>
     
   </entry>
   

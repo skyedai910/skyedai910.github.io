@@ -1,0 +1,515 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OpenWrt系路由系统逆向分析 | SkYe231 Blog</title><meta name="keywords" content="openwrt,uhttpd,lua,luCI"><meta name="author" content="SkYe231"><meta name="copyright" content="SkYe231"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="怎么判断是OpenWrt从无 shell 和有 shell 两个大类分别记录。 无shell 网络请求 URL 中带有 stok 字样的 cookie，如下图所示。      stok 是用户的 cookie ，从 &#x2F;dev&#x2F;urandom 读取，只要设备不关机 stok 的值就不会变。  URL 类似于：http:&#x2F;&#x2F;192.168.2.1&#x2F;cgi-bin&#x2F;luci&#x2F;xxxx、http:&#x2F;&#x2F;19">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenWrt系路由系统逆向分析">
+<meta property="og:url" content="https://www.mrskye.cn/archives/d8866442/index.html">
+<meta property="og:site_name" content="SkYe231 Blog">
+<meta property="og:description" content="怎么判断是OpenWrt从无 shell 和有 shell 两个大类分别记录。 无shell 网络请求 URL 中带有 stok 字样的 cookie，如下图所示。      stok 是用户的 cookie ，从 &#x2F;dev&#x2F;urandom 读取，只要设备不关机 stok 的值就不会变。  URL 类似于：http:&#x2F;&#x2F;192.168.2.1&#x2F;cgi-bin&#x2F;luci&#x2F;xxxx、http:&#x2F;&#x2F;19">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.mrskye.cn/img/default_cover4.jpg">
+<meta property="article:published_time" content="2022-04-13T06:38:34.000Z">
+<meta property="article:modified_time" content="2022-04-20T07:30:06.935Z">
+<meta property="article:author" content="SkYe231">
+<meta property="article:tag" content="openwrt">
+<meta property="article:tag" content="uhttpd">
+<meta property="article:tag" content="lua">
+<meta property="article:tag" content="luCI">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.mrskye.cn/img/default_cover4.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.mrskye.cn/archives/d8866442/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?8184ae9371af7cedfa47d27c247e16b8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-154693872-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-154693872-1');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"这篇文章距离上次更新已经","messageNext":"天，内容可能已经过时了。"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":200,"languages":{"author":"作者: SkYe231","link":"链接: ","source":"来源: SkYe231 Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'OpenWrt系路由系统逆向分析',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-04-20 15:30:06'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="//at.alicdn.com/t/font_2567732_2yo06945456.css"><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="SkYe231 Blog" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">166</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">201</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">20</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-wrench"></i><span> 工具</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="http://mrskye.gitee.io/cyberchef/"><i class="fa-fw fas fa-key"></i><span> cyberchef</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://travellings.link"><i class="fa-fw fas fa-subway"></i><span> 开往</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fas fa-rss"></i><span> RSS</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/default_cover4.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">SkYe231 Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 目录</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-wrench"></i><span> 工具</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="http://mrskye.gitee.io/cyberchef/"><i class="fa-fw fas fa-key"></i><span> cyberchef</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://travellings.link"><i class="fa-fw fas fa-subway"></i><span> 开往</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fas fa-rss"></i><span> RSS</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">OpenWrt系路由系统逆向分析</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-04-13T06:38:34.000Z" title="发表于 2022-04-13 14:38:34">2022-04-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-04-20T07:30:06.935Z" title="更新于 2022-04-20 15:30:06">2022-04-20</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>11分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="OpenWrt系路由系统逆向分析"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="怎么判断是OpenWrt"><a href="#怎么判断是OpenWrt" class="headerlink" title="怎么判断是OpenWrt"></a>怎么判断是OpenWrt</h2><p>从无 shell 和有 shell 两个大类分别记录。</p>
+<h3 id="无shell"><a href="#无shell" class="headerlink" title="无shell"></a>无shell</h3><ul>
+<li><p>网络请求 URL 中带有 <code>stok</code> 字样的 cookie，如下图所示。</p>
+<p>  <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/202204131515367.png" alt="image-20220413151443510"></p>
+<p>  <code>stok</code> 是用户的 cookie ，从 <code>/dev/urandom</code> 读取，只要设备不关机 <code>stok</code> 的值就不会变。</p>
+</li>
+<li><p>URL 类似于：<code>http://192.168.2.1/cgi-bin/luci/xxxx</code>、<code>http://192.168.2.1/cgi-bin/admin/xxxx</code>，如下图所示。</p>
+<p>  <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/202204131529472.png" alt="image-20220413152918623"></p>
+</li>
+</ul>
+<h3 id="有shell"><a href="#有shell" class="headerlink" title="有shell"></a>有shell</h3><ul>
+<li><p>Web 服务器是 <code>uhttpd</code> ，二进制文件存放在 <code>/usr/sbin</code> </p>
+<p>  <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/202204131534510.png" alt="image-20220413153455111"></p>
+</li>
+<li><p>在 <code>/etc</code> 会有 <code>openwrt_release</code>、<code>openwrt_version</code> 记录 openwrt 版本文件。</p>
+<p>  <img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/202204131532968.png" alt="image-20220413153238173"></p>
+</li>
+<li><p>在 <code>/sbin</code> 、<code>/usr/bin</code> 能找到 lua、uci、luci 执行文件。</p>
+</li>
+</ul>
+<h2 id="OpenWrt-Web服务整体框架"><a href="#OpenWrt-Web服务整体框架" class="headerlink" title="OpenWrt Web服务整体框架"></a>OpenWrt Web服务整体框架</h2><p>openwrt web 后台采用的是<strong>一个 web 后台进程 + 解析器与 lua + 各种静态资源</strong>。</p>
+<p>下面分别先对每个部分使用的软件、编程语言、介绍，然后介绍其各自信息以及他们之间的联动关系。</p>
+<h3 id="uhttpd-Web服务器"><a href="#uhttpd-Web服务器" class="headerlink" title="uhttpd - Web服务器"></a>uhttpd - Web服务器</h3><h4 id="uhttpd简介"><a href="#uhttpd简介" class="headerlink" title="uhttpd简介"></a>uhttpd简介</h4><p><strong><a target="_blank" rel="noopener" href="https://openwrt.org/zh-cn/doc/howto/http.uhttpd">uHTTPd</a></strong> 是一个 OpenWrt/LUCI 开发者从头编写的 Web 服务器。 能够与 OpenWrt 的配置框架 (UCI) 整合。默认情况下它被用于 OpenWrt 的 Web 管理接口 <a target="_blank" rel="noopener" href="https://openwrt.org/zh/docs/techref/luci">LuCI</a> 。支持包括 TLS (SSL)、CGI 以及 Lua 。</p>
+<p>uHTTPd 是单线程的，但是支持多个实例 (例如，支持监听多个端口，每个端口都可以使用独立的文档根目录以及其他功能)。</p>
+<h4 id="源码下载"><a href="#源码下载" class="headerlink" title="源码下载"></a>源码下载</h4><p>openwrt 官方自建 git 仓库下载，uhttpd 地址：<a target="_blank" rel="noopener" href="https://git.openwrt.org/?p=project/uhttpd.git">https://git.openwrt.org/?p=project/uhttpd.git</a></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/202204131635034.png" alt="image-20220413163502282"></p>
+<h4 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h4><p>配置文件路径：<code>/etc/config/uhttpd</code> </p>
+<p>逆向分析主要需要关注的配置项：</p>
+<ul>
+<li><p><code>option home &#39;/www&#39;</code>：定义服务器文档根目录</p>
+</li>
+<li><p><code>option cgi_prefix &#39;/cgi-bin&#39;</code>：定义 CGI 脚本的前缀，相对于 cgi 根目录。如果缺少此选项，则禁用 CGI 支持</p>
+</li>
+<li><p><code>list lua_prefix &#39;/cgi-bin/luci=/usr/lib/lua/luci/sgi/uhttpd.lua&#39;</code>：相对于文档根定义将请求分派到嵌入式 Lua 解释器的前缀，用于跳转外部程序对应的文件。如果缺少此选项，则禁用 Lua 支持。</p>
+<blockquote>
+<p>需要修改该选项参考这篇文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_26202991/article/details/102621184">https://blog.csdn.net/qq_26202991/article/details/102621184</a></p>
+</blockquote>
+<p>  Web 端访问时，lua 脚本与 URL 对应关系见后文的<a href="">asdasdasdasdasd</a></p>
+</li>
+<li><p><code>list index_page &#39;cgi-bin/luci&#39;</code>：用于目录的索引文件，例如在使用 php 时添加 index.php</p>
+</li>
+</ul>
+<h4 id="在openwrt下互动报文"><a href="#在openwrt下互动报文" class="headerlink" title="在openwrt下互动报文"></a>在openwrt下互动报文</h4><p>Request 报文首行为： request-line ，其中 type 有 GET、POST、HEAD 三种方式,然后最重要的是 url ，它告诉服务器所请求的资源。</p>
+<p>Response 报文首行为： response-line ，其中最重要的是 code ，它告知客户端响应情况( found、redirect、error 等)，然后跟一个简单的可读的短语。</p>
+<p>两种报文后面具体的内容格式差不多，都是一些 headers (其中冒号前的 str 指明 header 型别)，然后以一个空行标识 header 结束，后面是资料。对于 request ，只有 POST 型别的请求需要提交资料，其它型别的是没有资料的。Response 报文的资料就是 url 所指定的资原始档( html、doc、gif 等)。</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/202204141437918.jpeg" alt="uhttpd的实现框架"></p>
+<h3 id="lua-脚本语言"><a href="#lua-脚本语言" class="headerlink" title="lua - 脚本语言"></a>lua - 脚本语言</h3><h4 id="lua简介"><a href="#lua简介" class="headerlink" title="lua简介"></a>lua简介</h4><p>lua 是一种轻量小巧的脚本语言，用标准C语言编写并以源代码形式开放。</p>
+<h4 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h4><ul>
+<li>游戏开发</li>
+<li>独立应用脚本</li>
+<li><strong>Web 应用脚本</strong></li>
+<li>扩展和数据库插件如：MySQL Proxy 和 MySQL WorkBench</li>
+<li>安全系统，如入侵检测系统</li>
+</ul>
+<h3 id="UCI-配置文件同一管理系统（工具）"><a href="#UCI-配置文件同一管理系统（工具）" class="headerlink" title="UCI - 配置文件同一管理系统（工具）"></a>UCI - 配置文件同一管理系统（工具）</h3><h4 id="UCI简介"><a href="#UCI简介" class="headerlink" title="UCI简介"></a>UCI简介</h4><p><a target="_blank" rel="noopener" href="https://openwrt.org/zh/docs/guide-user/base-system/uci"><code>UCI</code></a> 是 <code>Unified Configuration Interface</code>(统一配置界面)的缩写，意在OpenWrt整个系统的配置集中化，简单点来说 <strong>UCI 是一个配置文件同一管理系统</strong>。</p>
+<p>各个程序配置文件分散在系统各处，如：<code>/etc/network/interfaces</code>, <code>/etc/exports</code>, <code>/etc/dnsmasq.conf</code>或者 <code>/etc/samba/samba.conf</code> ，且配置文件语法各不相同，在 OpenWrt 中你无需为此烦恼，我们只需更改 UCI 配置文件即可自动化配置路由器。</p>
+<h4 id="共同原则"><a href="#共同原则" class="headerlink" title="共同原则"></a>共同原则</h4><p>OpenWrt 的所有配置文件皆位于 <code>/etc/config/</code> 目录下。每个文件大致与它所配置的那部分系统相关。</p>
+<p>不管是用文本编辑器、uci 命令行工具、shell 脚本、php\C\lua 程序，只要能够修改这些配置文件，就能达到控制系统参数的目标。</p>
+<h4 id="一些配置文件"><a href="#一些配置文件" class="headerlink" title="一些配置文件"></a>一些配置文件</h4><table>
+<thead>
+<tr>
+<th align="left">文件位置</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">基本配置</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/docs/guide-user/base-system/dhcp">/etc/config/dhcp</a></td>
+<td align="left">dnsmasq和DHCP的配置</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/zh/docs/guide-user/base-system/dropbear">/etc/config/dropbear</a></td>
+<td align="left">SSH服务端选项</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/inbox/firewall/start">/etc/config/firewall</a></td>
+<td align="left">中央防火墙配置</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/docs/guide-user/base-system/basic-networking">/etc/config/network</a></td>
+<td align="left">交换，接口和路由配置</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/docs/guide-user/base-system/system_configuration">/etc/config/system</a></td>
+<td align="left">杂项与系统配置</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/doc/uci/timeserver">/etc/config/timeserver</a></td>
+<td align="left"><em>rdate</em>的时间服务器列表</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/docs/guide-user/network/wifi/basic">/etc/config/wireless</a></td>
+<td align="left">无线设置和无线网络的定义</td>
+</tr>
+<tr>
+<td align="left">IPv6</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/doc/uci/ahcpd">/etc/config/ahcpd</a></td>
+<td align="left">Ad-Hoc配置协议(AHCP) 服务端配置以及转发器配置</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/docs/guide-user/network/ipv6/aiccu">/etc/config/aiccu</a></td>
+<td align="left">AICCU 客户端配置</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/docs/guide-user/network/ipv6/dhcp6c">/etc/config/dhcp6c</a></td>
+<td align="left">WIDE-DHCPv6 客户端配置</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/doc/uci/dhcp6s">/etc/config/dhcp6s</a></td>
+<td align="left">WIDE-DHCPv6 服务端配置</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/doc/uci/gw6c">/etc/config/gw6c</a></td>
+<td align="left">GW6c 客户端配置</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/zh-cn/doc/uci/radvd">/etc/config/radvd</a></td>
+<td align="left">路由通告 (radvd) 配置</td>
+</tr>
+<tr>
+<td align="left">其他</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/docs/guide-user/services/w_o_l/etherwake">/etc/config/etherwake</a></td>
+<td align="left">以太网唤醒: etherwake</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/zh-cn/doc/uci/fstab">/etc/config/fstab</a></td>
+<td align="left">挂载点及swap</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/docs/guide-user/storage/hd-idle">/etc/config/hd-idle</a></td>
+<td align="left">另一个可选的硬盘空闲休眠进程(需要路由器支持usb硬盘)</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/docs/guide-user/base-system/httpd">/etc/config/httpd</a></td>
+<td align="left">网页服务器配置选项(Busybox 自带httpd, 已被舍弃)</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/doc/uci/luci">/etc/config/luci</a></td>
+<td align="left">基础 LuCI 配置</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/doc/uci/luci_statistics">/etc/config/luci_statistics</a></td>
+<td align="left">包统计配置</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/docs/guide-user/services/snmp/mini_snmpd">/etc/config/mini_snmpd</a></td>
+<td align="left">mini_snmpd 配置</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/docs/guide-user/storage/mountd">/etc/config/mountd</a></td>
+<td align="left">OpenWrt 自动挂载进程(类似autofs)</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/docs/guide-user/network/wan/multiwan/multiwan_package">/etc/config/multiwan</a></td>
+<td align="left">简单多WAN出口配置</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/docs/guide-user/services/ntp/client">/etc/config/ntpclient</a></td>
+<td align="left">ntp客户端配置，用以获取正确时间</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/docs/guide-user/services/nas/pure-ftpd">/etc/config/pure-ftpd</a></td>
+<td align="left">Pure-FTPd 服务端配置</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/docs/guide-user/network/traffic-shaping/qos">/etc/config/qos</a></td>
+<td align="left">QoS配置(流量限制与整形)</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/docs/guide-user/services/nas/samba">/etc/config/samba</a></td>
+<td align="left">samba配置(Microsoft文件共享)</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/docs/guide-user/services/snmp/snmpd">/etc/config/snmpd</a></td>
+<td align="left">SNMPd(snmp服务进程) 配置</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/docs/guide-user/services/ssh/sshtunnel">/etc/config/sshtunnel</a></td>
+<td align="left"><code>sshtunnel</code>配置</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/docs/guide-user/services/voip/stund">/etc/config/stund</a></td>
+<td align="left">STUN 服务端配置</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/docs/guide-user/services/downloading_and_filesharing/transmission">/etc/config/transmission</a></td>
+<td align="left">BitTorrent配置</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/docs/guide-user/services/webserver/uhttpd">/etc/config/uhttpd</a></td>
+<td align="left">Web服务器配置(uHTTPd)</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/docs/guide-user/firewall/upnp/miniupnpd">/etc/config/upnpd</a></td>
+<td align="left">miniupnpd UPnP服务器配置</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/docs/guide-user/services/media_server/ushare">/etc/config/ushare</a></td>
+<td align="left">uShare UPnP 服务器配置</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/docs/guide-user/services/vblade">/etc/config/vblade</a></td>
+<td align="left">vblade 用户空间AOE(ATA over Ethernet)配置</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/docs/guide-user/services/network_monitoring/vnstat">/etc/config/vnstat</a></td>
+<td align="left">vnstat 下载器配置</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/docs/guide-user/network/wifi/wifi_toggle">/etc/config/wifitoogle</a></td>
+<td align="left">使用按钮来开关WiFi的脚本</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/docs/guide-user/services/w_o_l/wol">/etc/config/wol</a></td>
+<td align="left">Wake-on-Lan: wol</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://openwrt.org/docs/guide-user/services/znc">/etc/config/znc</a></td>
+<td align="left">ZNC 配置</td>
+</tr>
+</tbody></table>
+<p>诸如文档语法、uci 命令行工具用法查看官方文档：<a target="_blank" rel="noopener" href="https://openwrt.org/docs/guide-user/base-system/uci">https://openwrt.org/docs/guide-user/base-system/uci</a></p>
+<h3 id="luCI-Web管理界面"><a href="#luCI-Web管理界面" class="headerlink" title="luCI - Web管理界面"></a>luCI - Web管理界面</h3><h4 id="luCI简介"><a href="#luCI简介" class="headerlink" title="luCI简介"></a>luCI简介</h4><p>luCI 是 lua 与 UCI 两个项目的合体：<strong>luCI 是使用 lua 编写的 Web 管理界面，让用户以图形化方式修改 UCI 的配置文件，控制 OpenWrt 系统参数。</strong></p>
+<h4 id="luCI目录结构"><a href="#luCI目录结构" class="headerlink" title="luCI目录结构"></a>luCI目录结构</h4><p>luCI 存储在 <code>/usr/lib/lua/luci</code> （从存储路径也能看出 luCI 是 lua 模块），分别为几个类别的目录：</p>
+<ul>
+<li><p>model ：存储应用程序集的目录</p>
+<p>  model 对应 MVC 中的 M ，后文中 [what is model](#what is model) 对这部分详细分析。</p>
+</li>
+<li><p>view ：存储页面模板的目录</p>
+<p>  view 对应 MVC 中的 V ，后文中 [what is view](#what is view) 对这部分详细分析。</p>
+</li>
+<li><p>controller ：存储控制器的目录</p>
+<p>  controller 对应 MVC 中的 C ，后文中 [what is controller](#what is controller) 对这部分详细分析。</p>
+</li>
+<li><p>i18n ：存储翻译文件的目录</p>
+</li>
+<li><p>其他目录作用待补充……</p>
+</li>
+</ul>
+<h4 id="MVC运行模式（框架）"><a href="#MVC运行模式（框架）" class="headerlink" title="MVC运行模式（框架）"></a>MVC运行模式（框架）</h4><h5 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h5><p>MVC 全称 Model View Controller ，是模型（Model）、视图（Model）、控制器（Controller）的缩写，是一种软件设计典范，将业务逻辑、数据、显示界面分离的方法组织代码。</p>
+<p>在 luCI 这里被设计为创建 Web 应用程序的模式，简单来说就是 Web 后台运作模式。下面分别介绍三个模块的功能细节（三个模块对应 <code>/usr/lib/lua/luci</code> 下同名文件夹）。</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/202204140055852.png" alt="MVC架构示意图"></p>
+<ul>
+<li>Model 是应用程序中用于处理应用程序数据逻辑的部分。通常 Model 对象负责在数据中存取数据。</li>
+<li>View 是应用程序中处理数据显示的部分。通常 View 是依据模板创建页面（html）。</li>
+<li>Controller 是应用程序中处理用户交互部分。通常 Controller 复制从 View 创建的页面读取数据、控制用户输入，并向 Model 发送数据。</li>
+</ul>
+<h5 id="what-is-controller"><a href="#what-is-controller" class="headerlink" title="what is controller"></a>what is controller</h5><h6 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h6><p>Controller（控制器）是应用程序中处理用户交互部分。通常 <strong>Controller 负责从 View 创建的页面读取数据、控制用户输入，并向 Model 发送数据</strong>。</p>
+<h6 id="目录文件定义"><a href="#目录文件定义" class="headerlink" title="目录文件定义"></a>目录文件定义</h6><p>Controller 默认路径：<code>/usr/lib/lua/luci/controller</code></p>
+<p>目录下 lua 文件内，<strong>定义了 html 菜单显示的功能项目及其对应 Model 路径（业务处理路径），且每个文件对应一个菜单</strong>。结合下图实例理解。</p>
+<p>访问 URL ：<code>https://192.168.2.1/cgi-bin/luci/admin/status/iptables</code></p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/202204141359952.png" alt="image-20220414135852340"></p>
+<p>那么就是在 controller 目录下的 admin 文件夹内，有 status.lua 文件定义了 iptables 这个功能项目。</p>
+<blockquote>
+<p>admin 是用户管理相关，后文在 <a href="#%E5%A4%9A%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86">多用户管理</a> 详细分析。</p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/202204141400526.png" alt="image-20220414140040919"></p>
+<h6 id="多用户管理"><a href="#多用户管理" class="headerlink" title="多用户管理"></a>多用户管理</h6><p>在登录界面用户名的选择很重要，luCI 是一个单用户框架，公用的模块放置在 <code>*/luci/controller/</code> 下面，各个用户的模块放置在 <code>*/luci/controller/</code> 下面用户名对应的文件夹里面，比如 admin 登录，最终的页面只显示 <code>/luci/controller/admin</code> 下面的菜单。</p>
+<h5 id="what-is-model"><a href="#what-is-model" class="headerlink" title="what is model"></a>what is model</h5><h6 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h6><p>Model 是应用程序中用于处理应用程序数据逻辑的部分。通常 Model 对象负责在数据中存取数据。</p>
+<p>对应 controller 里面调用的脚本文件</p>
+<h5 id="what-is-view"><a href="#what-is-view" class="headerlink" title="what is view"></a>what is view</h5><h6 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h6><p>View 是应用程序中处理数据显示的部分。通常 View 是依据模板创建页面（html）。</p>
+<p>对应 controller 里面调用的静态页面文件</p>
+<h6 id="动态页面生成"><a href="#动态页面生成" class="headerlink" title="动态页面生成"></a>动态页面生成</h6><p>动态生成界面的方法有两种：</p>
+<ol>
+<li>通过 cbi()/form() 方法，它们利用 model 中定义的模板 map ，生成 html 文件</li>
+<li>通过 template() 方法，利用 view 中定义的 htm（一种类似 html 的文件），直接生成界面</li>
+</ol>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/202204141427319.png" alt="img"></p>
+<h3 id="Web后台系统总结"><a href="#Web后台系统总结" class="headerlink" title="Web后台系统总结"></a>Web后台系统总结</h3><p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/202204141504363.jpg" alt="img"></p>
+<ul>
+<li>openwrt 使用基于 lua 语言和 UCI 系统编写的 luCI 作为 Web 管理后台，使用 luCI 默认的 Web 服务器 uhttpd </li>
+<li>luCI 后台管理系统采用 MVC 模式开发与运行</li>
+</ul>
+<h2 id="从Web服务器解析到脚本文件过程"><a href="#从Web服务器解析到脚本文件过程" class="headerlink" title="从Web服务器解析到脚本文件过程"></a>从Web服务器解析到脚本文件过程</h2><h4 id="伺服器架构"><a href="#伺服器架构" class="headerlink" title="伺服器架构"></a>伺服器架构</h4><p>main() 进行一些初始化(首先parse config-file，然后parse argv),然后进入一个回圈，不断地监听,每当有一个客户请求到达时，则对它进行处理。</p>
+<p>  对于web伺服器,所要做的处理主要就是分析url,判断出是file-request、cgi-request或lua-request,这主要是根据url的最前面的字串(称为字首prefix)得出的;然后就用相应的形式进行处理。如下图所示:</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/202204141458417.jpeg" alt="uhttpd的实现框架"></p>
+<h4 id="cig-response流程"><a href="#cig-response流程" class="headerlink" title="cig-response流程"></a>cig-response流程</h4><p>前面已提到,openwrt系统中使用的uhttpd服务,主要是用cgi方式来回应客户请求的,下面就对这种方式详细阐述。</p>
+<h5 id="url解析"><a href="#url解析" class="headerlink" title="url解析"></a>url解析</h5><p>由上图红色字所示,uh_cgi_request需要两个二外的引数pathinfo和interpreter,其中pin是一个struct,包含了路径中各种有用资讯;ipr指明所用的cgi程式,因为一个伺服器中可以有多个cgi程式。</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/202204141500495.jpeg" alt="uhttpd的实现框架"></p>
+<p>如图所示,docroot是伺服器的资源目录,是为了os准确定位资源位置,由uhttpd的config档案设定,如openwrt中为/www。后面的是client传来的url,开头的为cgi-prefix,也是有uhttpd的config档案设定的,它指明serv端采用cgi处理方式,如openwrt中的为/www/cgi-bin;紧接着的是cgi的程式名,它指明了使用哪个cgi程式;再后面就是实际的path资讯了,在cgi方式中,它会被当成引数供cgi程式使用。</p>
+<h5 id="cgi处理框架"><a href="#cgi处理框架" class="headerlink" title="cgi处理框架"></a>cgi处理框架</h5><p>要执行cgi程式,首先意味着需fork出一个子程序,并通过execl函式替换程序空间为cgi程式;其次,资料传递,子程序替换了程序空间后,怎么获得原资讯,有怎么把回馈资料传输给父程序(即uhttpd),父程序又怎么接收这些资料。</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/202204141501497.jpeg" alt="uhttpd的实现框架"></p>
+<p>首先建立了两个pipe,这实际上是利用AF_UNIX协议域,建立两个相连的socket_unix,那么它们对映的档案描述符(即这里的fd[0]、fd[1])就构成了一个pipe,且这种关系即使fork后也仍然存在,因为fork仅是增加档案的引用次数,而os维护的file结构和socket结构都没变,这就是父子程序间传递资料的方式。然后fork出一个子程序。</p>
+<p>子程序中首先把两个管道的一端close,注意这仅是使得档案引用次数变为1。由于子程序待会要excel替换,替换后rfd、wfd就不存在了,因此先把它们dup2给知名的stdin、stdout,这样即使execl替换后,ipt-&gt;extu程式可以以此来和父程序传递资料。另外,execl替换后,cgi程式仍需要之前的一些引数资讯,如PATH_INFO等,这种情况下,最简单的办法就是setenv,把需要的引数设为环境变数。</p>
+<p>为什么要两个pipe,因为子程序向父程序传递回馈资料需要一个out-pipe,而若有post资料,子程序还需要一个in-pipe,从父程序读取post资料。</p>
+<p>父程序中首先也是close,同上所述。若有post资料,先从httprequest-header中得到content-length,为后面传递给子程序做准备。然后进入一个回圈(为什么要回圈,什么时候退出,后面讲),通过select轮询io,超时、中断的情况就不看了,轮询的io一个是reader,即从子程序读取回馈资料,而若有post资料的话,还要另一个io,writer,向子程序写post资料。主要的处理就是上图中红色字所示,具体如下:</p>
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/skyedai910/Picbed/img/202204141501473.jpeg" alt="uhttpd的实现框架"></p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/f021d824dd80d4d8d15abe23482fb4daa58d1dc6.html">openWRT之Luci简介</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/tfanalysis/articles/4119274.html">luci框架-LUA的一个web框架使用</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.znck007.com/?id=63">luci和lua介绍与实例应用</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.itread01.com/p/201712.html">uhttpd的实现框架</a></p>
+<p><a target="_blank" rel="noopener" href="http://t.zoukankan.com/kekeoutlook-p-10791736.html">网页和lua交互修改openwrt</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">SkYe231</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.mrskye.cn/archives/d8866442/">https://www.mrskye.cn/archives/d8866442/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.mrskye.cn" target="_blank">SkYe231 Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/openwrt/">openwrt</a><a class="post-meta__tags" href="/tags/uhttpd/">uhttpd</a><a class="post-meta__tags" href="/tags/lua/">lua</a><a class="post-meta__tags" href="/tags/luCI/">luCI</a></div><div class="post_share"><div class="social-share" data-image="/img/default_cover4.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/archives/a61aad59/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/default_cover2.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">gdbserver-all-in-one手册</div></div></a></div><div class="next-post pull-right"><a href="/archives/b9e83bf7/"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/default_cover4.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">WiFi安全科普（协议&amp;应用设置）</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">SkYe231</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">166</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">201</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">20</div></a></div></div><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:skye231@foxmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://www.mrskye.cn/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a><a class="social-icon" href="http://wpa.qq.com/msgrd?uin=910437231" target="_blank" title="QQ"><i class="iconfont icon-QQ"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">请修改默认公告</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E5%88%A4%E6%96%AD%E6%98%AFOpenWrt"><span class="toc-number">1.</span> <span class="toc-text">怎么判断是OpenWrt</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0shell"><span class="toc-number">1.1.</span> <span class="toc-text">无shell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89shell"><span class="toc-number">1.2.</span> <span class="toc-text">有shell</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OpenWrt-Web%E6%9C%8D%E5%8A%A1%E6%95%B4%E4%BD%93%E6%A1%86%E6%9E%B6"><span class="toc-number">2.</span> <span class="toc-text">OpenWrt Web服务整体框架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#uhttpd-Web%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">2.1.</span> <span class="toc-text">uhttpd - Web服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#uhttpd%E7%AE%80%E4%BB%8B"><span class="toc-number">2.1.1.</span> <span class="toc-text">uhttpd简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BA%90%E7%A0%81%E4%B8%8B%E8%BD%BD"><span class="toc-number">2.1.2.</span> <span class="toc-text">源码下载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">2.1.3.</span> <span class="toc-text">配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8openwrt%E4%B8%8B%E4%BA%92%E5%8A%A8%E6%8A%A5%E6%96%87"><span class="toc-number">2.1.4.</span> <span class="toc-text">在openwrt下互动报文</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lua-%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80"><span class="toc-number">2.2.</span> <span class="toc-text">lua - 脚本语言</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#lua%E7%AE%80%E4%BB%8B"><span class="toc-number">2.2.1.</span> <span class="toc-text">lua简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">2.2.2.</span> <span class="toc-text">应用场景</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UCI-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%90%8C%E4%B8%80%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%EF%BC%88%E5%B7%A5%E5%85%B7%EF%BC%89"><span class="toc-number">2.3.</span> <span class="toc-text">UCI - 配置文件同一管理系统（工具）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#UCI%E7%AE%80%E4%BB%8B"><span class="toc-number">2.3.1.</span> <span class="toc-text">UCI简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B1%E5%90%8C%E5%8E%9F%E5%88%99"><span class="toc-number">2.3.2.</span> <span class="toc-text">共同原则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">2.3.3.</span> <span class="toc-text">一些配置文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#luCI-Web%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2"><span class="toc-number">2.4.</span> <span class="toc-text">luCI - Web管理界面</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#luCI%E7%AE%80%E4%BB%8B"><span class="toc-number">2.4.1.</span> <span class="toc-text">luCI简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#luCI%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">2.4.2.</span> <span class="toc-text">luCI目录结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MVC%E8%BF%90%E8%A1%8C%E6%A8%A1%E5%BC%8F%EF%BC%88%E6%A1%86%E6%9E%B6%EF%BC%89"><span class="toc-number">2.4.3.</span> <span class="toc-text">MVC运行模式（框架）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">2.4.3.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#what-is-controller"><span class="toc-number">2.4.3.2.</span> <span class="toc-text">what is controller</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">2.4.3.2.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E6%96%87%E4%BB%B6%E5%AE%9A%E4%B9%89"><span class="toc-number">2.4.3.2.2.</span> <span class="toc-text">目录文件定义</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%A4%9A%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86"><span class="toc-number">2.4.3.2.3.</span> <span class="toc-text">多用户管理</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#what-is-model"><span class="toc-number">2.4.3.3.</span> <span class="toc-text">what is model</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="toc-number">2.4.3.3.1.</span> <span class="toc-text">定义</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#what-is-view"><span class="toc-number">2.4.3.4.</span> <span class="toc-text">what is view</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-2"><span class="toc-number">2.4.3.4.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E9%A1%B5%E9%9D%A2%E7%94%9F%E6%88%90"><span class="toc-number">2.4.3.4.2.</span> <span class="toc-text">动态页面生成</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Web%E5%90%8E%E5%8F%B0%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BB%93"><span class="toc-number">2.5.</span> <span class="toc-text">Web后台系统总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8EWeb%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A7%A3%E6%9E%90%E5%88%B0%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6%E8%BF%87%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">从Web服务器解析到脚本文件过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%BA%E6%9C%8D%E5%99%A8%E6%9E%B6%E6%9E%84"><span class="toc-number">3.0.1.</span> <span class="toc-text">伺服器架构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cig-response%E6%B5%81%E7%A8%8B"><span class="toc-number">3.0.2.</span> <span class="toc-text">cig-response流程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#url%E8%A7%A3%E6%9E%90"><span class="toc-number">3.0.2.1.</span> <span class="toc-text">url解析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#cgi%E5%A4%84%E7%90%86%E6%A1%86%E6%9E%B6"><span class="toc-number">3.0.2.2.</span> <span class="toc-text">cgi处理框架</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="toc-number">4.</span> <span class="toc-text">参考文章</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/archives/a61aad59/" title="gdbserver-all-in-one手册"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/default_cover2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="gdbserver-all-in-one手册"/></a><div class="content"><a class="title" href="/archives/a61aad59/" title="gdbserver-all-in-one手册">gdbserver-all-in-one手册</a><time datetime="2022-04-20T09:08:41.892Z" title="更新于 2022-04-20 17:08:41">2022-04-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/d8866442/" title="OpenWrt系路由系统逆向分析"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/default_cover4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="OpenWrt系路由系统逆向分析"/></a><div class="content"><a class="title" href="/archives/d8866442/" title="OpenWrt系路由系统逆向分析">OpenWrt系路由系统逆向分析</a><time datetime="2022-04-20T07:30:06.935Z" title="更新于 2022-04-20 15:30:06">2022-04-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/824ac3d0/" title="[object Object]"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/default_cover4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="[object Object]"/></a><div class="content"><a class="title" href="/archives/824ac3d0/" title="[object Object]">[object Object]</a><time datetime="2022-04-20T07:30:06.931Z" title="更新于 2022-04-20 15:30:06">2022-04-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/4049da68/" title="IOT出题"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/default_cover3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="IOT出题"/></a><div class="content"><a class="title" href="/archives/4049da68/" title="IOT出题">IOT出题</a><time datetime="2022-04-20T07:30:06.927Z" title="更新于 2022-04-20 15:30:06">2022-04-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/b9e83bf7/" title="WiFi安全科普（协议&amp;应用设置）"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/default_cover4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="WiFi安全科普（协议&amp;应用设置）"/></a><div class="content"><a class="title" href="/archives/b9e83bf7/" title="WiFi安全科普（协议&amp;应用设置）">WiFi安全科普（协议&amp;应用设置）</a><time datetime="2022-04-20T07:30:06.925Z" title="更新于 2022-04-20 15:30:06">2022-04-20</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/default_cover4.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2022 By SkYe231</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a href="https://cloud.tencent.com/product/wh?from=12331" target="_blank">Hosted BY 云开发 Cloudbase</a>&nbsp;|&nbsp;<a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://mrskye.cn-gd.ufileos.com/img/2020-07-01-lGwrnPz3GuV4odmM.png" align="top" style="width:48px"></a><br /><div class="github-badge"><a rel="license" href="http://beian.miit.gov.cn/" target="_blank" title="粤ICP备20056619号"><span class="badge-subject">粤ICP备</span><span class="badge-value bg-black">20056619号</span></a></div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'default',
+      })
+      false && mermaid.init()
+    })
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善" data-fontsize="15px" data-random="true" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
