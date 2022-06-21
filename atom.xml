@@ -6,7 +6,7 @@
   <link href="https://www.mrskye.cn/atom.xml" rel="self"/>
   
   <link href="https://www.mrskye.cn/"/>
-  <updated>2022-04-20T09:08:41.892Z</updated>
+  <updated>2022-06-20T08:46:33.524Z</updated>
   <id>https://www.mrskye.cn/</id>
   
   <author>
@@ -15,6 +15,78 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2022 江门杯 Writeup</title>
+    <link href="https://www.mrskye.cn/archives/775466c4/"/>
+    <id>https://www.mrskye.cn/archives/775466c4/</id>
+    <published>2022-06-20T02:50:49.000Z</published>
+    <updated>2022-06-20T08:46:33.524Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;game&quot;&gt;&lt;a href=&quot;#game&quot; class=&quot;headerlink&quot; title=&quot;game&quot;&gt;&lt;/a&gt;game&lt;/h2&gt;&lt;h3 id=&quot;漏洞点&quot;&gt;&lt;a href=&quot;#漏洞点&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>CTF沙盒堆题目的一种利用思路</title>
+    <link href="https://www.mrskye.cn/archives/5687a33f/"/>
+    <id>https://www.mrskye.cn/archives/5687a33f/</id>
+    <published>2022-05-24T14:05:44.000Z</published>
+    <updated>2022-05-24T14:05:44.209Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Encrypted article</title>
+    <link href="https://www.mrskye.cn/archives/263721a0/"/>
+    <id>https://www.mrskye.cn/archives/263721a0/</id>
+    <published>2022-05-10T16:43:42.000Z</published>
+    <updated>2022-05-22T03:18:59.103Z</updated>
+    
+    
+    <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
+    
+    
+    
+    <category term="Web" scheme="https://www.mrskye.cn/categories/Web/"/>
+    
+    
+    <category term="sql-lib" scheme="https://www.mrskye.cn/tags/sql-lib/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>路由器lua调试方法</title>
+    <link href="https://www.mrskye.cn/archives/a8ad03f7/"/>
+    <id>https://www.mrskye.cn/archives/a8ad03f7/</id>
+    <published>2022-04-25T14:10:30.000Z</published>
+    <updated>2022-05-22T03:18:59.108Z</updated>
+    
+    
+    <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
+    
+    
+    
+    <category term="IOT" scheme="https://www.mrskye.cn/categories/IOT/"/>
+    
+    
+    <category term="lua,luci" scheme="https://www.mrskye.cn/tags/lua-luci/"/>
+    
+  </entry>
   
   <entry>
     <title>gdbserver-all-in-one手册</title>
@@ -38,11 +110,11 @@
   </entry>
   
   <entry>
-    <title>OpenWrt系路由系统逆向分析</title>
+    <title>luCI系路由系统逆向分析</title>
     <link href="https://www.mrskye.cn/archives/d8866442/"/>
     <id>https://www.mrskye.cn/archives/d8866442/</id>
     <published>2022-04-13T06:38:34.000Z</published>
-    <updated>2022-04-20T13:18:11.361Z</updated>
+    <updated>2022-05-05T03:17:14.010Z</updated>
     
     
     <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
@@ -315,7 +387,7 @@
     <link href="https://www.mrskye.cn/archives/d3333ead/"/>
     <id>https://www.mrskye.cn/archives/d3333ead/</id>
     <published>2022-01-18T14:54:24.000Z</published>
-    <updated>2022-04-01T16:05:09.239Z</updated>
+    <updated>2022-05-09T16:04:00.956Z</updated>
     
     
     <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
@@ -337,96 +409,6 @@
     <id>https://www.mrskye.cn/archives/8c4c947e/</id>
     <published>2022-01-16T17:06:19.000Z</published>
     <updated>2022-03-25T07:47:45.258Z</updated>
-    
-    
-    <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
-    
-    
-    
-    <category term="Web" scheme="https://www.mrskye.cn/categories/Web/"/>
-    
-    
-    <category term="Web" scheme="https://www.mrskye.cn/tags/Web/"/>
-    
-    <category term="命令执行" scheme="https://www.mrskye.cn/tags/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>树莓派4b抓取IOT流量环境配置</title>
-    <link href="https://www.mrskye.cn/archives/d85b8fc8/"/>
-    <id>https://www.mrskye.cn/archives/d85b8fc8/</id>
-    <published>2022-01-05T17:31:06.000Z</published>
-    <updated>2022-03-25T07:47:45.278Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;缘起&quot;&gt;&lt;a href=&quot;#缘起&quot; class=&quot;headerlink&quot; title=&quot;缘起&quot;&gt;&lt;/a&gt;缘起&lt;/h2&gt;&lt;p&gt;在研究某些 IOT 设备时发现，该设备的操控逻辑是：手机发出指令到云端服务器，云端服务器发送指令到 IOT</summary>
-        
-      
-    
-    
-    
-    
-    <category term="OpenWrt" scheme="https://www.mrskye.cn/tags/OpenWrt/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>安卓7以上APP抓包环境配置</title>
-    <link href="https://www.mrskye.cn/archives/dcfd805b/"/>
-    <id>https://www.mrskye.cn/archives/dcfd805b/</id>
-    <published>2022-01-03T15:27:55.000Z</published>
-    <updated>2022-03-25T07:47:45.279Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;变化&quot;&gt;&lt;a href=&quot;#变化&quot; class=&quot;headerlink&quot; title=&quot;变化&quot;&gt;&lt;/a&gt;变化&lt;/h2&gt;&lt;p&gt;安卓 7 以后引入了 SSL pinning ，最直接影响是：用户所安装的证书不再被系统信任，导致不能抓取 https</summary>
-        
-      
-    
-    
-    
-    <category term="Web" scheme="https://www.mrskye.cn/categories/Web/"/>
-    
-    
-    <category term="APP抓包,SSLpinning" scheme="https://www.mrskye.cn/tags/APP%E6%8A%93%E5%8C%85-SSLpinning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>无处不在的syscall</title>
-    <link href="https://www.mrskye.cn/archives/eedef7bd/"/>
-    <id>https://www.mrskye.cn/archives/eedef7bd/</id>
-    <published>2021-12-27T08:03:08.000Z</published>
-    <updated>2022-03-25T07:47:44.245Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;syscall还会在哪里&quot;&gt;&lt;a href=&quot;#syscall还会在哪里&quot; class=&quot;headerlink&quot; title=&quot;syscall还会在哪里&quot;&gt;&lt;/a&gt;syscall还会在哪里&lt;/h2&gt;&lt;p&gt;比较常见中低难度题目中，syscall</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>命令执行</title>
-    <link href="https://www.mrskye.cn/archives/cf64b99a/"/>
-    <id>https://www.mrskye.cn/archives/cf64b99a/</id>
-    <published>2021-12-26T16:06:44.000Z</published>
-    <updated>2022-01-16T17:06:55.982Z</updated>
     
     
     <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
