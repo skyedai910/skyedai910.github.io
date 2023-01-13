@@ -6,7 +6,7 @@
   <link href="https://www.mrskye.cn/atom.xml" rel="self"/>
   
   <link href="https://www.mrskye.cn/"/>
-  <updated>2022-06-20T08:46:33.524Z</updated>
+  <updated>2022-07-09T17:07:32.368Z</updated>
   <id>https://www.mrskye.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.mrskye.cn/archives/775466c4/"/>
     <id>https://www.mrskye.cn/archives/775466c4/</id>
     <published>2022-06-20T02:50:49.000Z</published>
-    <updated>2022-06-20T08:46:33.524Z</updated>
+    <updated>2022-07-09T17:07:32.368Z</updated>
     
     
       
@@ -42,30 +42,11 @@
     <link href="https://www.mrskye.cn/archives/5687a33f/"/>
     <id>https://www.mrskye.cn/archives/5687a33f/</id>
     <published>2022-05-24T14:05:44.000Z</published>
-    <updated>2022-05-24T14:05:44.209Z</updated>
+    <updated>2022-06-21T16:05:26.289Z</updated>
     
     
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>Encrypted article</title>
-    <link href="https://www.mrskye.cn/archives/263721a0/"/>
-    <id>https://www.mrskye.cn/archives/263721a0/</id>
-    <published>2022-05-10T16:43:42.000Z</published>
-    <updated>2022-05-22T03:18:59.103Z</updated>
-    
-    
-    <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
-    
-    
-    
-    <category term="Web" scheme="https://www.mrskye.cn/categories/Web/"/>
-    
-    
-    <category term="sql-lib" scheme="https://www.mrskye.cn/tags/sql-lib/"/>
     
   </entry>
   
@@ -74,7 +55,7 @@
     <link href="https://www.mrskye.cn/archives/a8ad03f7/"/>
     <id>https://www.mrskye.cn/archives/a8ad03f7/</id>
     <published>2022-04-25T14:10:30.000Z</published>
-    <updated>2022-05-22T03:18:59.108Z</updated>
+    <updated>2022-08-01T04:50:11.074Z</updated>
     
     
     <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
@@ -163,7 +144,7 @@
     <link href="https://www.mrskye.cn/archives/4049da68/"/>
     <id>https://www.mrskye.cn/archives/4049da68/</id>
     <published>2022-04-09T14:39:30.000Z</published>
-    <updated>2022-04-20T13:16:30.559Z</updated>
+    <updated>2022-12-05T16:15:47.964Z</updated>
     
     
     <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
@@ -318,7 +299,7 @@
     <link href="https://www.mrskye.cn/archives/dd3ada4/"/>
     <id>https://www.mrskye.cn/archives/dd3ada4/</id>
     <published>2022-01-28T05:23:30.000Z</published>
-    <updated>2022-03-25T07:52:39.270Z</updated>
+    <updated>2022-09-21T03:41:44.426Z</updated>
     
     
     <summary type="html">这里有东西被加密了，需要输入密码查看哦。</summary>
@@ -362,7 +343,7 @@
     <link href="https://www.mrskye.cn/archives/dee08d53/"/>
     <id>https://www.mrskye.cn/archives/dee08d53/</id>
     <published>2022-01-19T07:46:10.000Z</published>
-    <updated>2022-04-01T06:59:41.262Z</updated>
+    <updated>2022-11-01T04:13:52.097Z</updated>
     
     
       
@@ -421,6 +402,29 @@
     <category term="Web" scheme="https://www.mrskye.cn/tags/Web/"/>
     
     <category term="命令执行" scheme="https://www.mrskye.cn/tags/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>树莓派4b抓取IOT流量环境配置</title>
+    <link href="https://www.mrskye.cn/archives/d85b8fc8/"/>
+    <id>https://www.mrskye.cn/archives/d85b8fc8/</id>
+    <published>2022-01-05T17:31:06.000Z</published>
+    <updated>2022-03-25T07:47:45.278Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;缘起&quot;&gt;&lt;a href=&quot;#缘起&quot; class=&quot;headerlink&quot; title=&quot;缘起&quot;&gt;&lt;/a&gt;缘起&lt;/h2&gt;&lt;p&gt;在研究某些 IOT 设备时发现，该设备的操控逻辑是：手机发出指令到云端服务器，云端服务器发送指令到 IOT</summary>
+        
+      
+    
+    
+    
+    
+    <category term="OpenWrt" scheme="https://www.mrskye.cn/tags/OpenWrt/"/>
     
   </entry>
   
